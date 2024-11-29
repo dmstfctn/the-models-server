@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Purgatory</title>
+    <style>
+        :root {
+            touch-action: pan-x pan-y;
+            height: 100% 
+        }
+        html, body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }    
+        
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="ctrl">
+	THE MODELS CONTROLLER
+    </div>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const config = {
+           id: 0
+        }
+        const socket = io('/controller', {path: '/themodels/themodels'});
+        const $ctrl = document.getElementById('ctrl');
+
+        
+        socket.on('config', function( data ){
+            config.id = data.id;
+            console.log( 'Configured player: ', config );
+        });
+       
+    </script>
+</body>
+</html>
