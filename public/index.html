@@ -45,13 +45,13 @@
         const config = {
            id: 0
         }
-        const socket = io('/controller', {path: '/themodels/themodels'});
+        const socket = io('/audience', {path: '/themodels/themodels'});
         const $ctrl = document.getElementById('ctrl');
 
         
         socket.on('config', function( data ){
             config.id = data.id;
-            console.log( 'Configured player: ', config );
+            console.log( 'Configured audience member: ', config );
         });
        
     </script>
