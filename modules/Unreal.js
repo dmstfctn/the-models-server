@@ -32,6 +32,13 @@ Unreal.prototype = {
     sendSetConfiguration: function( dataFolder ){
         const configuration = { dataFolder };
         this.socket.emit( 'set-configuration', configuration );
+    },
+    sendPlayerDisconnect: function( player ){
+        player.on('disconnect', function(){        
+            if( this.socket ){
+                this.socket.emit( 'player-disconnect', { config: player.getConfig() } );
+            }
+        });
     }
 }
 

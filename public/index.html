@@ -21,10 +21,12 @@
             user-select: none;
             -webkit-user-select: none;
             -webkit-touch-callout: none;
+            color: #ffffff;
         }    
         
         body{
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             user-select: none;
@@ -35,9 +37,12 @@
     </style>
 </head>
 <body>
-
+    <header>
+        Queue: <span id="queue-position">0</span> of <span id="queue-total">0</span><br><br>
+    </header>
     <div id="ctrl">
-	THE MODELS CONTROLLER
+	    THE MODELS CONTROLLER<br>
+        <button id="btn-ready">READY</button>
     </div>
  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -47,13 +52,24 @@
         }
         const socket = io('/audience', {path: '/themodels/themodels'});
         const $ctrl = document.getElementById('ctrl');
-
+        const $btnReady = document.getElementById('btn-ready');
+        $btnReady.addEventListener('click', () => {
+            console.log( 'event (emit): ready-to-play' );
+            socket.emit( 'ready-to-play' )
+        });
         
         socket.on('config', function( data ){
             config.id = data.id;
             console.log( 'Configured audience member: ', config );
         });
        
+        socket.on('queue-update', ( {position, total} ) => {
+            console.log('event (receive): queue-update', position, total );
+            document.getElementById('queue-position').innerHTML = position;
+            document.getElementById('queue-total').innerHTML = total;
+
+        });
+
     </script>
 </body>
 </html>
