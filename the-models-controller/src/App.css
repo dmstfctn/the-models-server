@@ -1,0 +1,17 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.app-header{
+  padding: .3rem .6rem;
+  height: 25vh;
+  box-sizing: border-box;
+}
+
+.app-interface{
+  position: absolute;
+  bottom: 0;
+  width:100%;
+}

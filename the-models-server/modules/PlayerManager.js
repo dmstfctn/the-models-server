@@ -14,8 +14,11 @@ PlayerManager.prototype = {
         this.allTimeCount++;
         this.list.push( player );
 
+        player.sendQueueUpdate( false, this.queue.length );
+
         player.on('disconnect', () => {
-            this.removePlayer( player );
+            this.removePlayerFromQueue( player );
+            this.removePlayerFromList( player );
         });
 
         player.on( 'ready-to-play', () => {
@@ -27,11 +30,18 @@ PlayerManager.prototype = {
 
         return player;
     },
-    removePlayer: function( player ){
+    removePlayerFromList: function( player ){
         const index = this.list.findIndex( ( other ) => other.id === player.id );
-        console.log( `removing player with id: ${player.id}` );
+        console.log( `removing player with id from LIST: ${player.id}` );
         this.list.splice( index, 1 );
+        console.log( `list is ${this.list.length} long`);
+    },
+    removePlayerFromQueue: function( player ){
+        const index = this.queue.findIndex( ( other ) => other.id === player.id );
+        console.log( `removing player with id from QUEUE ${player.id}` );
+        this.queue.splice( index, 1 );
         console.log( `queue is ${this.list.length} long`);
+        this.queueRefresh();
     },
     isPlayerQueued: function( player ){
         console.log( 'PlayerManager . isPlayerQueued()' );

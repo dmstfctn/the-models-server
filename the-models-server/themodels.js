@@ -12,12 +12,17 @@ const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
-	path: '/themodels'
+	path: '/themodels',
+    cors: {
+        origin: "http://localhost:3000"
+    }
 });
 
 app.get('/', (req, res) => {  
-    res.sendFile( path.join(__dirname, 'public', 'index.html' ) );
+    res.sendFile( path.join(__dirname, '..', 'the-models-controller', 'build', 'index.html' ) );
 });
+
+app.use('/public', express.static(path.join(__dirname, '..', 'the-models-controller', 'build')));
 
 const playerManager = new PlayerManager();
 const unreal = new Unreal();
