@@ -15,10 +15,7 @@
     flex-direction: row;
     height: 100%;
 }
-    .select-interface.disabled{
-        opacity: 0.5;
-        pointer-events: none;
-    }
+
     .select-interface .select-option{
         width: 25vh;
         text-align: center;
@@ -43,3 +40,9 @@
             border-right-width: 2px;
             background: yellow;
         }
+
+
+.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}

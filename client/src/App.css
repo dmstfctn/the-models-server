@@ -4,10 +4,15 @@ html, body{
   font-family: sans-serif;
 }
 
-.app-header{
-  padding: .3rem .6rem;
-  height: 25vh;
+.app-debug{
+  padding: .5rem .6rem;
   box-sizing: border-box;
+  position: fixed;
+  bottom: .4rem;
+  left: .4rem;
+  right: .4rem;
+  background: #ccc;
+  opacity: 0.3;
 }
 
 .app-interface{

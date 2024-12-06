@@ -267,4 +267,4 @@ const Backdrops = {
     }
 }
 
-module.exports = Backdrops;
+export default Backdrops;
