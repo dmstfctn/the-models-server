@@ -7,21 +7,30 @@ import ROLES from '../client/src/shared/ROLES.js';
 import STATES from '../client/src/shared/STATES.js';
 
 class PlayerManager extends EventEmitter {
-  state = STATES.WATCH;
+  state = STATES.Idle;
   allTimeCount = 0;
   list = [];
   queue = [];
   lobby = false;
+  choices = {};
   constructor(){
     super();
-    this.setupNextChoice();
   }
 
   setState( state ){
+    if( this.state === state ) return;
     this.state = state;
+
+    if( this.state === STATES.AcceptInput ){
+      this.setupNextChoice();
+    }
+
     this.list.forEach( (player) => {
-      player.setMetaState( state );
-    })
+      player.setMetaState( this.state );
+    });
+
+    this.queueRefresh();
+
   }
 
   addPlayer( socket ){
@@ -53,6 +62,9 @@ class PlayerManager extends EventEmitter {
   startLobby(){
     this.lobby = new Lobby();
     this.lobby.on('close-lobby', (choices) => {
+      this.lobby.players.forEach( (player) => {
+        this.removePlayerFromQueue( player );
+      });
       choices.forEach( ( choice ) => {
         this.choices[ choice.role ] = choice.choice;
       });
@@ -94,7 +106,7 @@ class PlayerManager extends EventEmitter {
 
   setupNextChoice(){
     this.choices = {};
-    this.choices[ ROLES.BACKDROP ] = Backdrops.getRandom();
+    this.choices[ ROLES.BACKDROP ] = Backdrops.getByID( 12 ); //Backdrops.getRandom();
     this.choices[ ROLES.MASK1 ] = false;
     this.choices[ ROLES.PROP ] = false;
     this.choices[ ROLES.MASK2 ] = false;

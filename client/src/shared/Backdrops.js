@@ -264,6 +264,9 @@ const Backdrops = {
     },
     getRandom: function(){
         return all[ Math.floor(Math.random() * all.length) ];
+    },
+    getByID: function( id ){
+      return all.find( ( backdrop ) => backdrop.id === id );
     }
 }
 

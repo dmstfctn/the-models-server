@@ -49,7 +49,6 @@ io.of('/audience').on('connection', (socket) => {
 });
 
 playerManager.on('begin-play', ( choices ) => {
-  playerManager.setState( STATES.WATCH );
   unreal.sendBeginPlay( choices );
 });
 

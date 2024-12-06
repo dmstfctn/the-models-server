@@ -15,13 +15,15 @@ class Unreal extends EventEmitter{
       this.emit('send-state', data.state );
     })
   }
+
   disconnect() {
     this.socket = false;
     console.log('Unreal: disconnect()')
   }
-  sendBeginPlay() {
-    const configuration = { dataFolder };
-    this.socket.emit('begin-play', configuration);
+
+  sendBeginPlay( choices ) {
+    console.log('Unreal: sendBeginPlay(), choices=', choices);
+    this.socket.emit('begin-play', { choices });
   }
 }
 

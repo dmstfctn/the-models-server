@@ -6,7 +6,7 @@ import WrapperForStates from './WrapperForStates.js';
 import PlayInterface from './PlayInterface.js';
 import STATES from '../shared/STATES.js';
 
-function StateSelect() {
+function StateAcceptInput() {
   const [queueInfo, setQueueInfo] = useState({
     isQueued: false,
     position: 0,
@@ -14,6 +14,7 @@ function StateSelect() {
   });
   const [roles, setRoles] = useState([]);
   const [hasChosen, setHasChosen] = useState(false);
+  const [isInLobby, setIsInLobby] = useState( false );
 
   useEffect(() => {
     function onQueueUpdate({ position, total }) {
@@ -26,6 +27,7 @@ function StateSelect() {
 
     function onBeginGame({ roles }) {
       setRoles(roles);
+      setIsInLobby( true );
     }
 
     function onChoicesComplete({ roles }) {
@@ -67,7 +69,7 @@ function StateSelect() {
         </div> 
     }
     <section className="app-interface">
-      {( queueInfo.isQueued && queueInfo.position < 4 ) 
+      {( isInLobby ) 
         ? 
           <PlayInterface 
             roles={roles}
@@ -83,4 +85,4 @@ function StateSelect() {
   </WrapperForStates>
 }
 
-export default StateSelect;
+export default StateAcceptInput;
