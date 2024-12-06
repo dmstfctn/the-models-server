@@ -17,6 +17,11 @@ const Props = [
     { 'name': 'cat' }
 ];
 
+const ROLES = {
+    'PLAYER1': 0,
+    'PROP': 1,
+    'PLAYER2': 2 
+}
 
 
 function SelectCharacterInterface({active, onSelect=()=>{}}){
@@ -26,6 +31,7 @@ function SelectCharacterInterface({active, onSelect=()=>{}}){
         {Characters.map( ( character, i ) => {
             return <div 
                 className={`select-option${i === selectedIndex ? ' selected' : '' }`}
+                key={character.name}
                 onClick={()=>{
                     onSelect( character );
                     setIsSelected( true );
@@ -46,6 +52,7 @@ function SelectPropInterface({active, onSelect=()=>{}}){
         {Props.map( ( prop, i ) => {
             return <div 
                 className={`select-option${i === selectedIndex ? ' selected' : '' }`}
+                key={prop.name}
                 onClick={()=>{
                     onSelect( prop );
                     setIsSelected( true );
@@ -58,25 +65,28 @@ function SelectPropInterface({active, onSelect=()=>{}}){
     </div>
 }
 
-function PlayInterface({queuePosition, onSelect=()=>{}}){
+function PlayInterface({roles, onSelect=()=>{}}){
+    const shouldSelectPlayer1 = !!roles.find( (r) => r.role === ROLES.PLAYER1 );
+    const shouldSelectProp = !!roles.find( (r) => r.role === ROLES.PROP );
+    const shouldSelectPlayer2 = !!roles.find( (r) => r.role === ROLES.PLAYER2 );
 
     return <>
         <article className="play-interface">
             <section>
                 <SelectCharacterInterface 
-                    active={ queuePosition === 1 }
+                    active={ shouldSelectPlayer1 }
                     onSelect={ onSelect }
                 />
             </section>
             <section>
                 <SelectPropInterface 
-                    active={ queuePosition === 2 }
+                    active={ shouldSelectProp }
                     onSelect={ onSelect }
                 />
             </section>
             <section>
                 <SelectCharacterInterface 
-                    active={ queuePosition === 3 }
+                    active={ shouldSelectPlayer2 }
                     onSelect={ onSelect }
                 />
             </section>

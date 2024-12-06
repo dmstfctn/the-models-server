@@ -1,5 +1,6 @@
 const EventEmitter = require( 'events' );
 const Config = require( './Config.js' );
+const ROLES = require( './ROLES.js' );
 
 class Player extends EventEmitter {
     constructor( id, socket ){
@@ -8,6 +9,7 @@ class Player extends EventEmitter {
         this.language = Config.interface_lang;
         console.log('player lang = ', this.language );
         this.ready = false;
+        this.roles = [];
         this.socket = socket;
         this.socket.emit('config', this.getConfig() );
         this.setupEvents();
@@ -21,6 +23,10 @@ class Player extends EventEmitter {
         this.socket.on( 'disconnect', () => {
             this.emit( 'disconnect' );
         });
+        this.socket.on( 'decision', ({ role, choice }) => {
+            this.chooseForRole( role, choice );
+            this.emit( 'decision' );
+        });
     }
 
     getConfig(){
@@ -28,6 +34,35 @@ class Player extends EventEmitter {
             id: this.id, 
             language: this.language 
         };
+    }
+
+    assignRole( role ){
+        this.roles = [{
+            role: role,
+            choice: false
+        }]; 
+    }
+
+    addRole( role ){
+        this.roles.push({
+            role: role,
+            choice: false
+        });
+    }
+
+    chooseForRole( role, choice ){
+        const r = this.roles.find( ( other ) => other.role === role );
+        r.choice = choice;
+    }
+
+    getStatus(){
+
+    }
+
+    sendBeginGame(){
+        this.socket.emit( 'begin-game', {
+            roles: this.roles
+        })
     }
 
     sendQueueUpdate( position, total ){

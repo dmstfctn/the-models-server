@@ -13,6 +13,7 @@ function App() {
     position: 0,
     length: 0
   });
+  const [roles, setRoles] = useState([]);
   
   useEffect(() => {
     function onConnect() {
@@ -32,9 +33,14 @@ function App() {
       });
     }
 
+    function onBeginGame({roles}){
+      setRoles( roles );
+    }
+
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
     socket.on('queue-update', onQueueUpdate);
+    socket.on('begin-game', onBeginGame);
 
     return () => {
       socket.off('connect', onConnect);
@@ -57,7 +63,7 @@ function App() {
       </div> }
     </header>
     <section className="app-interface">
-      {( queueInfo.isQueued && queueInfo.position < 4 ) ? <PlayInterface queuePosition={queueInfo.position}/> : '' }
+      {( queueInfo.isQueued && queueInfo.position < 4 ) ? <PlayInterface roles={roles}/> : '' }
     </section>
   </>
 }

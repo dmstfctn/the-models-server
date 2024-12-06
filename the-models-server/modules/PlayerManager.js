@@ -1,10 +1,12 @@
 const Player = require( './Player.js' );
 const Backdrops = require( './Backdrops.js' );
+const Lobby = require( './Lobby.js' );
 
 const PlayerManager = function(){
     this.allTimeCount = 0;
     this.list = [];
     this.queue = [];
+    this.lobby = false;
     this.setupNextChoice();
 }
 
@@ -22,10 +24,7 @@ PlayerManager.prototype = {
         });
 
         player.on( 'ready-to-play', () => {
-            if( !this.isPlayerQueued( player ) ){
-                this.queue.push( player );                
-                this.queueRefresh();
-            }
+            this.addPlayertoQueue( player );
         });
 
         return player;
@@ -35,6 +34,16 @@ PlayerManager.prototype = {
         console.log( `removing player with id from LIST: ${player.id}` );
         this.list.splice( index, 1 );
         console.log( `list is ${this.list.length} long`);
+    },
+    addPlayertoQueue: function( player ){
+        if( !this.isPlayerQueued( player ) ){
+            this.queue.push( player );
+            this.queueRefresh();
+            if( !this.lobby ){
+                this.lobby = new Lobby();
+            }
+            const inLobby = this.lobby.addPlayer( player );
+        }
     },
     removePlayerFromQueue: function( player ){
         const index = this.queue.findIndex( ( other ) => other.id === player.id );
