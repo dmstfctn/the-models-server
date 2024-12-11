@@ -49,7 +49,11 @@ io.of('/audience').on('connection', (socket) => {
 });
 
 playerManager.on('begin-play', ( choices ) => {
-  unreal.sendBeginPlay( choices );
+  unreal.sendLoadAndBeginScript( choices );
+});
+
+playerManager.on( 'rate-script', ({ rating }) => {
+  unreal.sendRateScript( rating );
 });
 
 unreal.on('send-state', ( state ) => {

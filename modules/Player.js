@@ -45,6 +45,9 @@ class Player extends EventEmitter {
       this.chooseForRole( role, choice );
       this.emit( 'decision' );
     });
+    this.socket.on( 'rate-script', ({ rating }) => {
+      this.emit( 'rate-script', { rating })
+    })
   }
 
   getConfig(){

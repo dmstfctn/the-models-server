@@ -6,9 +6,9 @@ import WrapperForStates from './WrapperForStates.js';
 function StatePlay(){
     return <WrapperForStates>
         <h1>PLAYING</h1>
-        <button onClick={() => { socket.emit( 'audience-input', { value: 1 })}}>CHEER</button>
+        <button onClick={() => { socket.emit( 'rate-script', { rating: 1 })}}>CHEER</button>
         <br/>
-        <button onClick={() => { socket.emit( 'audience-input', { value: -1 })}}>BOO</button>
+        <button onClick={() => { socket.emit( 'rate-script', { rating: -1 })}}>BOO</button>
     </WrapperForStates>
 }
 

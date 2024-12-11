@@ -21,9 +21,13 @@ class Unreal extends EventEmitter{
     console.log('Unreal: disconnect()')
   }
 
-  sendBeginPlay( choices ) {
-    console.log('Unreal: sendBeginPlay(), choices=', choices);
-    this.socket.emit('begin-play', { choices });
+  sendLoadAndBeginScript( choices ) {
+    console.log('Unreal: sendLoadAndBeginScript(), choices=', choices);
+    this.socket.emit('load-and-begin-script', { choices });
+  }
+
+  sendRateScript( rating ){
+    this.socket.emit( 'rate-script', { rating })
   }
 }
 
