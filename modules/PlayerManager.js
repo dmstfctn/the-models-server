@@ -72,7 +72,8 @@ class PlayerManager extends EventEmitter {
       choices.forEach( ( choice ) => {
         this.choices[ choice.role ] = choice.choice;
       });
-      this.emit( 'begin-play', this.choices )
+      this.emit( 'begin-play', this.choices );
+      this.lobby = null;
     });
   }
 
