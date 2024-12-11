@@ -20,3 +20,10 @@ html, body{
   bottom: 0;
   width:100%;
 }
+
+.timer{
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: 1px solid lime;
+}

@@ -91,6 +91,14 @@ class Player extends EventEmitter {
     })
   }
 
+  sendUpdateTimer( name, value, total ){
+    this.socket.emit( 'update-timer', {
+      name,
+      value,
+      total
+    });
+  }
+
   sendChoicesComplete(){
     this.emit( 'choices-complete', { roles: this.roles });
     this.socket.emit( 'choices-complete', { roles: this.roles });

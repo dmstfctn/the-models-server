@@ -1,14 +1,17 @@
 import EventEmitter from 'events';
 import ROLES from '../client/src/shared/ROLES.js';
 
+const timeToStartLength = 5;
+const timeToChooseLength = 5;
+
 class Lobby extends EventEmitter {
   id = new Date().getTime();
   players = [];
   choices = [];
   startTimeout = false;
-  timeToStart = 5;
+  timeToStart = timeToStartLength;
   choiceTimeout = false;
-  timeToChoose = 5;
+  timeToChoose = timeToChooseLength;
   possibleRoles = [ ROLES.MASK1, ROLES.PROP, ROLES.MASK2 ];
   maxPlayers = this.possibleRoles.length;
   constructor(){
@@ -28,8 +31,14 @@ class Lobby extends EventEmitter {
 
   startJoinTimeout(){
     if( !this.startTimeout ){
+      this.players.forEach( ( player ) => {
+        player.sendUpdateTimer( 'Waiting for others to join', this.timeToStart, timeToStartLength );
+      });
       this.startTimeout = setInterval( () => {
         this.timeToStart -= 1;
+        this.players.forEach( ( player ) => {
+          player.sendUpdateTimer( 'Waiting for others to join', this.timeToStart, timeToStartLength );
+        });
         if( this.timeToStart <= 0 ){
           clearInterval( this.startTimeout );
           this.beginGame();
@@ -40,8 +49,14 @@ class Lobby extends EventEmitter {
 
   startChoiceTimeout(){
     if( !this.choiceTimeout ){
+      this.players.forEach( ( player ) => {
+        player.sendUpdateTimer( 'Waiting for everyone to choose', this.timeToChoose, timeToChooseLength );
+      });
       this.choiceTimeout = setInterval( () => {
         this.timeToChoose -= 1;
+        this.players.forEach( ( player ) => {
+          player.sendUpdateTimer( 'Waiting for everyone to choose', this.timeToChoose, timeToChooseLength );
+        });
         if( this.timeToChoose <= 0 ){
           clearInterval( this.choiceTimeout );
           this.closeLobby();

@@ -13,9 +13,12 @@ import StatePlay from './components/StatePlay.js';
 import StateConclude from './components/StateConclude.js';
 import StateRestart from './components/StateRestart.js';
 
+import Timer from './components/Timer.js';
+
 function App() {
   const [isSocketConnected, setIsSocketConnected] = useState(socket.connected);
   const [metaState, setMetaState] = useState( STATES.Idle );
+  const [timer, setTimer] = useState();
   
   
   useEffect(() => {
@@ -31,27 +34,38 @@ function App() {
       console.log('set-meta-state', state )
       setMetaState( state );
     }
+
+    function onUpdateTimer( { name, value, total } ){
+      setTimer({
+        name,
+        value,
+        total
+      })
+    }
   
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
-    socket.on('set-meta-state', onSetMetaState )
+    socket.on('set-meta-state', onSetMetaState );
+    socket.on('update-timer', onUpdateTimer )
    
     return () => {
       socket.off('connect', onConnect);
       socket.off('disconnect', onDisconnect);
       socket.off('set-meta-state', onSetMetaState )
+      socket.off('update-timer', onUpdateTimer )
     };
   }, []);
 
   return <>
-    <header className="app-debug">
+    <aside className="app-debug">
       <div>
         { isSocketConnected ? 'CONNECTED' : 'NOT CONNECTED' }
       </div>
       <div>
         State: {STATES_getName( metaState )}
       </div>
-    </header>
+    </aside>
+    {(timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
     { (metaState === STATES.Idle) ? <StateIdle /> : '' }
     { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
     { (metaState === STATES.ConstructStage) ? <StateConstructStage /> : '' }
