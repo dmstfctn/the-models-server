@@ -44,8 +44,13 @@ io.on('connection', (socket) => {
   });
 });
 
-io.of('/audience').on('connection', (socket) => {  
+io.of('/audience').on('connection', (socket) => { 
   const player = playerManager.addPlayer( socket );
+  console.log('new player. send unreal state( ' + unreal.getState() + ' )' );
+  setTimeout( function(){
+    player.setMetaState( unreal.getState() );
+  }, 1000 )
+
 });
 
 playerManager.on('begin-play', ( choices ) => {
@@ -58,7 +63,7 @@ playerManager.on( 'rate-script', ({ rating }) => {
 
 unreal.on('send-state', ( state ) => {
   console.log('unreal on send-state, send ', state, 'to player manager, value = ', STATES[state] );
-  playerManager.setState( STATES[state] );
+  playerManager.setState( state );
 });
 
 server.listen(5040, () => {

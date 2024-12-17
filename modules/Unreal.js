@@ -1,7 +1,10 @@
 import EventEmitter from 'events';
 
+import STATES from '../client/src/shared/STATES.js';
+
 class Unreal extends EventEmitter{
   socket;
+  engineState = STATES.Idle;
   constructor() {
     super();
   }
@@ -12,7 +15,8 @@ class Unreal extends EventEmitter{
 
     this.socket.on('send-state', ( data ) =>{
       console.log('Unreal: on send-state, state=', data.state );
-      this.emit('send-state', data.state );
+      this.engineState = STATES[data.state];
+      this.emit('send-state', this.engineState );
     })
   }
 
@@ -28,6 +32,11 @@ class Unreal extends EventEmitter{
 
   sendRateScript( rating ){
     this.socket.emit( 'rate-script', { rating })
+  }
+
+  getState(){
+    console.log('UNREAL STATE:', this.engineState )
+    return this.engineState;
   }
 }
 
