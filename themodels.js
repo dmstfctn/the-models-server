@@ -50,7 +50,6 @@ io.of('/audience').on('connection', (socket) => {
   setTimeout( function(){
     player.setMetaState( unreal.getState() );
   }, 1000 )
-
 });
 
 playerManager.on('begin-play', ( choices ) => {
