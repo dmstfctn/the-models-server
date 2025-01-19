@@ -29,11 +29,11 @@ const io = new Server(server, {
   }
 });
 
-app.get('/', (req, res) => {  
-  res.sendFile( path.join(__dirname, '..', 'the-models-controller', 'build', 'index.html' ) );
-});
+// app.get('/', (req, res) => {  
+//   res.sendFile( path.join(__dirname, '..', 'the-models-controller', 'build', 'index.html' ) );
+// });
 
-app.use('/public', express.static(path.join(__dirname, '..', 'the-models-controller', 'build')));
+// app.use('/public', express.static(path.join(__dirname, '..', 'the-models-controller', 'build')));
 
 const playerManager = new PlayerManager();
 const unreal = new Unreal();
