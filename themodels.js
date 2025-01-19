@@ -20,7 +20,11 @@ const io = new Server(server, {
 	path: '/themodels',
   connectionStateRecovery: {},
   cors: {
-    origin: "http://localhost:3000"
+    origin: [
+      "http://localhost:3000",
+      "http://themodels.org",
+      "https://themodels.org"
+    ]
   }
 });
 
@@ -53,7 +57,10 @@ io.of('/audience').on('connection', (socket) => {
 });
 
 playerManager.on('begin-play', ( choices ) => {
-  unreal.sendLoadAndBeginScript( choices );
+  const valid = unreal.sendLoadAndBeginScript( choices );
+  if( !valid ){
+    console.log( 'unreal sez choices not valid' );
+  }
 });
 
 playerManager.on( 'rate-script', ({ rating }) => {

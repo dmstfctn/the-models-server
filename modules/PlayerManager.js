@@ -53,6 +53,8 @@ class PlayerManager extends EventEmitter {
       this.emit('rate-script', { rating });
     });
 
+    //player.setReadyToPlay();
+
     return player;
   }
 
@@ -111,10 +113,12 @@ class PlayerManager extends EventEmitter {
 
   setupNextChoice(){
     this.choices = {};
-    this.choices[ ROLES.BACKDROP ] = Backdrops.getByID( 12 ); //Backdrops.getRandom();
+    this.choices[ ROLES.BACKDROP ] = Backdrops.getRandom();
     this.choices[ ROLES.MASK1 ] = false;
     this.choices[ ROLES.PROP ] = false;
     this.choices[ ROLES.MASK2 ] = false;
+
+    console.log('PlayerManager : setupNextChoices() : this.choices = ', this.choices )
   }
 
   countChoices(){

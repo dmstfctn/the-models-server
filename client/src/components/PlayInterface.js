@@ -2,9 +2,30 @@ import React, { useState, useEffect } from 'react';
 
 import "./PlayInterface.css";
 
-import CHARACTERS from '../shared/CHARACTERS.js';
+import CHARACTERS, { TENDENCIES } from '../shared/CHARACTERS.js';
 import ROLES from '../shared/ROLES.js';
 import PROPS from '../shared/PROPS.js';
+
+function SelectTendencyInterface({active, onSelect=()=>{} }){
+    const [selected, setSelected] = useState();
+    return <section className={`${(!active) ? 'disabled' : ''}`}> 
+        <div className={`select-interface select-interface__character`}>
+            {TENDENCIES.map( ( tendency, i ) => {
+                return <div 
+                    className={`select-option${tendency.name === selected?.name ? ' selected' : '' }`}
+                    key={tendency.name}
+                    onClick={()=>{
+                        setSelected( tendency );
+                        onSelect( tendency );
+                    }}
+                >
+                    <div><strong>{tendency.name}</strong></div>
+                    <div>{tendency.characters.map((c) => {return c.name}).join(', ')}</div>
+                </div>
+            })}
+        </div>
+    </section>
+}
 
 function SelectCharacterInterface({active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
@@ -55,10 +76,16 @@ function PlayInterface({ active, roles, onSelect=()=>{} }){
 
     return <>
         <article className={`play-interface${(!active) ? ' disabled' : ''}`}>
-            <SelectCharacterInterface 
+            {/* <SelectCharacterInterface 
                 active={ shouldSelectMask1 }
                 onSelect={ ( character ) => {
                     onSelect( ROLES.MASK1, character )
+                }}
+            /> */}
+            <SelectTendencyInterface 
+                active={ shouldSelectMask1 }
+                onSelect={ ( tendency ) => {
+                    onSelect( ROLES.MASK1, tendency )
                 }}
             />
             <SelectPropInterface 
@@ -67,10 +94,16 @@ function PlayInterface({ active, roles, onSelect=()=>{} }){
                     onSelect( ROLES.PROP, character )
                 }}
             />
-            <SelectCharacterInterface 
+            {/* <SelectCharacterInterface 
                 active={ shouldSelectMask2 }
                 onSelect={ ( character ) => {
                     onSelect( ROLES.MASK2, character )
+                }}
+            /> */}
+            <SelectTendencyInterface 
+                active={ shouldSelectMask2 }
+                onSelect={ ( tendency ) => {
+                    onSelect( ROLES.MASK2, tendency )
                 }}
             />
         </article>

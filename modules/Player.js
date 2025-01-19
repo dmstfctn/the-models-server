@@ -26,6 +26,11 @@ class Player extends EventEmitter {
     this.socket.emit( 'set-meta-state', this.metaState )
   }
 
+  setReadyToPlay(){
+    this.ready = true;
+    this.emit( 'ready-to-play' );  
+  }
+
   reset(){
     this.ready = false;
     this.roles = [];
@@ -35,8 +40,7 @@ class Player extends EventEmitter {
 
   setupEvents(){
     this.socket.on( 'ready-to-play', () => {
-      this.ready = true;
-      this.emit( 'ready-to-play' );            
+      this.setReadyToPlay();  
     });
     this.socket.on( 'disconnect', () => {
       this.emit( 'disconnect' );
