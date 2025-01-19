@@ -54,6 +54,7 @@ class Unreal extends EventEmitter{
       masks = [m1, m2];
     }
 
+    //ensure the mask names are sent in the order they exist in the folders
     masks = masks.sort( (a, b) => parseInt( a.id ) - parseInt( b.id ) );
 
     choices[ROLES.MASK1] = {name: masks[0].name}
