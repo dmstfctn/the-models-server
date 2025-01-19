@@ -24,7 +24,7 @@ const io = new Server(server, {
       "http://localhost:3000",
       "http://themodels.org",
       "https://themodels.org",
-      "https://unrivaled-daifuku-c3c7f0.netlify.app/"
+      "https://unrivaled-daifuku-c3c7f0.netlify.app"
     ]
   }
 });
