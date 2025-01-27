@@ -16,3 +16,5 @@ export const STATES_getName = function( state ){
     const v = Object.values( STATES );
     return k[v.indexOf( state )];
 }
+
+export const STATES_DEFAULT = STATES.AcceptInput;

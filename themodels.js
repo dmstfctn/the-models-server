@@ -68,6 +68,10 @@ playerManager.on( 'rate-script', ({ rating }) => {
   unreal.sendRateScript( rating );
 });
 
+playerManager.on( 'choice-update', ({ rating }) => {
+  
+});
+
 unreal.on('send-state', ( state ) => {
   console.log('unreal on send-state, send ', state, 'to player manager, value = ', STATES[state] );
   playerManager.setState( state );

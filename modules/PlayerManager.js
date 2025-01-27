@@ -4,10 +4,10 @@ import Player from './Player.js';
 import Backdrops from '../client/src/shared/Backdrops.js';
 import Lobby from './Lobby.js';
 import ROLES from '../client/src/shared/ROLES.js';
-import STATES from '../client/src/shared/STATES.js';
+import STATES, {STATES_DEFAULT} from '../client/src/shared/STATES.js';
 
 class PlayerManager extends EventEmitter {
-  state = STATES.Idle;
+  state = STATES_DEFAULT;
   allTimeCount = 0;
   list = [];
   queue = [];
@@ -15,6 +15,7 @@ class PlayerManager extends EventEmitter {
   choices = {};
   constructor(){
     super();
+    this.setupNextChoice();
   }
 
   setState( state ){
@@ -39,6 +40,7 @@ class PlayerManager extends EventEmitter {
     this.list.push( player );
 
     player.sendQueueUpdate( false, this.queue.length );
+    player.sendSetBackdrop( this.choices[ROLES.BACKDROP] );
 
     player.on('disconnect', () => {
       this.removePlayerFromQueue( player );
@@ -74,6 +76,7 @@ class PlayerManager extends EventEmitter {
       choices.forEach( ( choice ) => {
         this.choices[ choice.role ] = choice.choice;
       });
+      this.emit( 'choice-update', this.choices )
       this.emit( 'begin-play', this.choices );
       this.lobby = null;
     });
@@ -118,6 +121,14 @@ class PlayerManager extends EventEmitter {
     this.choices[ ROLES.PROP ] = false;
     this.choices[ ROLES.MASK2 ] = false;
 
+    console.log('NEXT CHOICE: ', this.choices)
+
+    this.emit( 'choice-update', this.choices )
+
+    this.list.forEach( (player) => {
+      player.sendSetBackdrop( this.choices[ROLES.BACKDROP] );
+    });
+
     console.log('PlayerManager : setupNextChoices() : this.choices = ', this.choices )
   }
 
@@ -129,6 +140,9 @@ class PlayerManager extends EventEmitter {
     if( !!this.choices[ choice ] ){
       this.choices[ choice ] = value;
     }
+    this.list.forEach( (player) => {
+      player.sendSetBackdrop( this.choices[ROLES.BACKDROP] );
+    });
     console.log( `Made ${this.countChoices()} choices` );
   }
 }

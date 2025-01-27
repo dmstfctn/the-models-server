@@ -650,6 +650,7 @@ const Backdrops = {
         return all[ Math.floor(Math.random() * all.length) ];
     },
     getByID: function( id ){
+      if( typeof id === 'undefined') return false;
       if( typeof id !== 'string' ){
         id = id.toString();
       }

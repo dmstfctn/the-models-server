@@ -2,7 +2,7 @@ import EventEmitter from 'events';
 import ROLES from '../client/src/shared/ROLES.js';
 
 const timeToStartLength = 5;
-const timeToChooseLength = 5;
+const timeToChooseLength = 60;
 
 class Lobby extends EventEmitter {
   id = new Date().getTime();

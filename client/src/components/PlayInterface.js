@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 
 import "./PlayInterface.css";
+
+import { GameContext } from '../contexts/GameContext.js';
 
 import CHARACTERS, { TENDENCIES } from '../shared/CHARACTERS.js';
 import ROLES from '../shared/ROLES.js';
 import PROPS from '../shared/PROPS.js';
 
-function SelectTendencyInterface({active, onSelect=()=>{} }){
+function SelectTendencyInterface({title,active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section className={`${(!active) ? 'disabled' : ''}`}> 
-        <div className={`select-interface select-interface__character`}>
+    return <section>
+        <h1>{title}</h1>
+        <div className={`select-interface select-interface__character ${(!active) ? 'disabled' : ''}`}> 
             {TENDENCIES.map( ( tendency, i ) => {
                 return <div 
                     className={`select-option${tendency.name === selected?.name ? ' selected' : '' }`}
@@ -27,10 +30,11 @@ function SelectTendencyInterface({active, onSelect=()=>{} }){
     </section>
 }
 
-function SelectCharacterInterface({active, onSelect=()=>{} }){
+function SelectCharacterInterface({title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section className={`${(!active) ? 'disabled' : ''}`}> 
-        <div className={`select-interface select-interface__character`}>
+    return <section>
+        <h1>{title}</h1>
+        <div className={`select-interface select-interface__character ${(!active) ? ' disabled' : ''}`}>         
             {CHARACTERS.map( ( character, i ) => {
                 return <div 
                     className={`select-option${character.name === selected?.name ? ' selected' : '' }`}
@@ -48,10 +52,11 @@ function SelectCharacterInterface({active, onSelect=()=>{} }){
     </section>
 }
 
-function SelectPropInterface({active, onSelect=()=>{} }){
+function SelectPropInterface({title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section className={`${(!active) ? 'disabled' : ''}`}>
-        <div className={`select-interface select-interface__prop`}>
+    return <section className='select-section'>
+        <h1>{title}</h1>
+        <div className={`select-interface select-interface__prop ${(!active) ? 'disabled' : ''}`}>
             {PROPS.map( ( prop, i ) => {
                 return <div 
                     className={`select-option${prop.name === selected?.name ? ' selected' : '' }`}
@@ -63,49 +68,83 @@ function SelectPropInterface({active, onSelect=()=>{} }){
                 >
                     <div><strong>{prop.name}</strong></div>
                 </div>
-            })}
+            })}s
         </div>
     </section>;
 }
 
 function PlayInterface({ active, roles, onSelect=()=>{} }){
+    const {queueInfo, setQueueInfo, backdrop} = useContext(GameContext);
     const shouldSelectMask1 = !!roles.find( (r) => r.role === ROLES.MASK1 );
     const shouldSelectProp = !!roles.find( (r) => r.role === ROLES.PROP );
     const shouldSelectMask2 = !!roles.find( (r) => r.role === ROLES.MASK2 );
+    const [choices, setChoices] = useState({})
 
 
     return <>
         <article className={`play-interface${(!active) ? ' disabled' : ''}`}>
+            {(backdrop) ? 
+            <p><strong>Setting for the next play:</strong><br></br>{backdrop.description}</p>
+            : ''} 
             {/* <SelectCharacterInterface 
                 active={ shouldSelectMask1 }
                 onSelect={ ( character ) => {
                     onSelect( ROLES.MASK1, character )
                 }}
             /> */}
-            <SelectTendencyInterface 
+            { shouldSelectMask1 ? <SelectTendencyInterface 
                 active={ shouldSelectMask1 }
+                title="Mask 1"
                 onSelect={ ( tendency ) => {
-                    onSelect( ROLES.MASK1, tendency )
+                    const c = {}
+                    for( let i in choices ){
+                        c[i] = choices[i]
+                    }
+                    c[ROLES.MASK1] = tendency;
+                    setChoices( c );                  
                 }}
-            />
-            <SelectPropInterface 
+            /> : '' }
+            { shouldSelectProp ? <SelectPropInterface 
                 active={ shouldSelectProp }
-                onSelect={ ( character ) => {
-                    onSelect( ROLES.PROP, character )
+                title="Prop"
+                onSelect={ ( prop ) => {
+                    const c = {}
+                    for( let i in choices ){
+                        c[i] = choices[i]
+                    }
+                    c[ROLES.PROP] = prop;
+                    setChoices( c );
                 }}
-            />
+            /> : '' }
             {/* <SelectCharacterInterface 
                 active={ shouldSelectMask2 }
                 onSelect={ ( character ) => {
                     onSelect( ROLES.MASK2, character )
                 }}
             /> */}
-            <SelectTendencyInterface 
+            { shouldSelectMask2 ? <SelectTendencyInterface 
+                title="Mask 2"
                 active={ shouldSelectMask2 }
                 onSelect={ ( tendency ) => {
-                    onSelect( ROLES.MASK2, tendency )
+                    const c = {}
+                    for( let i in choices ){
+                        c[i] = choices[i]
+                    }
+                    c[ROLES.MASK2] = tendency;
+                    setChoices( c );
                 }}
-            />
+            /> : '' }
+            <button 
+                className="button button--choose"
+                onClick={() => { 
+                    console.log( choices )
+                    for( let i in choices ){
+                        onSelect( parseInt(i), choices[i] )
+                    }
+                }}
+            >
+                CHOICE COMPLETE
+            </button>
         </article>
     </>
 }

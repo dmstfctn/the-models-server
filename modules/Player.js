@@ -111,6 +111,12 @@ class Player extends EventEmitter {
   sendQueueUpdate( position, total ){
     this.socket.emit( 'queue-update', { position, total });
   }
+
+  sendSetBackdrop( backdrop ){
+    this.socket.emit( 'set-backdrop', {
+      backdrop
+    })
+  }
 };
 
 export default Player;

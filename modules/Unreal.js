@@ -1,11 +1,11 @@
 import EventEmitter from 'events';
 
-import STATES from '../client/src/shared/STATES.js';
+import STATES, {STATES_DEFAULT} from '../client/src/shared/STATES.js';
 import ROLES from '../client/src/shared/ROLES.js';
 
 class Unreal extends EventEmitter{
   socket;
-  engineState = STATES.Idle;
+  engineState = STATES_DEFAULT;
   constructor() {
     super();
   }
