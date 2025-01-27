@@ -29,6 +29,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   background: #ccc;
   opacity: 0.3;
   pointer-events: none;
+  z-index: 99;
 }
 
 .app-state{
@@ -98,6 +99,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   color: #FFFFFF;
   line-height: 1;
   text-align: center;
+  z-index: 1;
 }
   .app-meta > div{
     height: 1.4rem;

@@ -93,7 +93,8 @@ function App() {
       setQueueInfo,
       backdrop,
       isInLobby, 
-      setIsInLobby
+      setIsInLobby,
+      timer
     }}>
       <aside className="app-meta">
         

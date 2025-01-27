@@ -1,5 +1,7 @@
 import EventEmitter from 'events';
 import ROLES from '../client/src/shared/ROLES.js';
+import { TENDENCIES } from '../client/src/shared/CHARACTERS.js';
+import PROPS from '../client/src/shared/PROPS.js';
 
 const timeToStartLength = 5;
 const timeToChooseLength = 60;
@@ -83,12 +85,30 @@ class Lobby extends EventEmitter {
     this.startChoiceTimeout();
   }
 
+  validateOrRandomiseChoices(){
+    console.log('validateOrRandomiseChoices()');
+    console.log('pre:', this.choices);
+    this.choices.forEach( (choice) => {
+      console.log('choice:', choice );
+      if( !choice.choice ){
+        if( choice.role === ROLES.MASK1 || choice.role === ROLES.MASK2 ){
+          choice.choice = TENDENCIES[ Math.floor( Math.random() * TENDENCIES.length ) ];
+        }
+        if( choice.role === ROLES.PROP ){
+          choice.choice = PROPS[ Math.floor( Math.random() * PROPS.length )  ]
+        }
+      }
+    });
+    console.log( 'post: ', this.choices );
+  }
+
   closeLobby(){
     this.players.forEach(( player ) => {
       player.roles.forEach( (role) => {
         this.choices.push( role );
       })
     });
+    this.validateOrRandomiseChoices();
     this.emit( 'close-lobby', this.choices )
     console.log(`Closing Lobby ${this.id} with choices: ${JSON.stringify(this.choices, false, 2)}`)
   }
