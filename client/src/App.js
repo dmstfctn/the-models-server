@@ -87,6 +87,7 @@ function App() {
 
   return <>
     <GameContext.Provider value={{ 
+      isDebug,
       queueInfo, 
       setQueueInfo,
       backdrop
@@ -104,10 +105,14 @@ function App() {
       </aside>     
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
       { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
-      { (metaState === STATES.ConstructStage) ? <StateConstructStage /> : '' }
-      { (metaState === STATES.InstructCharacters) ? <StateInstructCharacters /> : '' }
-      { (metaState === STATES.Play) ? <StatePlay /> : '' }
-      { (metaState === STATES.Concludee) ? <StateConclude /> : '' }
+      { ( metaState === STATES.ConstructStage 
+          || metaState === STATES.InstructCharacters 
+          || metaState === STATES.Play 
+          || metaState === STATES.Conclude 
+        )
+          ? <StatePlay /> 
+          : '' 
+      }
       { (metaState === STATES.Restart) ? <StateRestart /> : '' }
       <div className="fake-button button"></div>
     </GameContext.Provider>
