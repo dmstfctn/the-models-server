@@ -8,10 +8,9 @@ import STATES from '../shared/STATES.js';
 import { GameContext } from '../contexts/GameContext.js';
 
 function StateAcceptInput({ queue }) {
-  const {queueInfo, setQueueInfo, backdrop} = useContext(GameContext);
+  const {queueInfo, setQueueInfo, backdrop, isInLobby, setIsInLobby} = useContext(GameContext);
   const [roles, setRoles] = useState([]);
   const [hasChosen, setHasChosen] = useState(false);
-  const [isInLobby, setIsInLobby] = useState( false );
 
   useEffect(() => {
     function onBeginGame({ roles }) {

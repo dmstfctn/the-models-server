@@ -51,8 +51,8 @@ class PlayerManager extends EventEmitter {
       this.addPlayertoQueue( player );
     });
 
-    player.on( 'rate-script', ({rating}) => {
-      this.emit('rate-script', { rating });
+    player.on( 'rate-script', (rating) => {
+      this.emit('rate-script', rating );
     });
 
     //player.setReadyToPlay();

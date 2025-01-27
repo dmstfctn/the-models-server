@@ -20,6 +20,7 @@ import { GameContext, queueDefault } from './contexts/GameContext.js';
 function App() {
   const [isSocketConnected, setIsSocketConnected] = useState(socket.connected);
   const [queueInfo, setQueueInfo] = useState( queueDefault );
+  const [isInLobby, setIsInLobby] = useState( false );
   const [backdrop,setBackdrop] = useState(false);
   //const [metaState, setMetaState] = useState( STATES.Idle );
   const [metaState, setMetaState] = useState( STATES_DEFAULT );
@@ -60,12 +61,12 @@ function App() {
     }
 
     function onQueueUpdate({ position, total }) {
-          setQueueInfo({
-            isQueued: !!position,
-            position: position,
-            length: total
-          });
-        }
+      setQueueInfo({
+        isQueued: !!position,
+        position: position,
+        length: total
+      });
+    }
     
     
     socket.on('connect', onConnect);
@@ -90,7 +91,9 @@ function App() {
       isDebug,
       queueInfo, 
       setQueueInfo,
-      backdrop
+      backdrop,
+      isInLobby, 
+      setIsInLobby
     }}>
       <aside className="app-meta">
         

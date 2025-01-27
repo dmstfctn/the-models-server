@@ -64,7 +64,7 @@ playerManager.on('begin-play', ( choices ) => {
   }
 });
 
-playerManager.on( 'rate-script', ({ rating }) => {
+playerManager.on( 'rate-script', ( rating ) => {
   unreal.sendRateScript( rating );
 });
 
