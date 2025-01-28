@@ -111,9 +111,10 @@ class Lobby extends EventEmitter {
     });
   }
 
-  closeLobby(){
-    player.sendUpdateTimer( '', 0, 0 );
-    this.players.forEach(( player ) => {
+  closeLobby(){    
+    this.players.forEach(( player ) => {      
+      player.sendUpdateTimer( '', 0, 0 );
+
       player.roles.forEach( (role) => {
         this.choices.push( role );
       })
