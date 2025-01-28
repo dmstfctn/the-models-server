@@ -36,11 +36,28 @@ class PlayerManager extends EventEmitter {
   }
 
   calculatePlayerSentiment(){
-    let sentiment = 0;
+    let total = 0;
+    let countNegative = 0;
+    let countPositive = 0;
+    let countNeutral = 0
     this.list.forEach(( player ) => {
-      sentiment = (player.sentiment > 0 ) ? sentiment + 1 : sentiment - 1
-    });
-    this.playerSentiment = sentiment;
+      total = (player.sentiment > 0 ) ? total + 1 : total - 1
+      if( player.sentiment < 0 ){
+        total -= 1;
+        countNegative += 1;
+      } else if( player.sentiment > 0 ){
+        total += 1;
+        countPositive += 1;
+      } else {
+        countNeutral += 1;
+      }
+    });    
+    this.playerSentiment = {
+      playerCount: this.list.length,
+      negative: countNegative / this.list.length,
+      positive: countPositive / this.list.length,
+      neutral: countNeutral / this.list.length
+    }
   }
 
   addPlayer( socket ){
