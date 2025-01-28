@@ -13,6 +13,7 @@ class PlayerManager extends EventEmitter {
   queue = [];
   lobby = false;
   choices = {};
+  playerSentiment = 0;
   constructor(){
     super();
     this.setupNextChoice();
@@ -34,6 +35,14 @@ class PlayerManager extends EventEmitter {
 
   }
 
+  calculatePlayerSentiment(){
+    let sentiment = 0;
+    this.list.forEach(( player ) => {
+      sentiment = (player.sentiment > 0 ) ? sentiment + 1 : sentiment - 1
+    });
+    this.playerSentiment = sentiment;
+  }
+
   addPlayer( socket ){
     const player = new Player( this.allTimeCount, socket );
     this.allTimeCount++;
@@ -52,6 +61,7 @@ class PlayerManager extends EventEmitter {
     });
 
     player.on( 'rate-script', ( rating ) => {
+      this.calculatePlayerSentiment();
       this.emit('rate-script', rating );
     });
 

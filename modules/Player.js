@@ -12,6 +12,7 @@ class Player extends EventEmitter {
   choiceCount = 0;
   complete = false;
   metaState = STATES.Idle;
+  sentiment = 0;
   constructor( id, socket ){
     super();
     this.id = id;
@@ -55,6 +56,7 @@ class Player extends EventEmitter {
       }
     });
     this.socket.on( 'rate-script', ( rating ) => {
+      this.sentiment = rating.total;
       console.log('emit: rate-script, rating=', rating )
       this.emit( 'rate-script', rating )
     })
