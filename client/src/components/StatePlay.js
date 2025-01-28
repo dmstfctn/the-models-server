@@ -14,21 +14,21 @@ function StatePlay(){
         <section className="app-interface">    
             <h1>What do you think?</h1>
             <div className="feedback-interface">
-                <button onClick={() => { 
+                <button onClick={() => {
+                    socket.emit( 'rate-script', { rating: 1, type: 'coin', total: rating + 1 })
                     setRating( rating + 1 );
-                    socket.emit( 'rate-script', { rating: 1, type: 'coin', total: rating })
                 }}>MONIES</button>
-                <button onClick={() => { 
+                <button onClick={() => {
+                    socket.emit( 'rate-script', { rating: 1, type: 'flower', total: rating + 1 })
                     setRating( rating + 1 );
-                    socket.emit( 'rate-script', { rating: 1, type: 'flower', total: rating })
                 }}>FLOWER</button>
-                <button onClick={() => { 
+                <button onClick={() => {
+                    socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: rating - 1 })
                     setRating( rating - 1 );
-                    socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: rating })
                 }}>TOMATI</button>
-                <button onClick={() => { 
+                <button onClick={() => {
+                    socket.emit( 'rate-script', { rating: -1, type: 'egg', total: rating - 1 })
                     setRating( rating - 1 );
-                    socket.emit( 'rate-script', { rating: -1, type: 'egg', total: rating })
                 }}>EGG</button>
             </div>
         </section>
