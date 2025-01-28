@@ -87,6 +87,10 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   height: var(--btn-height);
   box-sizing: border-box;
 }  
+  .button:disabled{
+    background: #cccccc;
+    color: #000000;
+  }
     .button.fake-button{
       opacity: 0;
       position: relative;

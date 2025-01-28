@@ -62,13 +62,17 @@ class Unreal extends EventEmitter{
 
     console.log('PARSED CHOICES: ', choices )
 
-    this.socket.emit('load-and-begin-script', { choices });
+    if( this.socket ){
+      this.socket.emit('load-and-begin-script', { choices });
+    }
 
     return true;
   }
 
   sendRateScript( rating ){
-    this.socket.emit( 'rate-script', { rating })
+    if( this.socket ){
+      this.socket.emit( 'rate-script', { rating })
+    }
   }
 
   getState(){

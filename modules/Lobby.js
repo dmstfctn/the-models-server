@@ -24,6 +24,17 @@ class Lobby extends EventEmitter {
     if( this.players.length < this.maxPlayers ){
       player.assignRole( this.possibleRoles.shift() )
       this.players.push( player );
+      
+      player.on('choices-complete', () => {
+        const completeCount = this.players.filter( (player) => {
+          return player.complete
+        }).length;
+        if( completeCount === this.players.length ){
+          clearInterval( this.choiceTimeout );
+          this.closeLobby();
+        }
+      })
+
       this.startJoinTimeout();
       return true;
     } else {
@@ -87,7 +98,6 @@ class Lobby extends EventEmitter {
 
   validateOrRandomiseChoices(){
     console.log('validateOrRandomiseChoices()');
-    console.log('pre:', this.choices);
     this.choices.forEach( (choice) => {
       console.log('choice:', choice );
       if( !choice.choice ){
@@ -99,7 +109,6 @@ class Lobby extends EventEmitter {
         }
       }
     });
-    console.log( 'post: ', this.choices );
   }
 
   closeLobby(){

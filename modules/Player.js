@@ -49,6 +49,11 @@ class Player extends EventEmitter {
       this.chooseForRole( role, choice );
       this.emit( 'decision' );
     });
+    this.socket.on('choices-complete', (choices) => {
+      for( let role in choices ){
+        this.chooseForRole( role, choices[role] );
+      }
+    });
     this.socket.on( 'rate-script', ( rating ) => {
       this.emit( 'rate-script', rating )
     })
@@ -76,7 +81,8 @@ class Player extends EventEmitter {
   }
 
   chooseForRole( role, choice ){
-    const r = this.roles.find( ( other ) => other.role === role );
+    console.log( 'chooseForRole()', 'role=', role, 'choice=', choice );
+    const r = this.roles.find( ( other ) => parseInt(other.role) === parseInt(role) );
     r.choice = choice;
     this.choiceCount++;
     if( this.choiceCount >= this.roles.length ){

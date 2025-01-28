@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import "./PlayInterface.css";
 
@@ -73,13 +73,19 @@ function SelectPropInterface({title, active, onSelect=()=>{} }){
     </section>;
 }
 
-function PlayInterface({ active, roles, onSelect=()=>{} }){
+function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
     const {queueInfo, setQueueInfo, backdrop} = useContext(GameContext);
     const shouldSelectMask1 = !!roles.find( (r) => r.role === ROLES.MASK1 );
     const shouldSelectProp = !!roles.find( (r) => r.role === ROLES.PROP );
     const shouldSelectMask2 = !!roles.find( (r) => r.role === ROLES.MASK2 );
     const [choices, setChoices] = useState({})
+    const [isChoiceComplete, setIsChoiceComplete] = useState( false );
 
+    useEffect(() => {
+        if( Object.keys( choices ).length === roles.length ){
+            setIsChoiceComplete( true );
+        }
+    })
 
     return <>
         <article className={`play-interface${(!active) ? ' disabled' : ''}`}>
@@ -136,14 +142,16 @@ function PlayInterface({ active, roles, onSelect=()=>{} }){
             /> : '' }
             <button 
                 className="button button--choose"
+                disabled={ !isChoiceComplete }
                 onClick={() => { 
                     console.log( choices )
                     for( let i in choices ){
                         onSelect( parseInt(i), choices[i] )
                     }
+                    onComplete( choices );
                 }}
             >
-                CHOICE COMPLETE
+                { (isChoiceComplete) ? 'Submit Choices' : 'Make a choice for each option' }
             </button>
         </article>
     </>

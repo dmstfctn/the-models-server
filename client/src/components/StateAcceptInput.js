@@ -64,8 +64,8 @@ function StateAcceptInput({ queue }) {
           <PlayInterface 
             roles={roles}
             active={ !hasChosen }
-            onSelect={( role, choice ) => {
-              socket.emit('decision', {role,choice})
+            onComplete={(choices) => {
+              socket.emit('choices-complete', choices );
             }}
           /> 
         : 
