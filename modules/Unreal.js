@@ -71,7 +71,7 @@ class Unreal extends EventEmitter{
 
   sendRateScript( rating ){
     if( this.socket ){
-      this.socket.emit( 'rate-script', { rating })
+      this.socket.emit( 'rate-script', rating )
     }
   }
 

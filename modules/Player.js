@@ -55,6 +55,7 @@ class Player extends EventEmitter {
       }
     });
     this.socket.on( 'rate-script', ( rating ) => {
+      console.log('emit: rate-script, rating=', rating )
       this.emit( 'rate-script', rating )
     })
   }
