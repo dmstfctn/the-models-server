@@ -44,7 +44,14 @@ class PlayerManager extends EventEmitter {
       total = (player.sentiment > 0 ) ? total + 1 : total - 1
       if( player.sentiment < -2 ){
         total -= 1;
-        countNegative += 1;
+        if( this.list.length > 1 ){          
+          countNegative += 1;
+        } else {
+          if( player.sentiment < -10 ){
+            // if only one player they have to have 10 negative to stop play
+            countNegative += 1;
+          }
+        }
       } else if( player.sentiment > 0 ){
         total += 1;
         countPositive += 1;
