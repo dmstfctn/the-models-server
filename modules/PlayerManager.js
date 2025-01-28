@@ -42,7 +42,7 @@ class PlayerManager extends EventEmitter {
     let countNeutral = 0
     this.list.forEach(( player ) => {
       total = (player.sentiment > 0 ) ? total + 1 : total - 1
-      if( player.sentiment < 0 ){
+      if( player.sentiment < -2 ){
         total -= 1;
         countNegative += 1;
       } else if( player.sentiment > 0 ){
