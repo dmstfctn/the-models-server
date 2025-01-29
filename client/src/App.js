@@ -24,6 +24,7 @@ function App() {
   const [backdrop,setBackdrop] = useState(false);
   //const [metaState, setMetaState] = useState( STATES.Idle );
   const [metaState, setMetaState] = useState( STATES_DEFAULT );
+  const [rating, setRating] = useState(0);
   const [timer, setTimer] = useState();
   const [isDebug, setIsDebug] = useState();
   
@@ -44,6 +45,9 @@ function App() {
 
     function onSetMetaState( state ){
       console.log('set-meta-state', state )
+      if( state !== metaState && state === STATES.Play ){
+        setRating( 0 );
+      }
       setMetaState( state );
     }
 
@@ -94,7 +98,9 @@ function App() {
       backdrop,
       isInLobby, 
       setIsInLobby,
-      timer
+      timer,
+      rating,
+      setRating
     }}>
       <aside className="app-meta">
         

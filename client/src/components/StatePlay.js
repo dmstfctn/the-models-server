@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { socket } from '../socket.js';
 
 import WrapperForStates from './WrapperForStates.js';
+import { GameContext } from '../contexts/GameContext.js';
 
 function StatePlay(){
-    const [rating, setRating] = useState(0);
+    const {rating, setRating} = useContext(GameContext)
     
     return <WrapperForStates>
         <div className="text-info">

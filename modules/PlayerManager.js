@@ -48,7 +48,7 @@ class PlayerManager extends EventEmitter {
           countNegative += 1;
         } else {
           if( player.sentiment < -10 ){
-            // if only one player they have to have 10 negative to stop play
+            // if only one player they have to have 10 negative to count as negative overall and stop play
             countNegative += 1;
           }
         }

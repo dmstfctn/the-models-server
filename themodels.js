@@ -9,7 +9,7 @@ import Config from './modules/Config.js';
 import PlayerManager from './modules/PlayerManager.js';
 import Unreal from './modules/Unreal.js';
 
-import STATES from "./client/src/shared/STATES.js";
+import STATES, { STATES_getName } from "./client/src/shared/STATES.js";
 
 const __dirname = import.meta.dirname;
 
@@ -74,7 +74,7 @@ playerManager.on( 'choice-update', ({ rating }) => {
 });
 
 unreal.on('send-state', ( state ) => {
-  console.log('unreal on send-state, send ', state, 'to player manager, value = ', STATES[state] );
+  console.log('Unreal on send-state, send ', state, 'to player manager. State name = ', STATES_getName( state ) );
   playerManager.setState( state );
 });
 

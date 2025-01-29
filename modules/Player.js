@@ -24,7 +24,8 @@ class Player extends EventEmitter {
 
   setMetaState( state ){
     this.metaState = state;
-    this.socket.emit( 'set-meta-state', this.metaState )
+    console.log('player set to state: ', this.metaState );
+    this.socket.emit( 'set-meta-state', this.metaState );
   }
 
   setReadyToPlay(){
