@@ -44,10 +44,7 @@ function StateAcceptInput({ queue }) {
 
   return <WrapperForStates>    
     <div className="text-info">
-      <h1>The Models</h1>
-      <p>
-        Join the queue to help specify an upcoming play for the Models to improvise. You'll be able to select the focal prop or one of the two characters.
-      </p>
+     
     </div> 
     <section className="app-interface">
       {( !queueInfo.isQueued ) ?

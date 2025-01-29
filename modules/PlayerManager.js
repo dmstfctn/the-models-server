@@ -78,6 +78,7 @@ class PlayerManager extends EventEmitter {
     player.on('disconnect', () => {
       this.removePlayerFromQueue( player );
       this.removePlayerFromList( player );
+      this.removePlayerFromLobby( player );
     });
 
     player.on( 'ready-to-play', () => {
@@ -99,14 +100,19 @@ class PlayerManager extends EventEmitter {
     console.log( `removing player with id from LIST: ${player.id}` );
     this.list.splice( index, 1 );
     console.log( `list is ${this.list.length} long`);
+    if( this.list.length <= 0 && this.lobby ){
+      this.lobby.closeLobby();
+    }
   }
 
   startLobby(){
     this.lobby = new Lobby();
     this.lobby.on('close-lobby', (choices) => {
-      this.lobby.players.forEach( (player) => {
-        this.removePlayerFromQueue( player );
-      });
+      if( this.lobby ){
+        this.lobby.players.forEach( (player) => {
+          this.removePlayerFromQueue( player );
+        });
+      }
       choices.forEach( ( choice ) => {
         this.choices[ choice.role ] = choice.choice;
       });
@@ -133,6 +139,12 @@ class PlayerManager extends EventEmitter {
     this.queue.splice( index, 1 );
     console.log( `queue is ${this.list.length} long`);
     this.queueRefresh();
+  }
+
+  removePlayerFromLobby( player ){
+    if( this.lobby ){
+      this.lobby.removePlayer( player );
+    }
   }
 
   isPlayerQueued( player ){

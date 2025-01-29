@@ -96,19 +96,59 @@ class Lobby extends EventEmitter {
     this.startChoiceTimeout();
   }
 
+  randomiseChoice( choice ){
+    if( !choice.choice ){
+      if( choice.role === ROLES.MASK1 || choice.role === ROLES.MASK2 ){
+        choice.choice = TENDENCIES[ Math.floor( Math.random() * TENDENCIES.length ) ];
+      }
+      if( choice.role === ROLES.PROP ){
+        choice.choice = PROPS[ Math.floor( Math.random() * PROPS.length )  ]
+      }
+    }
+    return choice;
+  }
+
   validateOrRandomiseChoices(){
     console.log('validateOrRandomiseChoices()');
     this.choices.forEach( (choice) => {
       console.log('choice:', choice );
-      if( !choice.choice ){
-        if( choice.role === ROLES.MASK1 || choice.role === ROLES.MASK2 ){
-          choice.choice = TENDENCIES[ Math.floor( Math.random() * TENDENCIES.length ) ];
-        }
-        if( choice.role === ROLES.PROP ){
-          choice.choice = PROPS[ Math.floor( Math.random() * PROPS.length )  ]
-        }
-      }
+      choice = this.randomiseChoice( choice );
     });
+
+    if( !this.choices.find( ({role}) => role === ROLES.MASK1 ) ){
+      this.choices.push(this.randomiseChoice(
+        {
+          role: ROLES.MASK1,
+          choice: false
+        }
+      ))
+    }
+
+    if( !this.choices.find( ({role}) => role === ROLES.MASK2 ) ){
+      this.choices.push(this.randomiseChoice(
+        {
+          role: ROLES.MASK2,
+          choice: false
+        }
+      ))
+    }
+
+    if( !this.choices.find( ({role}) => role === ROLES.PROP ) ){
+      this.choices.push(this.randomiseChoice(
+        {
+          role: ROLES.PROP,
+          choice: false
+        }
+      ))
+    }
+  }
+
+  removePlayer( player ){
+    const index = this.players.findIndex( ( other ) => other.id === player.id );
+    this.players.splice( index, 1 );
+    if( this.players.length <= 0 ){
+      this.closeLobby();
+    }
   }
 
   closeLobby(){    
