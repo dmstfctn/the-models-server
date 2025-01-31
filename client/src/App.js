@@ -110,7 +110,7 @@ function App() {
           }
           {Math.floor( queueInfo.length / 3 )} plays to go.
         </div>        
-        {(backdrop) ? <div>Next: {backdrop.description}</div> : ''} 
+        {(backdrop) ? <div>La prossima scena si svolge in UNA PRIGIONE</div> : ''} 
         { (timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>     
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }

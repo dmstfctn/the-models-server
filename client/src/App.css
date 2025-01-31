@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'NeueHammerUnzialeStd';
+  src:  url('./fonts/neuehammerunzialeltstd-webfont.woff2') format('woff2'),
+        url('./fonts/neuehammerunzialeltstd-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;   
+}
+
 :root{
   --btn-height: 5rem;
   --row-height: 12.5vh;
@@ -11,6 +19,8 @@ html, body{
   height: 100%;
   background-color: #000000;
   overflow: hidden;
+  font-family: NeueHammerUnzialeStd, serif;
+  font-size: 3.3vw;
 }
 
 h1, h2, h3, h4, h5, h6, ul, ol, p{
