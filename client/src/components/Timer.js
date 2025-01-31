@@ -8,7 +8,7 @@ function Timer({name, value, total}){
             opacity: (value <= 0) ? 0 : 1 
         }}
     >
-        <div>{name}: {value}/{total}</div>
+        <div>Hai <span className="timer--value">{value}</span> secondi per comporre la scena.</div>
     </div>
 }
 

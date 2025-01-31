@@ -22,6 +22,11 @@ html, body{
   font-family: NeueHammerUnzialeStd, serif;
   font-size: 3.3vw;
 }
+  @media (min-aspect-ratio: 1/1){
+    html, body{
+      font-size: 14px;
+    }
+  }
 
 h1, h2, h3, h4, h5, h6, ul, ol, p{
   margin-top: 0;
@@ -60,6 +65,10 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 .timer{
  
 }
+  .timer--value{
+    font-family: 1.3em;
+    color: #FFFFFF;
+  }
 
 .feedback-interface{
   display: flex;

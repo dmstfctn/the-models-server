@@ -102,15 +102,14 @@ function App() {
       rating,
       setRating
     }}>
-      <aside className="app-meta">        
-        <div>
+      <aside className="app-meta">                
+        {(!isInLobby) ? <div>
           {queueInfo.isQueued 
-            ? `You are number ${queueInfo.position} of ${queueInfo.length}, ` 
-            : `${queueInfo.length} people queued, `
+            ? (queueInfo.position <= 3 ) ? `You are Next` : `You are in ${ Math.floor(queueInfo.position / 3) } plays time.` 
+            : `${queueInfo.length} in queue.`
           }
-          {Math.floor( queueInfo.length / 3 )} plays to go.
-        </div>        
-        {(backdrop) ? <div>La prossima scena si svolge in UNA PRIGIONE</div> : ''} 
+        </div> : '' }
+        {(backdrop) ? <div>La prossima scena si svolge {backdrop.phoneCategoryIt}.</div> : ''} 
         { (timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>     
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
