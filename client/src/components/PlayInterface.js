@@ -51,9 +51,10 @@ const images = {
 };
 
 
-function SelectTendencyInterface({title,active, onSelect=()=>{} }){
+function SelectTendencyInterface({ title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section className='select-section'>      
+    return <section className='select-section'>
+        <h1>{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? 'disabled' : ''}`}> 
             {TENDENCIES.map( ( tendency, i ) => {
                 return <div 
@@ -74,6 +75,7 @@ function SelectTendencyInterface({title,active, onSelect=()=>{} }){
 function SelectCharacterInterface({title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
     return <section className='select-section'>
+        <h1>{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? ' disabled' : ''}`}>         
             {CHARACTERS.map( ( character, i ) => {
                 return <div 
@@ -95,6 +97,7 @@ function SelectCharacterInterface({title, active, onSelect=()=>{} }){
 function SelectPropInterface({title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
     return <section className='select-section'>
+        <h1>{title}</h1>
         <div className={`select-interface select-interface__prop ${(!active) ? 'disabled' : ''}`}>
             {PROPS.map( ( prop, i ) => {
                 return <div 
@@ -136,7 +139,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
             /> */}
             { shouldSelectMask1 ? <SelectTendencyInterface 
                 active={ shouldSelectMask1 }
-                title="Mask 1"
+                title="Scegli un modello di intelligenza artificiale:"
                 onSelect={ ( tendency ) => {
                     const c = {}
                     for( let i in choices ){
@@ -147,7 +150,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                 }}
             /> : '' }
             { shouldSelectMask2 ? <SelectTendencyInterface 
-                title="Mask 2"
+                title={(shouldSelectMask1) ? `Scegli l'altro modello:` : `Scegli un modello di intelligenza artificiale:` }
                 active={ shouldSelectMask2 }
                 onSelect={ ( tendency ) => {
                     const c = {}
@@ -160,7 +163,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
             /> : '' }
             { shouldSelectProp ? <SelectPropInterface 
                 active={ shouldSelectProp }
-                title="Prop"
+                title="Scegli un oggetto da aggiungere sul palco:"
                 onSelect={ ( prop ) => {
                     const c = {}
                     for( let i in choices ){

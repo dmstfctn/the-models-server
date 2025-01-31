@@ -12,8 +12,7 @@ function StatePlay(){
         
                  
         </div> 
-        <section className="app-interface">    
-            <h1>What do you think?</h1>
+        <section className="app-interface">
             <div className="feedback-interface">
                 <button onClick={() => {
                     socket.emit( 'rate-script', { rating: 1, type: 'coin', total: rating + 1 })
