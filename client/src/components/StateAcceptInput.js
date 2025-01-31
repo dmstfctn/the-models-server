@@ -47,7 +47,7 @@ function StateAcceptInput({ queue }) {
      
     </div> 
     <section className="app-interface">
-      {( !queueInfo.isQueued ) ?
+      {( !queueInfo.isQueued && !isInLobby ) ?
         <button 
           className="button button--join"
           onClick={() => { socket.emit( 'ready-to-play' )}}

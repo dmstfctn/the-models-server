@@ -3,8 +3,8 @@ import ROLES from '../client/src/shared/ROLES.js';
 import { TENDENCIES } from '../client/src/shared/CHARACTERS.js';
 import PROPS from '../client/src/shared/PROPS.js';
 
-const timeToStartLength = 5;
-const timeToChooseLength = 60;
+const timeToStartLength = 1;
+const timeToChooseLength = 6000;
 
 class Lobby extends EventEmitter {
   id = new Date().getTime();

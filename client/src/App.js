@@ -102,15 +102,15 @@ function App() {
       rating,
       setRating
     }}>
-      <aside className="app-meta">
-        
+      <aside className="app-meta">        
         <div>
           {queueInfo.isQueued 
             ? `You are number ${queueInfo.position} of ${queueInfo.length}, ` 
             : `${queueInfo.length} people queued, `
           }
           {Math.floor( queueInfo.length / 3 )} plays to go.
-        </div>
+        </div>        
+        {(backdrop) ? <div>Next: {backdrop.description}</div> : ''} 
         { (timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>     
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
@@ -124,7 +124,6 @@ function App() {
           : '' 
       }
       { (metaState === STATES.Restart) ? <StateRestart /> : '' }
-      <div className="fake-button button"></div>
     </GameContext.Provider>
 
     {(isDebug) ? <aside className="app-debug">

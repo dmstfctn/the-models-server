@@ -1,5 +1,7 @@
 :root{
   --btn-height: 5rem;
+  --row-height: 12.5vh;
+  --grid-pad: 0.5vh;
 }
 
 html, body{
@@ -99,12 +101,12 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 
 .app-meta{
   padding: 0.3rem 1rem 0.3rem;
-  background: #FF0000;
-  color: #FFFFFF;
   line-height: 1;
   text-align: center;
   z-index: 1;
+  height: var(--row-height);
 }
   .app-meta > div{
     height: 1.4rem;
+    white-space: nowrap;   
   }

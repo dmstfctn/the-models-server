@@ -5,42 +5,38 @@
     background-color: #FFFFFF;
 }
     .select-section{
-        
+        width:100%;
     }
     .select-section h1{
         font-size: inherit;
         margin: 0.3rem 0;
         text-align: center;
-    }
+    }   
 
 .select-interface{
     width: 100%;
-    overflow-x: auto;
-    height: 25vh;
-    flex-grow: 1;
-    display: flex;
-    scroll-snap-type: x mandatory;
-    scroll-padding: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 } 
-
-    .select-option{
-        scroll-snap-align: center;
-        width: 25vh;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-        cursor: pointer;
-        padding: 1rem;
-        box-sizing: border-box;
-        border: 10px solid #fff;
-        background: #ccc;
-        border-left-width: 5px;
-        border-right-width: 5px;
-        display: inline-block;
+    .select-interface__character{ /* 1x3 */
+        height: var(--row-height);
     }
+    .select-interface__prop{ /* 5x3 */
+        height: calc( var(--row-height) * 5 );
+    }
+    
+
+    .select-option{        
+        height: var(--row-height);        
+        padding: var(--grid-pad);
+        box-sizing: border-box;
+    }
+        .select-option img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
 
         .select-option.selected{
             border-top-width: 4px;
@@ -50,8 +46,28 @@
             background: yellow;
         }
 
+.play-button{
+    width: 33%;
+    height: var(--row-height);
+    position: fixed;
+    bottom: 0;
+    right: 0;   
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: none;
+    background: transparent;
+    padding: var(--grid-pad);
+    box-sizing: border-box;
+}
+    .play-button img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
 
-.disabled{
+.disabled{    
     opacity: 0.5;
     pointer-events: none;
 }

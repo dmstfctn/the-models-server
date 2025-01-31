@@ -8,10 +8,52 @@ import CHARACTERS, { TENDENCIES } from '../shared/CHARACTERS.js';
 import ROLES from '../shared/ROLES.js';
 import PROPS from '../shared/PROPS.js';
 
+import tendency_friendly from '../images/tendency-friendly.png';
+import tendency_waluigi from '../images/tendency-waluigi.png';
+import tendency_confabulate from '../images/tendency-confabulate.png';
+
+import prop_mirror from '../images/prop-mirror.png';
+import prop_globe from '../images/prop-globe.png';
+import prop_cat from '../images/prop-cat.png';
+import prop_moon from '../images/prop-moon.png';
+import prop_apple from '../images/prop-apple.png';
+import prop_ball from '../images/prop-ball.png';
+import prop_calculator from '../images/prop-calculator.png';
+import prop_calendar from '../images/prop-calendar.png';
+import prop_english from '../images/prop-english.png';
+import prop_glass from '../images/prop-glass.png';
+import prop_latin from '../images/prop-latin.png';
+import prop_lens from '../images/prop-lens.png';
+import prop_maccheroni from '../images/prop-maccheroni.png';
+import prop_sack from '../images/prop-sack.png';
+
+import img_button from '../images/button.png';
+
+const images = {
+    friendly: tendency_friendly,
+    waluigi: tendency_waluigi,
+    confabulate: tendency_confabulate,
+    mirror: prop_mirror,
+    globe: prop_globe,
+    cat: prop_cat,
+    moon: prop_moon,
+    apple: prop_apple,
+    ball: prop_ball,
+    calculator: prop_calculator,
+    calendar: prop_calendar,
+    english: prop_english,
+    glass: prop_glass,
+    latin: prop_latin,
+    lens: prop_lens,
+    maccheroni: prop_maccheroni,
+    sack: prop_sack,
+    button: img_button
+};
+
+
 function SelectTendencyInterface({title,active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section>
-        <h1>{title}</h1>
+    return <section className='select-section'>      
         <div className={`select-interface select-interface__character ${(!active) ? 'disabled' : ''}`}> 
             {TENDENCIES.map( ( tendency, i ) => {
                 return <div 
@@ -22,8 +64,7 @@ function SelectTendencyInterface({title,active, onSelect=()=>{} }){
                         onSelect( tendency );
                     }}
                 >
-                    <div><strong>{tendency.name}</strong></div>
-                    <div>{tendency.characters.map((c) => {return c.name}).join(', ')}</div>
+                    <img src={images[tendency.name]} />
                 </div>
             })}
         </div>
@@ -32,8 +73,7 @@ function SelectTendencyInterface({title,active, onSelect=()=>{} }){
 
 function SelectCharacterInterface({title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section>
-        <h1>{title}</h1>
+    return <section className='select-section'>
         <div className={`select-interface select-interface__character ${(!active) ? ' disabled' : ''}`}>         
             {CHARACTERS.map( ( character, i ) => {
                 return <div 
@@ -55,7 +95,6 @@ function SelectCharacterInterface({title, active, onSelect=()=>{} }){
 function SelectPropInterface({title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
     return <section className='select-section'>
-        <h1>{title}</h1>
         <div className={`select-interface select-interface__prop ${(!active) ? 'disabled' : ''}`}>
             {PROPS.map( ( prop, i ) => {
                 return <div 
@@ -65,10 +104,10 @@ function SelectPropInterface({title, active, onSelect=()=>{} }){
                         setSelected( prop );
                         onSelect( prop );
                     }}
-                >
-                    <div><strong>{prop.name}</strong></div>
+                > 
+                    <img src={images[prop.name]} />
                 </div>
-            })}s
+            })}
         </div>
     </section>;
 }
@@ -89,9 +128,6 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
 
     return <>
         <article className={`play-interface${(!active) ? ' disabled' : ''}`}>
-            {(backdrop) ? 
-            <p><strong>Setting for the next play:</strong><br></br>{backdrop.description}</p>
-            : ''} 
             {/* <SelectCharacterInterface 
                 active={ shouldSelectMask1 }
                 onSelect={ ( character ) => {
@@ -108,6 +144,18 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     }
                     c[ROLES.MASK1] = tendency;
                     setChoices( c );                  
+                }}
+            /> : '' }
+            { shouldSelectMask2 ? <SelectTendencyInterface 
+                title="Mask 2"
+                active={ shouldSelectMask2 }
+                onSelect={ ( tendency ) => {
+                    const c = {}
+                    for( let i in choices ){
+                        c[i] = choices[i]
+                    }
+                    c[ROLES.MASK2] = tendency;
+                    setChoices( c );
                 }}
             /> : '' }
             { shouldSelectProp ? <SelectPropInterface 
@@ -127,21 +175,9 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                 onSelect={ ( character ) => {
                     onSelect( ROLES.MASK2, character )
                 }}
-            /> */}
-            { shouldSelectMask2 ? <SelectTendencyInterface 
-                title="Mask 2"
-                active={ shouldSelectMask2 }
-                onSelect={ ( tendency ) => {
-                    const c = {}
-                    for( let i in choices ){
-                        c[i] = choices[i]
-                    }
-                    c[ROLES.MASK2] = tendency;
-                    setChoices( c );
-                }}
-            /> : '' }
+            /> */}           
             <button 
-                className="button button--choose"
+                className={`play-button${(isChoiceComplete) ? ' active' : ''}`}
                 disabled={ !isChoiceComplete }
                 onClick={() => { 
                     console.log( choices )
@@ -151,7 +187,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     onComplete( choices );
                 }}
             >
-                { (isChoiceComplete) ? 'Submit Choices' : 'Make a choice for each option' }
+                <img src={images.button} />
             </button>
         </article>
     </>
