@@ -109,7 +109,7 @@ function App() {
             : `${queueInfo.length} in queue.`
           }
         </div> : '' }
-        {(backdrop) ? <div>La prossima scena si svolge {backdrop.phoneCategoryIt}.</div> : ''} 
+        {(backdrop) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
         { (timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>     
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }

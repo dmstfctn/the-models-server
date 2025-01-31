@@ -45,8 +45,8 @@
 
         .select-option.selected:before{
             content: '';
-            width: 20vw;
-            height: 20vw;
+            width: calc( var(--row-height) * 0.7 );
+            height: calc( var(--row-height) * 0.7 );
             background-color: white;
             display: block;
             border-radius: 50%;
