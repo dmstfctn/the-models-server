@@ -12,9 +12,9 @@
             font-size: inherit;        
             text-align: center;
             width: 100%;
-            position: absolute;
-            top: 0;
             background: rgb(146, 27, 18);
+            height: calc( var(--row-height) / 6 );
+            margin: 0;
         }   
 
 .select-interface{

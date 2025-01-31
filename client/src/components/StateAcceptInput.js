@@ -42,10 +42,7 @@ function StateAcceptInput({ queue }) {
     };
   }, []);
 
-  return <WrapperForStates>    
-    <div className="text-info">
-     
-    </div> 
+  return <WrapperForStates>
     <section className="app-interface">
       {( !queueInfo.isQueued && !isInLobby ) ?
         <button 
