@@ -1,7 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 
-import "./PlayInterface.css";
-
 import { GameContext } from '../contexts/GameContext.js';
 
 import CHARACTERS, { TENDENCIES } from '../shared/CHARACTERS.js';

@@ -12,13 +12,26 @@ class Unreal extends EventEmitter{
 
   connect(socket) {
     this.socket = socket
-    console.log('Unreal: connect()')
+    console.log( 'Unreal: connect()' );
 
     this.socket.on('send-state', ( data ) =>{
       console.log('Unreal: on send-state, state=', data.state );
       this.engineState = STATES[data.state];
       this.emit('send-state', this.engineState );
-    })
+    });
+
+    this.socket.on('countdown-update', ( data ) => {
+      const duration = Math.floor(data.duration);
+      const progress = Math.floor(data.progress);
+      const remaining = duration - progress;
+      console.log('Unreal: countdown-update', data)
+      this.emit( 'countdown-update', {duration, remaining, progress} );
+    });
+
+    this.socket.on('countdown-end', () => {
+      console.log('Unreal: countdown-end')
+      this.emit( 'countdown-end' );
+    });
   }
 
   disconnect() {

@@ -95,6 +95,15 @@ class PlayerManager extends EventEmitter {
     return player;
   }
 
+  sendUpdateTimer({duration,remaining}){
+    this.list.forEach( ( player ) => {
+      player.sendUpdateTimer( 'time remaining', remaining, duration );
+    });
+    if( remaining <= 0 && this.lobby ){
+      this.lobby.closeLobby(); 
+    }
+  }
+
   removePlayerFromList( player ){
     const index = this.list.findIndex( ( other ) => other.id === player.id );
     console.log( `removing player with id from LIST: ${player.id}` );
@@ -120,6 +129,16 @@ class PlayerManager extends EventEmitter {
       this.emit( 'begin-play', this.choices );
       this.lobby = null;
     });
+  }
+
+  closeLobbyIfExists(){
+    console.log( 'closeLobbyIfExists()')
+    if( !this.lobby ){
+      console.log('no lobby so making a fake one' );
+      this.startLobby();
+    }
+    this.lobby.closeLobby();
+    console.log('Lobby Closed');
   }
 
   addPlayertoQueue( player ){

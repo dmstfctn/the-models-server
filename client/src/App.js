@@ -111,7 +111,19 @@ function App() {
         </div> : '' }
         {(backdrop) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
         { (timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
-      </aside>     
+      </aside>
+
+      <section className='app-join'>
+        {( !queueInfo.isQueued && !isInLobby ) ?
+          <button 
+            className="button button--join"
+            onClick={() => { socket.emit( 'ready-to-play' )}}
+          >
+            JOIN THE QUEUE
+          </button> : ''
+        }
+      </section>
+
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
       { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
       { ( metaState === STATES.ConstructStage 

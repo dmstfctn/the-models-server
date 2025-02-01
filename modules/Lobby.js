@@ -93,7 +93,7 @@ class Lobby extends EventEmitter {
     this.players.forEach( ( player ) => {
       player.sendBeginGame();
     });
-    this.startChoiceTimeout();
+    //this.startChoiceTimeout();
   }
 
   randomiseChoice( choice ){
@@ -153,7 +153,7 @@ class Lobby extends EventEmitter {
 
   closeLobby(){    
     this.players.forEach(( player ) => {      
-      player.sendUpdateTimer( '', 0, 0 );
+      //player.sendUpdateTimer( '', 0, 0 );
 
       player.roles.forEach( (role) => {
         this.choices.push( role );

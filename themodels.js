@@ -78,6 +78,17 @@ unreal.on('send-state', ( state ) => {
   playerManager.setState( state );
 });
 
+
+unreal.on('countdown-update', ( timer ) => {
+  console.log('Unreal on countdown-update. Update: ', timer );
+  playerManager.sendUpdateTimer( timer );
+});
+
+unreal.on('countdown-end', () => {
+  console.log('Unreal on countdown-end.' );
+  playerManager.closeLobbyIfExists();
+});
+
 server.listen(5040, () => {
   console.log('listening on *:5040');
 });

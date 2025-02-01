@@ -44,14 +44,6 @@ function StateAcceptInput({ queue }) {
 
   return <WrapperForStates>
     <section className="app-interface">
-      {( !queueInfo.isQueued && !isInLobby ) ?
-        <button 
-          className="button button--join"
-          onClick={() => { socket.emit( 'ready-to-play' )}}
-        >
-          JOIN THE QUEUE
-        </button> : ''
-      }
       {( isInLobby ) 
         ? 
           <PlayInterface 
