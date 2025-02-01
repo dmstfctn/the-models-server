@@ -16,12 +16,13 @@ class Lobby extends EventEmitter {
   timeToChoose = timeToChooseLength;
   possibleRoles = [ ROLES.MASK1, ROLES.PROP, ROLES.MASK2 ];
   maxPlayers = this.possibleRoles.length;
+  gameHasBegun = false;
   constructor(){
     super();
   }
 
   addPlayer( player ){
-    if( this.players.length < this.maxPlayers ){
+    if( this.players.length < this.maxPlayers && !this.gameHasBegun ){
       player.assignRole( this.possibleRoles.shift() )
       this.players.push( player );
       
@@ -29,6 +30,11 @@ class Lobby extends EventEmitter {
         const completeCount = this.players.filter( (player) => {
           return player.complete
         }).length;
+
+        console.log('LOBBY: CHOICES-COMPLETE')
+        console.log('CompleteCount = ', completeCount )
+        console.log('PlayerCount = ', this.players.length );
+
         if( completeCount === this.players.length ){
           clearInterval( this.choiceTimeout );
           this.closeLobby();
@@ -90,6 +96,7 @@ class Lobby extends EventEmitter {
   beginGame(){
     this.ensureFullParticipation();
     this.emit( 'begin-game' );
+    this.gameHasBegun = true;
     this.players.forEach( ( player ) => {
       player.sendBeginGame();
     });

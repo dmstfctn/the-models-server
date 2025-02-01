@@ -24,7 +24,7 @@ class Unreal extends EventEmitter{
       const duration = Math.floor(data.duration);
       const progress = Math.floor(data.progress);
       const remaining = duration - progress;
-      console.log('Unreal: countdown-update', data)
+      //console.log('Unreal: countdown-update', data)
       this.emit( 'countdown-update', {duration, remaining, progress} );
     });
 

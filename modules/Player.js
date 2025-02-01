@@ -52,9 +52,11 @@ class Player extends EventEmitter {
       this.emit( 'decision' );
     });
     this.socket.on('choices-complete', (choices) => {
+      console.log('PLAYER CHOICES COMPLETE')
       for( let role in choices ){
         this.chooseForRole( role, choices[role] );
       }
+      this.sendChoicesComplete();
     });
     this.socket.on( 'rate-script', ( rating ) => {
       this.sentiment = rating.total;
@@ -90,7 +92,6 @@ class Player extends EventEmitter {
     r.choice = choice;
     this.choiceCount++;
     if( this.choiceCount >= this.roles.length ){
-      this.complete = true;
       this.sendChoicesComplete();
     }
   }
@@ -114,6 +115,7 @@ class Player extends EventEmitter {
   }
 
   sendChoicesComplete(){
+    this.complete = true;
     this.emit( 'choices-complete', { roles: this.roles });
     this.socket.emit( 'choices-complete', { roles: this.roles });
   }

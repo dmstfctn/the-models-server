@@ -80,7 +80,7 @@ unreal.on('send-state', ( state ) => {
 
 
 unreal.on('countdown-update', ( timer ) => {
-  console.log('Unreal on countdown-update. Update: ', timer );
+  //console.log('Unreal on countdown-update. Update: ', timer );
   playerManager.sendUpdateTimer( timer );
 });
 
