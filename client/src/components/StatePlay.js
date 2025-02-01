@@ -15,6 +15,8 @@ const mapNumRange = (num, inMin, inMax, outMin, outMax) => ((num - inMin) * (out
 
 const ratingToPercent = (val) => mapNumRange( val, RATING_MIN, RATING_MAX, 0, 100 );
 
+
+
 function StatePlay(){
     const {rating, setRating} = useContext(GameContext)
     
@@ -45,27 +47,7 @@ function StatePlay(){
                     ></div>
                 </div>
                 <div className="feedback-interface-buttons">
-                    <div className='feedback-interface-cell'>
-                        <button 
-                            className='feedback-button'
-                            onClick={() => {
-                                socket.emit( 'rate-script', { rating: 1, type: 'coin', total: adjustAndClampRating( 1 ) })
-                            }}
-                        >
-                            <img src={img_btn_coin} />
-                        </button>
-                    </div>
-                    <div className='feedback-interface-cell'>
-                        <button 
-                            className='feedback-button'
-                            onClick={() => {
-                                socket.emit( 'rate-script', { rating: 1, type: 'flower', total: adjustAndClampRating( 1 ) })
-                            }}
-                        >
-                            <img src={img_btn_flower} />
-                        </button>
-                    </div>
-                    <div className='feedback-interface-cell'>
+                <div className='feedback-interface-cell'>
                         <button 
                             className='feedback-button'
                             onClick={() => {
@@ -73,7 +55,10 @@ function StatePlay(){
                                 
                             }}
                         >
-                            <img src={img_btn_tomati} />
+                            <img 
+                                src={img_btn_tomati} 
+                                //style={{transform: `rotate(${(Math.random() * 30) - 15}deg)`}} 
+                            />
                         </button>
                     </div>
                     <div className='feedback-interface-cell'>
@@ -83,7 +68,36 @@ function StatePlay(){
                                 socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
                             }}
                         >
-                            <img src={img_btn_egg} />
+                            <img 
+                                src={img_btn_egg} 
+                                //style={{transform: `rotate(${(Math.random() * 30) - 15}deg)`}} 
+                            />
+                        </button>
+                    </div>
+                    <div className='feedback-interface-cell'>
+                        <button 
+                            className='feedback-button'
+                            onClick={() => {
+                                socket.emit( 'rate-script', { rating: 1, type: 'coin', total: adjustAndClampRating( 1 ) })
+                            }}
+                        >
+                            <img 
+                                src={img_btn_coin} 
+                                //style={{transform: `rotate(${(Math.random() * 30) - 15}deg)`}} 
+                            />
+                        </button>
+                    </div>
+                    <div className='feedback-interface-cell'>
+                        <button 
+                            className='feedback-button'
+                            onClick={() => {
+                                socket.emit( 'rate-script', { rating: 1, type: 'flower', total: adjustAndClampRating( 1 ) })
+                            }}
+                        >
+                            <img 
+                                src={img_btn_flower} 
+                                //style={{transform: `rotate(${(Math.random() * 30) - 15}deg)`}} 
+                            />
                         </button>
                     </div>
                 </div>

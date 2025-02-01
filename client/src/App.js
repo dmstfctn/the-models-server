@@ -113,16 +113,19 @@ function App() {
         { (timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>
 
-      <section className='app-join'>
-        {( !queueInfo.isQueued && !isInLobby ) ?
+      {( !queueInfo.isQueued && !isInLobby ) 
+        ? <section className='app-join'>
           <button 
             className="button button--join"
             onClick={() => { socket.emit( 'ready-to-play' )}}
           >
             JOIN THE QUEUE
-          </button> : ''
-        }
-      </section>
+          </button> 
+          </section>
+        : '' 
+      }
+        
+      
 
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
       { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
