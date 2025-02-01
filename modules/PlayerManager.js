@@ -5,6 +5,7 @@ import Backdrops from '../client/src/shared/Backdrops.js';
 import Lobby from './Lobby.js';
 import ROLES from '../client/src/shared/ROLES.js';
 import STATES, {STATES_DEFAULT} from '../client/src/shared/STATES.js';
+import { NEGATIVE_SENTIMENT_THRESHOLD, SOLO_NEGATIVE_SENTIMENT_THRESHOLD } from '../client/src/shared/Sentiment.js';
 
 class PlayerManager extends EventEmitter {
   state = STATES_DEFAULT;
@@ -42,12 +43,12 @@ class PlayerManager extends EventEmitter {
     let countNeutral = 0
     this.list.forEach(( player ) => {
       total = (player.sentiment > 0 ) ? total + 1 : total - 1
-      if( player.sentiment < -2 ){
+      if( player.sentiment < NEGATIVE_SENTIMENT_THRESHOLD ){
         total -= 1;
         if( this.list.length > 1 ){          
           countNegative += 1;
         } else {
-          if( player.sentiment < -10 ){
+          if( player.sentiment < SOLO_NEGATIVE_SENTIMENT_THRESHOLD ){
             // if only one player they have to have 10 negative to count as negative overall and stop play
             countNegative += 1;
           }
