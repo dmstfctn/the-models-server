@@ -8,6 +8,7 @@ import STATES from '../shared/STATES.js';
 import { GameContext } from '../contexts/GameContext.js';
 
 function StateAcceptInput({ queue }) {
+  console.log(useContext(GameContext));
   const {queueInfo, setQueueInfo, backdrop, isInLobby, setIsInLobby} = useContext(GameContext);
   const [roles, setRoles] = useState([]);
   const [hasChosen, setHasChosen] = useState(false);

@@ -27,6 +27,7 @@ function App() {
   const [rating, setRating] = useState(0);
   const [timer, setTimer] = useState();
   const [isDebug, setIsDebug] = useState();
+  const [config,setConfig] = useState();
   
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -71,6 +72,10 @@ function App() {
         length: total
       });
     }
+
+    function onConfig(config){
+      setConfig( config );
+    }
     
     
     socket.on('connect', onConnect);
@@ -79,6 +84,7 @@ function App() {
     socket.on('update-timer', onUpdateTimer )
     socket.on('queue-update', onQueueUpdate);    
     socket.on('set-backdrop', onSetBackdrop);    
+    socket.on('config', onConfig);    
         
     return () => {
       socket.off('connect', onConnect);
@@ -87,6 +93,7 @@ function App() {
       socket.off('update-timer', onUpdateTimer )
       socket.off('queue-update', onQueueUpdate);
       socket.off('set-backdrop', onSetBackdrop); 
+      socket.off('config', onConfig);   
     };
   }, []);
 
@@ -146,6 +153,12 @@ function App() {
       </div>
       <div>
         State: {STATES_getName( metaState )}
+      </div>
+      <div>
+        Config:
+        <div>
+          {JSON.stringify( config )}
+        </div>
       </div>
     </aside> : '' } 
   </>

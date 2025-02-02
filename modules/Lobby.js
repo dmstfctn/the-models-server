@@ -94,6 +94,7 @@ class Lobby extends EventEmitter {
   }
 
   beginGame(){
+    console.log( 'Lobby.js : beginGame()')
     this.ensureFullParticipation();
     this.emit( 'begin-game' );
     this.gameHasBegun = true;

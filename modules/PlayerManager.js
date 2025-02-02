@@ -26,6 +26,7 @@ class PlayerManager extends EventEmitter {
 
     if( this.state === STATES.AcceptInput ){
       this.setupNextChoice();
+      this.updateQueueToLobby();
     }
 
     this.list.forEach( (player) => {
@@ -146,10 +147,7 @@ class PlayerManager extends EventEmitter {
     if( !this.isPlayerQueued( player ) ){
       this.queue.push( player );
       this.queueRefresh();
-      if( !this.lobby ){
-        this.startLobby();
-      }
-      const inLobby = this.lobby.addPlayer( player );
+      this.addPlayerToLobby( player );
     }
   }
 
@@ -161,6 +159,20 @@ class PlayerManager extends EventEmitter {
     this.queueRefresh();
   }
 
+  updateQueueToLobby(){
+    this.queueRefresh();
+    this.queue.forEach( (player) => {
+      this.addPlayerToLobby( player )
+    });
+  }
+
+  addPlayerToLobby( player ){
+    if( !this.lobby ){
+      this.startLobby();
+    }
+    const inLobby = this.lobby.addPlayer( player );
+  }
+
   removePlayerFromLobby( player ){
     if( this.lobby ){
       this.lobby.removePlayer( player );
@@ -169,8 +181,8 @@ class PlayerManager extends EventEmitter {
 
   isPlayerQueued( player ){
     console.log( 'PlayerManager . isPlayerQueued()' );
-    console.log( this.queue );
-    console.log( this.queue.find( ( other ) => other.id === player.id ) );
+    // console.log( this.queue );
+    // console.log( this.queue.find( ( other ) => other.id === player.id ) );
     return !!this.queue.find( ( other ) => other.id === player.id );
   }
 
@@ -187,7 +199,7 @@ class PlayerManager extends EventEmitter {
     this.choices[ ROLES.PROP ] = false;
     this.choices[ ROLES.MASK2 ] = false;
 
-    console.log('NEXT CHOICE: ', this.choices)
+    //console.log('NEXT CHOICE: ', this.choices)
 
     this.emit( 'choice-update', this.choices )
 
@@ -195,7 +207,7 @@ class PlayerManager extends EventEmitter {
       player.sendSetBackdrop( this.choices[ROLES.BACKDROP] );
     });
 
-    console.log('PlayerManager : setupNextChoices() : this.choices = ', this.choices )
+    //console.log('PlayerManager : setupNextChoices() : this.choices = ', this.choices )
   }
 
   countChoices(){
