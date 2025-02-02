@@ -8,8 +8,8 @@
 
 :root{
   --btn-height: 5rem;
-  --row-height: 12.5vh;
-  --grid-pad: 0.5vh;
+  --row-height: 12.5dvh;
+  --grid-pad: 0.5dvh;
 }
 
 button{
