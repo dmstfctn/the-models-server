@@ -15,7 +15,23 @@ const mapNumRange = (num, inMin, inMax, outMin, outMax) => ((num - inMin) * (out
 
 const ratingToPercent = (val) => mapNumRange( val, RATING_MIN, RATING_MAX, 0, 100 );
 
-
+function RateLimitedFeedbackButton({onClick=()=>{}, imgsrc, maxRate}){
+    const [lastPress,setLastPress] = useState(0);
+    return <button 
+        className='feedback-button'
+        onClick={() => {
+            const now = new Date().getTime();
+            if( now - lastPress >= maxRate){
+                onClick();
+                setLastPress( now );
+            }
+        }}
+    >
+        <img 
+            src={imgsrc} 
+        />
+    </button>
+}
 
 function StatePlay(){
     const {rating, setRating} = useContext(GameContext)
@@ -48,57 +64,40 @@ function StatePlay(){
                 </div>
                 <div className="feedback-interface-buttons">
                 <div className='feedback-interface-cell'>
-                        <button 
-                            className='feedback-button'
-                            onClick={() => {
-                                socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) })
-                                
-                            }}
-                        >
-                            <img 
-                                src={img_btn_tomati} 
-                                //style={{transform: `rotate(${(Math.random() * 30) - 15}deg)`}} 
-                            />
-                        </button>
+                    <RateLimitedFeedbackButton 
+                        imgsrc={img_btn_tomati}
+                        maxRate={500}
+                        onClick={() => {
+                            socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) });
+                        }}
+                    />
                     </div>
                     <div className='feedback-interface-cell'>
-                        <button 
-                            className='feedback-button'
+                        <RateLimitedFeedbackButton 
+                            imgsrc={img_btn_egg}
+                            maxRate={500}
                             onClick={() => {
                                 socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
                             }}
-                        >
-                            <img 
-                                src={img_btn_egg} 
-                                //style={{transform: `rotate(${(Math.random() * 30) - 15}deg)`}} 
-                            />
-                        </button>
+                        />
                     </div>
                     <div className='feedback-interface-cell'>
-                        <button 
-                            className='feedback-button'
+                        <RateLimitedFeedbackButton 
+                            imgsrc={img_btn_coin}
+                            maxRate={500}
                             onClick={() => {
                                 socket.emit( 'rate-script', { rating: 1, type: 'coin', total: adjustAndClampRating( 1 ) })
                             }}
-                        >
-                            <img 
-                                src={img_btn_coin} 
-                                //style={{transform: `rotate(${(Math.random() * 30) - 15}deg)`}} 
-                            />
-                        </button>
+                        />
                     </div>
                     <div className='feedback-interface-cell'>
-                        <button 
-                            className='feedback-button'
+                        <RateLimitedFeedbackButton 
+                            imgsrc={img_btn_flower}
+                            maxRate={500}
                             onClick={() => {
                                 socket.emit( 'rate-script', { rating: 1, type: 'flower', total: adjustAndClampRating( 1 ) })
                             }}
-                        >
-                            <img 
-                                src={img_btn_flower} 
-                                //style={{transform: `rotate(${(Math.random() * 30) - 15}deg)`}} 
-                            />
-                        </button>
+                        />
                     </div>
                 </div>
             </div>
