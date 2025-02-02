@@ -15,6 +15,8 @@ const mapNumRange = (num, inMin, inMax, outMin, outMax) => ((num - inMin) * (out
 
 const ratingToPercent = (val) => mapNumRange( val, RATING_MIN, RATING_MAX, 0, 100 );
 
+const BTN_RATE_LIMIT = 500;
+
 function RateLimitedFeedbackButton({onClick=()=>{}, imgsrc, maxRate}){
     const [lastPress,setLastPress] = useState(0);
     return <button 
@@ -66,7 +68,7 @@ function StatePlay(){
                 <div className='feedback-interface-cell'>
                     <RateLimitedFeedbackButton 
                         imgsrc={img_btn_tomati}
-                        maxRate={500}
+                        maxRate={BTN_RATE_LIMIT}
                         onClick={() => {
                             socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) });
                         }}
@@ -75,7 +77,7 @@ function StatePlay(){
                     <div className='feedback-interface-cell'>
                         <RateLimitedFeedbackButton 
                             imgsrc={img_btn_egg}
-                            maxRate={500}
+                            maxRate={BTN_RATE_LIMIT}
                             onClick={() => {
                                 socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
                             }}
@@ -84,7 +86,7 @@ function StatePlay(){
                     <div className='feedback-interface-cell'>
                         <RateLimitedFeedbackButton 
                             imgsrc={img_btn_coin}
-                            maxRate={500}
+                            maxRate={BTN_RATE_LIMIT}
                             onClick={() => {
                                 socket.emit( 'rate-script', { rating: 1, type: 'coin', total: adjustAndClampRating( 1 ) })
                             }}
@@ -93,7 +95,7 @@ function StatePlay(){
                     <div className='feedback-interface-cell'>
                         <RateLimitedFeedbackButton 
                             imgsrc={img_btn_flower}
-                            maxRate={500}
+                            maxRate={BTN_RATE_LIMIT}
                             onClick={() => {
                                 socket.emit( 'rate-script', { rating: 1, type: 'flower', total: adjustAndClampRating( 1 ) })
                             }}
