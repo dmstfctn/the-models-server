@@ -39,29 +39,28 @@ class Unreal extends EventEmitter{
     console.log('Unreal: disconnect()')
   }
 
-  sendLoadAndBeginScript( choicesRaw  ) {
-    console.log('Unreal: sendLoadAndBeginScript(), choices=', choicesRaw );
-    for( let c in choicesRaw ){
-      if( !choicesRaw[c] ){
-        return false;
-      }
-    }
-    const choices = {}
-    choices[ROLES.PROP] = { name: choicesRaw[ROLES.PROP].name };
-    choices[ROLES.BACKDROP] = { id: choicesRaw[ROLES.BACKDROP].id };
+  sendLoadAndBeginScript( choices  ) {
+    console.log('Unreal: sendLoadAndBeginScript(), choices=', choices );
+  
+    const mask1Choice = choices.find( (other) => other.role === ROLES.MASK1 ).choice;
+    const mask2Choice = choices.find( (other) => other.role === ROLES.MASK2 ).choice;
+    const propChoice = choices.find( (other) => other.role === ROLES.PROP ).choice;
+    const backdropChoice = choices.find( (other) => other.role === ROLES.BACKDROP ).choice;
+
+    console.log( mask1Choice, mask2Choice );
 
     let masks = []
 
-    if( choicesRaw[ROLES.MASK1].name === choicesRaw[ROLES.MASK2].name ){
+    if( mask1Choice.name === mask2Choice.name ){
       /* if same tendency, ensure the two masks are different */    
-      const c1 = choicesRaw[ROLES.MASK1].characters;
+      const c1 = mask1Choice.characters;
       const m1 = c1[0];
       const m2 = c1[1];
       masks = [m1, m2];
     } else {
       /* if different tendencies, pick a random mask from each tendency */
-      const c1 = choicesRaw[ROLES.MASK1].characters;
-      const c2 = choicesRaw[ROLES.MASK2].characters;
+      const c1 = mask1Choice.characters;
+      const c2 = mask2Choice.characters;
       const m1 = c1[ Math.floor( c1.length * Math.random() )];
       const m2 = c2[ Math.floor( c2.length * Math.random() )];
       masks = [m1, m2];
@@ -70,13 +69,16 @@ class Unreal extends EventEmitter{
     //ensure the mask names are sent in the order they exist in the folders
     masks = masks.sort( (a, b) => parseInt( a.id ) - parseInt( b.id ) );
 
-    choices[ROLES.MASK1] = {name: masks[0].name}
-    choices[ROLES.MASK2] = {name: masks[1].name}
-
-    console.log('PARSED CHOICES: ', choices )
+    const result = {};
+    result[ROLES.MASK1] = {name: masks[0].name};
+    result[ROLES.MASK2] = {name: masks[1].name};
+    result[ROLES.PROP] = {name: propChoice.id};
+    result[ROLES.BACKDROP] = {id: backdropChoice.id}
+    
+    console.log('PARSED CHOICES: ', result )
 
     if( this.socket ){
-      this.socket.emit('load-and-begin-script', { choices });
+      this.socket.emit('load-and-begin-script', { choices: result });
     }
 
     return true;
@@ -97,4 +99,4 @@ class Unreal extends EventEmitter{
   }
 }
 
-export default Unreal;
+export default new Unreal();

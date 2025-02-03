@@ -1,11 +1,13 @@
 import EventEmitter from 'events';
-import Config from './Config.js';
+
 
 import STATES from '../client/src/shared/STATES.js';
 
+let counter = 0;
+
 class Player extends EventEmitter {
   socket;
-  id;
+  id
   language;
   ready = false;
   roles = [];
@@ -13,10 +15,10 @@ class Player extends EventEmitter {
   complete = false;
   metaState = STATES.Idle;
   sentiment = 0;
-  constructor( id, socket ){
+  constructor( socket ){
     super();
-    this.id = id;
-    this.language = Config.interface_lang;    
+    this.id = counter;
+    counter++;
     this.socket = socket;
     this.socket.emit('config', this.getConfig() );
     this.setupEvents();
@@ -91,9 +93,9 @@ class Player extends EventEmitter {
     const r = this.roles.find( ( other ) => parseInt(other.role) === parseInt(role) );
     r.choice = choice;
     this.choiceCount++;
-    if( this.choiceCount >= this.roles.length ){
-      this.sendChoicesComplete();
-    }
+    // if( this.choiceCount >= this.roles.length ){
+    //   this.sendChoicesComplete();
+    // }
   }
 
   getStatus(){
