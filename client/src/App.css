@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 }
   .timer--value{
     font-family: 1.3em;
-    color: #FFFFFF;
+    color: #aaa378;
   }
 
 
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 }
 
 .button{
-  background: #FF0000;
+  background: #44412e;
   color: #000000;
   width: 100%;
   border: none;
@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   z-index: 1;
   height: calc( var(--row-height) / 2 );
   overflow: hidden;
-  background: red;
+  background: #504d3a;
   color: #000000;
   box-sizing: border-box;
 }
@@ -174,7 +174,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
           font-size: inherit;        
           text-align: center;
           width: 100%;
-          background: rgb(146, 27, 18);
+          background: #393625;
           height: calc( var(--row-height) / 6 );
           margin: 0;
       }   
@@ -215,7 +215,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   right: 0;   
   margin: 0;
   padding: var(--grid-pad);
-  background-color: lime;
+  background-color: transparent;
 }
   .play-button img{
       width: 100%;
@@ -244,13 +244,13 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   height: 100%;
 }
   .feedback-interface-meta{
-    background: lime;
+    background: #aaa378;
     height: 2rem;
     position: relative;
     overflow: hidden;
   }
   .feedback-interface-meta .negative-region{
-    background-color: red;
+    background-color: #43402d;
     display: block;
     width: 30%;
     height: 100%;
