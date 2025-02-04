@@ -25,7 +25,7 @@ button{
       content: '';
       width: calc( var(--row-height) * 0.7 );
       height: calc( var(--row-height) * 0.7 );
-      background-color: white;
+      background-color: #adc166;
       display: block;
       border-radius: 50%;
       position: absolute;
