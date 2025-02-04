@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   z-index: 1;
   height: calc( var(--row-height) / 2 );
   overflow: hidden;
-  background: #43402d;
+  background: #504d3a;
   color: #000000;
   box-sizing: border-box;
 }
