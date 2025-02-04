@@ -174,7 +174,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
           font-size: inherit;        
           text-align: center;
           width: 100%;
-          background: #9d913e
+          background: #9d913e;
           height: calc( var(--row-height) / 6 );
           margin: 0;
       }   
