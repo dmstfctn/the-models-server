@@ -150,6 +150,7 @@ function App() {
           || metaState === STATES.InstructCharacters 
           || metaState === STATES.Play 
           || metaState === STATES.Conclude 
+          || metaState === STATES.BadEnding
         )
           ? <StatePlay /> 
           : '' 

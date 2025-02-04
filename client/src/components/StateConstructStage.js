@@ -4,7 +4,7 @@ import WrapperForStates from './WrapperForStates.js';
 
 function StateConstructStage(){
     return <WrapperForStates>
-        <h1>Construct Stage</h1>
+        
     </WrapperForStates>
 }
 

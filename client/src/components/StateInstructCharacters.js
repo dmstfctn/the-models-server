@@ -4,7 +4,7 @@ import WrapperForStates from './WrapperForStates.js';
 
 function StateInstructCharacters(){
     return <WrapperForStates>
-        <h1>Instruct Characters</h1>
+        
     </WrapperForStates>
 }
 

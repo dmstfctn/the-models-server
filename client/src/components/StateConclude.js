@@ -6,8 +6,7 @@ import WrapperForStates from './WrapperForStates.js';
 
 function StateConclude(){
     return <WrapperForStates>
-        <h1>Conclude</h1>
-        <button onClick={() => { socket.emit( 'rate-script', { rating: 1 })}}>&lt;3 It</button>
+       
     </WrapperForStates>
 }
 

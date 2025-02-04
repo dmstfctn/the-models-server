@@ -5,7 +5,8 @@ const STATES = {
     'InstructCharacters': 30,
     'Play': 40,
     'Conclude': 50,
-    'Restart': 60
+    'Restart': 60,
+    'BadEnding': 70
 }
 
 export default STATES;

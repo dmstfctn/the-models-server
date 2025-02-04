@@ -12,7 +12,7 @@ function StateRestart(){
     });
 
     return <WrapperForStates>
-        <h1>Restart</h1>
+      
     </WrapperForStates>
 }
 
