@@ -25,7 +25,7 @@ button{
       content: '';
       width: calc( var(--row-height) * 0.7 );
       height: calc( var(--row-height) * 0.7 );
-      background-color: #adc166;
+      background-color: #44412e;
       display: block;
       border-radius: 50%;
       position: absolute;
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 }
 
 .button{
-  background: #adc166;
+  background: #44412e;
   color: #000000;
   width: 100%;
   border: none;
@@ -215,7 +215,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   right: 0;   
   margin: 0;
   padding: var(--grid-pad);
-  background-color: #adc166;
+  background-color: transparent;
 }
   .play-button img{
       width: 100%;
@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   height: 100%;
 }
   .feedback-interface-meta{
-    background: #adc166;
+    background: #44412e;
     height: 2rem;
     position: relative;
     overflow: hidden;
