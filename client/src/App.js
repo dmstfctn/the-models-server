@@ -28,6 +28,7 @@ function App() {
   const [timer, setTimer] = useState();
   const [isDebug, setIsDebug] = useState();
   const [config,setConfig] = useState();
+  const [roles, setRoles] = useState([]);
   
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -77,6 +78,11 @@ function App() {
       setConfig( config );
     }
     
+    function onBeginGame({ roles }) {
+      console.log('onBeginGame()');
+      setRoles(roles);
+      setIsInLobby( true );
+    }
     
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
@@ -84,7 +90,8 @@ function App() {
     socket.on('update-timer', onUpdateTimer )
     socket.on('queue-update', onQueueUpdate);    
     socket.on('set-backdrop', onSetBackdrop);    
-    socket.on('config', onConfig);    
+    socket.on('config', onConfig);  
+    socket.on('begin-game', onBeginGame);  
         
     return () => {
       socket.off('connect', onConnect);
@@ -93,7 +100,8 @@ function App() {
       socket.off('update-timer', onUpdateTimer )
       socket.off('queue-update', onQueueUpdate);
       socket.off('set-backdrop', onSetBackdrop); 
-      socket.off('config', onConfig);   
+      socket.off('config', onConfig); 
+      socket.off('begin-game', onBeginGame);
     };
   }, []);
 
@@ -107,7 +115,9 @@ function App() {
       setIsInLobby,
       timer,
       rating,
-      setRating
+      setRating,
+      roles,
+      setRoles
     }}>
       <aside className="app-meta">                
         {(!isInLobby) ? <div>

@@ -9,16 +9,10 @@ import { GameContext } from '../contexts/GameContext.js';
 
 function StateAcceptInput({ queue }) {
   console.log(useContext(GameContext));
-  const {queueInfo, setQueueInfo, backdrop, isInLobby, setIsInLobby} = useContext(GameContext);
-  const [roles, setRoles] = useState([]);
+  const {queueInfo, setQueueInfo, backdrop, isInLobby, setIsInLobby, roles, setRoles} = useContext(GameContext);
   const [hasChosen, setHasChosen] = useState(false);
 
   useEffect(() => {
-    function onBeginGame({ roles }) {
-      setRoles(roles);
-      setIsInLobby( true );
-    }
-
     function onChoicesComplete({ roles }) {
       setHasChosen(true);
     }
@@ -32,12 +26,11 @@ function StateAcceptInput({ queue }) {
     }
 
     
-    socket.on('begin-game', onBeginGame);
+
     socket.on('choices-complete', onChoicesComplete);
     socket.on('lobby-closed', onLobbyClosed);
 
     return () => {      
-      socket.off('begin-game', onBeginGame);
       socket.off('choices-complete', onChoicesComplete);
       socket.off('lobby-closed', onLobbyClosed);
     };

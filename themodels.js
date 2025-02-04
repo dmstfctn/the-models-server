@@ -24,7 +24,9 @@ const isPlayerInArray = function( player, array ){
 
 const removePlayerFromArray = function( player, array ){
   const index = array.findIndex( ( other ) => other.id === player.id );
-  array.splice( index, 1 );
+  if( index >= 0 ){
+    array.splice( index, 1 );
+  }
   return array;
 }
 
@@ -35,15 +37,19 @@ const checkIfNoPlayersLeft = function(){
 }
 
 const calculatePlayerSentiment = function(){
+  const players = queue.concat(lobby);
+  const playerCount = players.length;
+
   let total = 0;
   let countNegative = 0;
   let countPositive = 0;
-  let countNeutral = 0
-  queue.forEach(( player ) => {
+  let countNeutral = 0;
+
+  players.forEach(( player ) => {
     total = (player.sentiment > 0 ) ? total + 1 : total - 1
     if( player.sentiment < NEGATIVE_SENTIMENT_THRESHOLD ){
       total -= 1;
-      if( this.list.length > 1 ){          
+      if( playerCount > 1 ){          
         countNegative += 1;
       } else {
         if( player.sentiment < SOLO_NEGATIVE_SENTIMENT_THRESHOLD ){
@@ -57,17 +63,17 @@ const calculatePlayerSentiment = function(){
     } else {
       countNeutral += 1;
     }
-  });    
+  });
+
   return {
-    playerCount: this.list.length,
-    negative: countNegative / this.list.length,
-    positive: countPositive / this.list.length,
-    neutral: countNeutral / this.list.length
+    playerCount,
+    negative: countNegative / playerCount,
+    positive: countPositive / playerCount,
+    neutral: countNeutral / playerCount
   }
 }
 
 const setupNextChoice = function(){
-  const roles = [ ROLES.MASK1, ROLES.PROP, ROLES.MASK2 ];
   const choices = {};
   choices[ ROLES.BACKDROP ] = Backdrops.getRandom();
   choices[ ROLES.MASK1 ] = false;
@@ -75,7 +81,10 @@ const setupNextChoice = function(){
   choices[ ROLES.MASK2 ] = false
   
   console.log('setupNextChoice() : this.choices = ', choices );
-  return {choices, roles};
+  return {
+    choices: choices,
+    roles: [ ROLES.MASK1, ROLES.PROP, ROLES.MASK2 ]
+  };
 }
 
 const randomiseChoice = function( choice ){
@@ -89,7 +98,7 @@ const randomiseChoice = function( choice ){
 }
 
 const randomiseChoiceForRoleIfNotExists = function(choices, role){
-  if( !choices.find( (other) => other.role === role ) ){
+  if( !choices.find( other => other.role === role ) ){
     choices.push( randomiseChoice({
       role: role,
       choice: false
@@ -108,7 +117,7 @@ const validateOrRandomiseLobby = function(){
   //if a role has been set but not chosen
   choices.forEach( (choice) => {    
     if( !choice.choice ){
-      choice.choice = randomiseChoice( choice )
+      choice = randomiseChoice( choice )
     }
   });
 
@@ -126,6 +135,10 @@ const validateOrRandomiseLobby = function(){
   return choices;
 }
 
+const isLobbyFull = function(){
+  return lobby.length >= 3;
+}
+
 const isLobbyComplete = function(){
   for( let i = 0; i < lobby.length; i++ ){
     if( !lobby[i].complete ) return false;
@@ -134,13 +147,19 @@ const isLobbyComplete = function(){
 }
 
 const addPlayerToLobby = function( player ){
-  lobby.push( player );
   player.assignRole( roles.shift() );
+  lobby.push( player );
+}
+
+const queueRefresh = function(){
+  queue.forEach( ( player, i ) => {
+    player.sendQueueUpdate( i + 1, queue.length );
+  })
 }
 
 const addPlayerToQueue = function( player ){
   queue.push( player );
-
+  queueRefresh();
 }
 
 const addPlayerToList = function( player ){
@@ -156,9 +175,8 @@ const ensureFullParticipation = function(){
 }
 
 const beginGame = function( ){
-  if( lobby.length < 3 ){
-    ensureFullParticipation();
-  }
+  ensureFullParticipation();
+  console.log(`beginGame with player(s) ${lobby.map( p => p.id).join(', ')}`)
   lobby.forEach( (player) => {
     player.sendBeginGame();
   });
@@ -167,7 +185,9 @@ const beginGame = function( ){
 const list = [];
 const queue = [];
 const lobby = [];
-let {choices: nextChoices, roles} = setupNextChoice();
+const next = setupNextChoice();
+let nextChoices = next.choices;
+let roles = next.roles;
 
 io.of('/audience').on('connection', (socket) => { 
   const player = new Player( socket );
@@ -182,11 +202,14 @@ io.of('/audience').on('connection', (socket) => {
     checkIfNoPlayersLeft(); 
   });
 
-  player.on( 'ready-to-play', () => {    
-    if( lobby.length <= 0 ){
+  player.on( 'ready-to-play', () => {
+    console.log( `player ${player.id} ready to play`)
+    if( lobby.length <= 0 && unreal.engineState === STATES.AcceptInput ){
+      console.log('lobby empty, add there')
       addPlayerToLobby( player );
       beginGame();
     } else {
+      console.log( 'lobby exists, wait in queue' )
       addPlayerToQueue( player );
     }
   });
@@ -216,20 +239,34 @@ io.of('/audience').on('connection', (socket) => {
 
 unreal.on('send-state', ( state ) => {
   console.log('Unreal on send-state, send ', state, 'to player manager. State name = ', STATES_getName( state ) );
+  console.log( `LOBBY: ${lobby.map(p=>p.id).join(', ')} / QUEUE: ${queue.map(p=>p.id).join(', ')} / LIST: : ${list.map(p=>p.id).join(', ')}`)
+
   // loop over all players and set state
   if( state === STATES.AcceptInput ){
+    const next = setupNextChoice();
+    nextChoices = next.choices;
+    roles = next.roles;
+
     while( !isLobbyFull() && queue.length > 0 ){
-      addPlayerToLobby( queue.shift() );
+      const nextPlayer = queue.shift();
+      console.log('add player to lobby: ', nextPlayer.id );
+      addPlayerToLobby( nextPlayer );
+    }
+
+    queueRefresh();
+
+    if( lobby.length > 0 ){
+      beginGame();
     }
   }
-  this.list.forEach( ( player ) => {
+  list.forEach( ( player ) => {
     player.setMetaState( state );
   });
 });
 
 
 unreal.on('countdown-update', ( timer ) => {
-  this.list.forEach( ( player ) => {
+  list.forEach( ( player ) => {
     player.sendUpdateTimer( 'time remaining', timer.remaining, timer.duration );
   });
   // if( timer.remaining <= 0 ){

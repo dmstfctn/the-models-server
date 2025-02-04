@@ -72,7 +72,7 @@ class Unreal extends EventEmitter{
     const result = {};
     result[ROLES.MASK1] = {name: masks[0].name};
     result[ROLES.MASK2] = {name: masks[1].name};
-    result[ROLES.PROP] = {name: propChoice.id};
+    result[ROLES.PROP] = {name: propChoice.name};
     result[ROLES.BACKDROP] = {id: backdropChoice.id}
     
     console.log('PARSED CHOICES: ', result )
