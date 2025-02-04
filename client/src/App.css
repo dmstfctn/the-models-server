@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 }
   .timer--value{
     font-family: 1.3em;
-    color: #44412e;
+    color: #aaa378;
   }
 
 
@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   height: 100%;
 }
   .feedback-interface-meta{
-    background: #44412e;
+    background: #aaa378;
     height: 2rem;
     position: relative;
     overflow: hidden;
