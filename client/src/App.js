@@ -4,14 +4,10 @@ import './App.css';
 
 import { socket } from './socket.js';
 
-import Backdrops from './shared/Backdrops.js';
 import STATES, {STATES_getName, STATES_DEFAULT} from './shared/STATES.js';
 import StateIdle from './components/StateIdle.js';
 import StateAcceptInput from './components/StateAcceptInput.js';
-import StateConstructStage from './components/StateConstructStage.js';
-import StateInstructCharacters from './components/StateInstructCharacters.js';
 import StatePlay from './components/StatePlay.js';
-import StateConclude from './components/StateConclude.js';
 import StateRestart from './components/StateRestart.js';
 
 import Timer from './components/Timer.js';
@@ -79,7 +75,7 @@ function App() {
     }
     
     function onBeginGame({ roles }) {
-      console.log('onBeginGame()');
+      console.log('onBeginGame(), roles = ', roles );
       setRoles(roles);
       setIsInLobby( true );
     }

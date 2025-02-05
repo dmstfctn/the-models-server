@@ -12,7 +12,7 @@ const STATES = {
 export default STATES;
 
 export const STATES_getName = function( state ){
-    console.log('STATE:', state );
+    //console.log('STATE:', state );
     const k = Object.keys( STATES );
     const v = Object.values( STATES );
     return k[v.indexOf( state )];

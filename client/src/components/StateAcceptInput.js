@@ -4,11 +4,10 @@ import { socket } from '../socket.js';
 import WrapperForStates from './WrapperForStates.js';
 
 import PlayInterface from './PlayInterface.js';
-import STATES from '../shared/STATES.js';
 import { GameContext } from '../contexts/GameContext.js';
 
 function StateAcceptInput({ queue }) {
-  console.log(useContext(GameContext));
+  //console.log(useContext(GameContext));
   const {queueInfo, setQueueInfo, backdrop, isInLobby, setIsInLobby, roles, setRoles} = useContext(GameContext);
   const [hasChosen, setHasChosen] = useState(false);
 
@@ -24,8 +23,6 @@ function StateAcceptInput({ queue }) {
         length: queueInfo.length
       })
     }
-
-    
 
     socket.on('choices-complete', onChoicesComplete);
     socket.on('lobby-closed', onLobbyClosed);
