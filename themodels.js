@@ -147,23 +147,39 @@ const isLobbyComplete = function(){
 }
 
 const addPlayerToLobby = function( player ){
-  player.assignRole( roles.shift() );
-  lobby.push( player );
+  if( !isPlayerInArray( player, lobby ) ){
+    player.assignRole( roles.shift() );
+    lobby.push( player );
+    //in case is also in queue
+    removePlayerFromArray( player, queue );
+    return true;
+  }
+  return false;
+}
+
+const addPlayerToQueue = function( player ){
+  if( !isPlayerInArray( player, queue )){
+    queue.push( player );
+    //in case is somehow still in lobby
+    removePlayerFromArray( player, lobby );
+    queueRefresh();
+    return true;
+  }
+  return false;
+}
+
+const addPlayerToList = function( player ){
+  if( !isPlayerInArray( player, list ) ){
+    list.push( player );
+    return true;
+  }
+  return false;
 }
 
 const queueRefresh = function(){
   queue.forEach( ( player, i ) => {
     player.sendQueueUpdate( i + 1, queue.length );
   })
-}
-
-const addPlayerToQueue = function( player ){
-  queue.push( player );
-  queueRefresh();
-}
-
-const addPlayerToList = function( player ){
-  list.push( player );
 }
 
 const ensureFullParticipation = function(){
