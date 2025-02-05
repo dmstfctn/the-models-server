@@ -127,7 +127,7 @@ function App() {
           }
         </div> : '' }
         {(backdrop) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
-        { (timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
+        { (isInLobby && timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>
 
       {( !queueInfo.isQueued && !isInLobby ) 
