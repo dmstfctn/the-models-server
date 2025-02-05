@@ -122,7 +122,7 @@ function App() {
       <aside className="app-meta">                
         {(!isInLobby) ? <div>
           {queueInfo.isQueued 
-            ? (queueInfo.position <= 3 ) ? `You are Next` : `You are in ${ Math.floor(queueInfo.position / 3) } plays time.` 
+            ? (queueInfo.position <= 3 ) ? `You are next` : `You are in ${ Math.floor(queueInfo.position / 3) } plays time.` 
             : `${queueInfo.length} in queue.`
           }
         </div> : '' }

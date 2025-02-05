@@ -247,7 +247,8 @@ io.of('/audience').on('connection', (socket) => {
   //this timeout is because of prefetching. There is definitely a better way but i am just too dumb
   setTimeout( function(){
     player.setMetaState( unreal.getState() );
-  }, 1000 )
+    player.sendSetBackdrop( nextChoices[ROLES.BACKDROP] );
+  }, 1000 );
 });
 
 //send choices to unreal
@@ -277,6 +278,7 @@ unreal.on('send-state', ( state ) => {
   }
   list.forEach( ( player ) => {
     player.setMetaState( state );
+    player.sendSetBackdrop( nextChoices[ROLES.BACKDROP] );
   });
 });
 
