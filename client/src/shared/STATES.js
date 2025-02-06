@@ -18,4 +18,4 @@ export const STATES_getName = function( state ){
     return k[v.indexOf( state )];
 }
 
-export const STATES_DEFAULT = STATES.Play;
+export const STATES_DEFAULT = STATES.Idle;
