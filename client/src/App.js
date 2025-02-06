@@ -129,12 +129,12 @@ function App() {
 
       {( !queueInfo.isQueued && !isInLobby ) 
         ? <section className='app-join'>
-          <button 
-            className="button button--join"
-            onClick={() => { socket.emit( 'ready-to-play' )}}
-          >
-            PARTECIPA
-          </button> 
+            <button 
+              className="button button--join"
+              onClick={() => { socket.emit( 'ready-to-play' )}}
+            >
+              PARTECIPA
+            </button> 
           </section>
         : '' 
       }
