@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   }
 
 .app-meta{
-  padding: 0.3rem 0.3rem 0.2rem;
+  padding: 0 0.3rem;
   line-height: calc( var(--row-height) / 6 );
   text-align: center;
   z-index: 1;
@@ -153,6 +153,9 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   background: #504d3a;
   color: #000000;
   box-sizing: border-box;
+  display: flex;      
+  flex-direction: column;
+  justify-content: center;
 }
   .next-scene-info .where{
     text-transform: uppercase;

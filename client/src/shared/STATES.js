@@ -5,13 +5,14 @@ const STATES = {
     'InstructCharacters': 30,
     'Play': 40,
     'Conclude': 50,
-    'Restart': 60
+    'Restart': 60,
+    'BadEnding': 70
 }
 
 export default STATES;
 
 export const STATES_getName = function( state ){
-    console.log('STATE:', state );
+    //console.log('STATE:', state );
     const k = Object.keys( STATES );
     const v = Object.values( STATES );
     return k[v.indexOf( state )];

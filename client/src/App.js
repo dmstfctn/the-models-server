@@ -4,14 +4,10 @@ import './App.css';
 
 import { socket } from './socket.js';
 
-import Backdrops from './shared/Backdrops.js';
 import STATES, {STATES_getName, STATES_DEFAULT} from './shared/STATES.js';
 import StateIdle from './components/StateIdle.js';
 import StateAcceptInput from './components/StateAcceptInput.js';
-import StateConstructStage from './components/StateConstructStage.js';
-import StateInstructCharacters from './components/StateInstructCharacters.js';
 import StatePlay from './components/StatePlay.js';
-import StateConclude from './components/StateConclude.js';
 import StateRestart from './components/StateRestart.js';
 
 import Timer from './components/Timer.js';
@@ -79,7 +75,7 @@ function App() {
     }
     
     function onBeginGame({ roles }) {
-      console.log('onBeginGame()');
+      console.log('onBeginGame(), roles = ', roles );
       setRoles(roles);
       setIsInLobby( true );
     }
@@ -122,12 +118,12 @@ function App() {
       <aside className="app-meta">                
         {(!isInLobby) ? <div>
           {queueInfo.isQueued 
-            ? (queueInfo.position <= 3 ) ? `You are Next` : `You are in ${ Math.floor(queueInfo.position / 3) } plays time.` 
+            ? (queueInfo.position <= 3 ) ? `You are next` : `You are in ${ Math.floor(queueInfo.position / 3) } plays time.` 
             : `${queueInfo.length} in queue.`
           }
         </div> : '' }
         {(backdrop) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
-        { (timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
+        { (isInLobby && timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>
 
       {( !queueInfo.isQueued && !isInLobby ) 
@@ -150,6 +146,7 @@ function App() {
           || metaState === STATES.InstructCharacters 
           || metaState === STATES.Play 
           || metaState === STATES.Conclude 
+          || metaState === STATES.BadEnding
         )
           ? <StatePlay /> 
           : '' 

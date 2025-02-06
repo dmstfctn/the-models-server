@@ -32,7 +32,18 @@ const removePlayerFromArray = function( player, array ){
 
 const checkIfNoPlayersLeft = function(){
   if( list.length <= 0 ){
-    //do things
+    //ensure empty queue
+
+    //ensure empty lobby
+  }
+}
+
+const checkIfLobbyEmptyButInputIsAccepted = function(){
+  if( unreal.engineState === STATES.AcceptInput ){
+    if( lobby.length <= 0 ){
+      roles = setupNextRoles();
+      setupLobbyAndBegin();
+    }
   }
 }
 
@@ -73,18 +84,19 @@ const calculatePlayerSentiment = function(){
   }
 }
 
-const setupNextChoice = function(){
+const setupNextRoles = function(){
+  return [ ROLES.MASK1, ROLES.PROP, ROLES.MASK2 ];
+}
+
+const setupNextChoices = function(){
   const choices = {};
   choices[ ROLES.BACKDROP ] = Backdrops.getRandom();
   choices[ ROLES.MASK1 ] = false;
   choices[ ROLES.PROP ] = false;
   choices[ ROLES.MASK2 ] = false
   
-  console.log('setupNextChoice() : this.choices = ', choices );
-  return {
-    choices: choices,
-    roles: [ ROLES.MASK1, ROLES.PROP, ROLES.MASK2 ]
-  };
+  console.log('setupNextChoices() : this.choices = ', choices );
+  return choices;
 }
 
 const randomiseChoice = function( choice ){
@@ -147,23 +159,39 @@ const isLobbyComplete = function(){
 }
 
 const addPlayerToLobby = function( player ){
-  player.assignRole( roles.shift() );
-  lobby.push( player );
+  if( !isPlayerInArray( player, lobby ) ){
+    player.assignRole( roles.shift() );
+    lobby.push( player );
+    //in case is also in queue
+    removePlayerFromArray( player, queue );
+    return true;
+  }
+  return false;
+}
+
+const addPlayerToQueue = function( player ){
+  if( !isPlayerInArray( player, queue )){
+    queue.push( player );
+    //in case is somehow still in lobby
+    removePlayerFromArray( player, lobby );
+    queueRefresh();
+    return true;
+  }
+  return false;
+}
+
+const addPlayerToList = function( player ){
+  if( !isPlayerInArray( player, list ) ){
+    list.push( player );
+    return true;
+  }
+  return false;
 }
 
 const queueRefresh = function(){
   queue.forEach( ( player, i ) => {
     player.sendQueueUpdate( i + 1, queue.length );
   })
-}
-
-const addPlayerToQueue = function( player ){
-  queue.push( player );
-  queueRefresh();
-}
-
-const addPlayerToList = function( player ){
-  list.push( player );
 }
 
 const ensureFullParticipation = function(){
@@ -182,12 +210,25 @@ const beginGame = function( ){
   });
 }
 
+const setupLobbyAndBegin = function(){
+  while( !isLobbyFull() && queue.length > 0 ){
+    const nextPlayer = queue.shift();
+    console.log('add player to lobby: ', nextPlayer.id );
+    addPlayerToLobby( nextPlayer );
+  }
+
+  queueRefresh();
+
+  if( lobby.length > 0 ){
+    beginGame();
+  }
+}
+
 const list = [];
 const queue = [];
 const lobby = [];
-const next = setupNextChoice();
-let nextChoices = next.choices;
-let roles = next.roles;
+let nextChoices = setupNextChoices();
+let roles = setupNextRoles()
 
 io.of('/audience').on('connection', (socket) => { 
   const player = new Player( socket );
@@ -199,6 +240,7 @@ io.of('/audience').on('connection', (socket) => {
     removePlayerFromArray( player, queue );
     removePlayerFromArray( player, list );    
     
+    checkIfLobbyEmptyButInputIsAccepted();
     checkIfNoPlayersLeft(); 
   });
 
@@ -231,7 +273,8 @@ io.of('/audience').on('connection', (socket) => {
   //this timeout is because of prefetching. There is definitely a better way but i am just too dumb
   setTimeout( function(){
     player.setMetaState( unreal.getState() );
-  }, 1000 )
+    player.sendSetBackdrop( nextChoices[ROLES.BACKDROP] );
+  }, 1000 );
 });
 
 //send choices to unreal
@@ -243,24 +286,15 @@ unreal.on('send-state', ( state ) => {
 
   // loop over all players and set state
   if( state === STATES.AcceptInput ){
-    const next = setupNextChoice();
-    nextChoices = next.choices;
-    roles = next.roles;
+    nextChoices = setupNextChoices();
+    roles = setupNextRoles();
 
-    while( !isLobbyFull() && queue.length > 0 ){
-      const nextPlayer = queue.shift();
-      console.log('add player to lobby: ', nextPlayer.id );
-      addPlayerToLobby( nextPlayer );
-    }
-
-    queueRefresh();
-
-    if( lobby.length > 0 ){
-      beginGame();
-    }
+    setupLobbyAndBegin();
   }
+
   list.forEach( ( player ) => {
     player.setMetaState( state );
+    player.sendSetBackdrop( nextChoices[ROLES.BACKDROP] );
   });
 });
 
