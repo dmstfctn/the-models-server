@@ -60,27 +60,6 @@ function StatePlay(){
                     <div className="feedback-interface-buttons">                    
                         <div className='feedback-interface-cell'>
                             <RateLimitedFeedbackButton 
-                                imgsrc={img_btn_tomati}
-                                maxRate={BTN_RATE_LIMIT}
-                                onClick={() => {
-                                    socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) });
-                                }}
-                            />
-                        </div>
-                        <div className='feedback-interface-cell'>
-                            <RateLimitedFeedbackButton 
-                                imgsrc={img_btn_egg}
-                                maxRate={BTN_RATE_LIMIT}
-                                onClick={() => {
-                                    socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
-                                }}
-                            />
-                        </div>
-                    </div>
-                    <h1 className="section-title">Se non ti piace</h1>
-                    <div className="feedback-interface-buttons">
-                        <div className='feedback-interface-cell'>
-                            <RateLimitedFeedbackButton 
                                 imgsrc={img_btn_coin}
                                 maxRate={BTN_RATE_LIMIT}
                                 onClick={() => {
@@ -97,6 +76,27 @@ function StatePlay(){
                                 }}
                             />
                         </div>
+                    </div>
+                    <h1 className="section-title">Se non ti piace</h1>
+                    <div className="feedback-interface-buttons">
+                        <div className='feedback-interface-cell'>
+                            <RateLimitedFeedbackButton 
+                                imgsrc={img_btn_tomati}
+                                maxRate={BTN_RATE_LIMIT}
+                                onClick={() => {
+                                    socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) });
+                                }}
+                            />
+                        </div>
+                        <div className='feedback-interface-cell'>
+                            <RateLimitedFeedbackButton 
+                                imgsrc={img_btn_egg}
+                                maxRate={BTN_RATE_LIMIT}
+                                onClick={() => {
+                                    socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
+                                }}
+                            />
+                        </div>                        
                     </div>
                 </div>
                 <div>
