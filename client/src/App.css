@@ -36,6 +36,11 @@ button{
       opacity: 0.2;
   }
 
+  .select-option img,
+  button img{
+    pointer-events: none;
+  }
+
 html{
   background-image: url('./images/background.jpg');
   background-size: cover;
