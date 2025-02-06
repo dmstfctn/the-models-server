@@ -118,11 +118,11 @@ function App() {
       <aside className="app-meta">                
         {(!isInLobby) ? <div>
           {queueInfo.isQueued 
-            ? (queueInfo.position <= 3 ) ? `You are next` : `You are in ${ Math.floor(queueInfo.position / 3) } plays time.` 
-            : `${queueInfo.length} in queue.`
+            ? `Tra ${ Math.floor(queueInfo.position / 3) } sketch potrai comporre la scena` 
+            : ``
           }
         </div> : '' }
-        {(backdrop) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
+        {(backdrop && metaState === STATES.AcceptInput) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
         { (isInLobby && timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>
 
@@ -132,7 +132,7 @@ function App() {
             className="button button--join"
             onClick={() => { socket.emit( 'ready-to-play' )}}
           >
-            JOIN THE QUEUE
+            PARTECIPA
           </button> 
           </section>
         : '' 

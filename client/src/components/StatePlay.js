@@ -55,51 +55,62 @@ function StatePlay(){
     return <WrapperForStates> 
         <section className="app-interface">
             <div className="feedback-interface">
-                <div className='feedback-interface-meta'>
-                    <div className="negative-region" style={{width: ratingToPercent( NEGATIVE_SENTIMENT_THRESHOLD) + '%'}}></div>
-                    <div 
-                        className="indicator"
-                        style={{
-                            left: ratingToPercent( rating ) + '%'
-                        }}
-                    ></div>
+                <div>
+                    <h1 className="section-title">Nel frattempo.. ti piace la scena?</h1>
+                    <div className="feedback-interface-buttons">                    
+                        <div className='feedback-interface-cell'>
+                            <RateLimitedFeedbackButton 
+                                imgsrc={img_btn_tomati}
+                                maxRate={BTN_RATE_LIMIT}
+                                onClick={() => {
+                                    socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) });
+                                }}
+                            />
+                        </div>
+                        <div className='feedback-interface-cell'>
+                            <RateLimitedFeedbackButton 
+                                imgsrc={img_btn_egg}
+                                maxRate={BTN_RATE_LIMIT}
+                                onClick={() => {
+                                    socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <h1 className="section-title">Non ti piace?</h1>
+                    <div className="feedback-interface-buttons">
+                        <div className='feedback-interface-cell'>
+                            <RateLimitedFeedbackButton 
+                                imgsrc={img_btn_coin}
+                                maxRate={BTN_RATE_LIMIT}
+                                onClick={() => {
+                                    socket.emit( 'rate-script', { rating: 1, type: 'coin', total: adjustAndClampRating( 1 ) })
+                                }}
+                            />
+                        </div>
+                        <div className='feedback-interface-cell'>
+                            <RateLimitedFeedbackButton 
+                                imgsrc={img_btn_flower}
+                                maxRate={BTN_RATE_LIMIT}
+                                onClick={() => {
+                                    socket.emit( 'rate-script', { rating: 1, type: 'flower', total: adjustAndClampRating( 1 ) })
+                                }}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div className="feedback-interface-buttons">
-                <div className='feedback-interface-cell'>
-                    <RateLimitedFeedbackButton 
-                        imgsrc={img_btn_tomati}
-                        maxRate={BTN_RATE_LIMIT}
-                        onClick={() => {
-                            socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) });
-                        }}
-                    />
-                    </div>
-                    <div className='feedback-interface-cell'>
-                        <RateLimitedFeedbackButton 
-                            imgsrc={img_btn_egg}
-                            maxRate={BTN_RATE_LIMIT}
-                            onClick={() => {
-                                socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
-                            }}
-                        />
-                    </div>
-                    <div className='feedback-interface-cell'>
-                        <RateLimitedFeedbackButton 
-                            imgsrc={img_btn_coin}
-                            maxRate={BTN_RATE_LIMIT}
-                            onClick={() => {
-                                socket.emit( 'rate-script', { rating: 1, type: 'coin', total: adjustAndClampRating( 1 ) })
-                            }}
-                        />
-                    </div>
-                    <div className='feedback-interface-cell'>
-                        <RateLimitedFeedbackButton 
-                            imgsrc={img_btn_flower}
-                            maxRate={BTN_RATE_LIMIT}
-                            onClick={() => {
-                                socket.emit( 'rate-script', { rating: 1, type: 'flower', total: adjustAndClampRating( 1 ) })
-                            }}
-                        />
+                <div>
+                    <h1 className="section-title">Se la scena non piace verrá interrotta</h1>
+                    <div className='feedback-interface-meta'>
+                        <div className="negative-region" style={{width: ratingToPercent( NEGATIVE_SENTIMENT_THRESHOLD) + '%'}}></div>
+                        <div className="indicator-track">
+                            <div 
+                                className="indicator"
+                                style={{
+                                    left: ratingToPercent( rating ) + '%'
+                                }}
+                            ></div>
+                        </div>
                     </div>
                 </div>
             </div>

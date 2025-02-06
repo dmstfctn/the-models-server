@@ -52,7 +52,7 @@ const images = {
 function SelectTendencyInterface({ title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
     return <section className='select-section'>
-        <h1>{title}</h1>
+        <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? 'disabled' : ''}`}> 
             {TENDENCIES.map( ( tendency, i ) => {
                 return <div 
@@ -73,7 +73,7 @@ function SelectTendencyInterface({ title, active, onSelect=()=>{} }){
 function SelectCharacterInterface({title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
     return <section className='select-section'>
-        <h1>{title}</h1>
+        <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? ' disabled' : ''}`}>         
             {CHARACTERS.map( ( character, i ) => {
                 return <div 
@@ -95,7 +95,7 @@ function SelectCharacterInterface({title, active, onSelect=()=>{} }){
 function SelectPropInterface({title, active, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
     return <section className='select-section'>
-        <h1>{title}</h1>
+        <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__prop ${(!active) ? 'disabled' : ''}`}>
             {PROPS.map( ( prop, i ) => {
                 return <div 

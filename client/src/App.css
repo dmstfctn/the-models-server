@@ -26,14 +26,15 @@ button{
       width: calc( var(--row-height) * 0.7 );
       height: calc( var(--row-height) * 0.7 );
       background-color: white;
+      filter: blur( 10px );
+      opacity: 0.2;
+
       display: block;
       border-radius: 50%;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translateY(-50%) translateX(-50%);
-      filter: blur( 10px );
-      opacity: 0.2;
   }
 
   .select-option img,
@@ -177,7 +178,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
       width:100%;
       position: relative;
   }
-      .select-section h1{
+      .section-title{
           font-weight: normal;
           font-size: inherit;        
           text-align: center;
@@ -248,16 +249,19 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 .feedback-interface{
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: 100%;
 }
   .feedback-interface-meta{
-    background: #aaa378;
-    height: 2rem;
+    background-image: url('./images/bar-rating.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: var(--row-height);
     position: relative;
     overflow: hidden;
   }
-  .feedback-interface-meta .negative-region{
+  /* .feedback-interface-meta .negative-region{
     background-color: #43402d;
     display: block;
     width: 30%;
@@ -265,25 +269,38 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     position: absolute;
     left: 0;
     top: 0;
+  } */
+  .feedback-interface-meta .indicator-track{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  .feedback-interface-meta .indicator{
-    top: -15%;
-    width: 3px;
-    height: 150%;
-    background: black;
+  .feedback-interface-meta .indicator{    
+    background-color: white;
     position: absolute;
     transition: left .1s linear;
+    border-radius: 50%;
+    width: calc( var(--row-height) * 0.7 );
+    height: calc( var(--row-height) * 0.7 );
+    background-color: white;
+    filter: blur( 10px );
+    opacity: 0.2;
+
+    top: 50%;
+    transform: translateX(-50%) translateY( -50% );
   }
 
   .feedback-interface-buttons{
     width: 100%;
-    height: 50%;
+    /* height: 50%; */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    place-items: stretch;
+    grid-template-rows: 1fr;
+    /*place-items: stretch;
     place-content: stretch;
-    grid-auto-flow: column;
+    grid-auto-flow: row;*/
   }
   .feedback-interface-buttons-cell{
     justify-self: stretch;
