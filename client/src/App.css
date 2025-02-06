@@ -302,11 +302,11 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     top: 0;
   } */
   .feedback-interface-meta .indicator-track{
-    width: 80%;
+    width: 57%;
     height: 100%;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 54.5%;
+    transform: translateX(-50%);    
   }
     .feedback-interface-meta .indicator-track:before{
       width: 100%;
