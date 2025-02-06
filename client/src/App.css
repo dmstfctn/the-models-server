@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     top: 0;
   } */
   .feedback-interface-meta .indicator-track{
-    width: 57%;
+    width: 50%;
     height: 100%;
     position: absolute;
     left: 54.5%;
