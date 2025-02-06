@@ -121,7 +121,7 @@ function App() {
             ? `Tra ${ Math.floor(queueInfo.position / 3) + 1} sketch potrai comporre la scena` 
             : ``
           }
-        </div> : <div>ur play</div> }
+        </div> : <div>Ok!</div> }
         {(backdrop && metaState === STATES.AcceptInput) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
         { (isInLobby && timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>

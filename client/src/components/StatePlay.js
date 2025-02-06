@@ -36,7 +36,7 @@ function RateLimitedFeedbackButton({onClick=()=>{}, imgsrc, maxRate}){
 }
 
 function StatePlay(){
-    const {rating, setRating} = useContext(GameContext)
+    const {rating, setRating, queueInfo} = useContext(GameContext)
     
     function adjustAndClampRating( change ){
         if( rating + change < RATING_MIN ){
@@ -56,7 +56,7 @@ function StatePlay(){
         <section className="app-interface">
             <div className="feedback-interface">
                 <div>
-                    <h1 className="section-title">Nel frattempo.. se ti piace la scena</h1>
+                    <h1 className="section-title">{`${(queueInfo.isQueued) ? `Nel frattempo.. s` : `S`}e ti piace la scena`}</h1>
                     <div className="feedback-interface-buttons">                    
                         <div className='feedback-interface-cell'>
                             <RateLimitedFeedbackButton 
