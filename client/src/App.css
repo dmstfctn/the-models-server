@@ -19,22 +19,27 @@ button{
   box-sizing: border-box;
   position: relative;
 }
+  button:before,
+  .select-option:before{
+    content: '';
+    width: calc( var(--row-height) * 0.7 );
+    height: calc( var(--row-height) * 0.7 );
+    background-color: white;
+    filter: blur( 10px );    
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 0;
+    transition: opacity .05s ease-in-out;
+  }
+
   button.selected:before,
   .select-option.selected:before,
   button:active:before{
-      content: '';
-      width: calc( var(--row-height) * 0.7 );
-      height: calc( var(--row-height) * 0.7 );
-      background-color: white;
-      filter: blur( 10px );
       opacity: 0.2;
-
-      display: block;
-      border-radius: 50%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translateY(-50%) translateX(-50%);
   }
 
   .select-option img,
@@ -254,6 +259,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   height: 100%;
 }
   .feedback-interface-meta{
+    background-color: #393625;
     background-image: url('./images/bar-rating.png');
     background-size: contain;
     background-repeat: no-repeat;
