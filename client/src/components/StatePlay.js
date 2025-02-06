@@ -100,7 +100,7 @@ function StatePlay(){
                     </div>
                 </div>
                 <div>
-                    <h1 className="section-title">Se la scena non piace verrá interrotta</h1>
+                    <h1 className="section-title">Il tuo voto:</h1>
                     <div className='feedback-interface-meta'>
                         <div className="negative-region" style={{width: ratingToPercent( NEGATIVE_SENTIMENT_THRESHOLD) + '%'}}></div>
                         <div className="indicator-track">
@@ -112,6 +112,7 @@ function StatePlay(){
                             ></div>
                         </div>
                     </div>
+                    <div className="section-title">Se la scena non piace verrá interrotta</div>
                 </div>
             </div>
         </section>
