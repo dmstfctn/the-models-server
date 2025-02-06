@@ -56,7 +56,7 @@ function StatePlay(){
         <section className="app-interface">
             <div className="feedback-interface">
                 <div>
-                    <h1 className="section-title">Nel frattempo.. ti piace la scena?</h1>
+                    <h1 className="section-title">Nel frattempo.. se ti piace la scena</h1>
                     <div className="feedback-interface-buttons">                    
                         <div className='feedback-interface-cell'>
                             <RateLimitedFeedbackButton 
@@ -77,7 +77,7 @@ function StatePlay(){
                             />
                         </div>
                     </div>
-                    <h1 className="section-title">Non ti piace?</h1>
+                    <h1 className="section-title">Se non ti piace</h1>
                     <div className="feedback-interface-buttons">
                         <div className='feedback-interface-cell'>
                             <RateLimitedFeedbackButton 
@@ -112,7 +112,14 @@ function StatePlay(){
                             ></div>
                         </div>
                     </div>
-                    <div className="section-title">Se la scena non piace verrá interrotta</div>
+                    <div 
+                        className="section-title"
+                        style={{
+                            paddingBottom: "8px"
+                        }}
+                    >
+                        Se la scena non piace verrá interrotta
+                    </div>
                 </div>
             </div>
         </section>
