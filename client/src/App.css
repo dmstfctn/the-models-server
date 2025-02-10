@@ -359,8 +359,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     font-family: inherit;
   }
     .feedback-button.empty{
-      opacity: 0.3;   
-      //filter: saturate(0);
+      opacity: 0.3;
     }
     .feedback-button img{
       width: 100%;
