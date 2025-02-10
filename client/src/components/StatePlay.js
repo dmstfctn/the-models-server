@@ -9,14 +9,13 @@ import img_btn_flower from '../images/button-flower.png';
 import img_btn_tomati from '../images/button-tomati.png';
 import img_btn_egg from '../images/button-egg.png';
 
-import { RATING_MAX, RATING_MIN, NEGATIVE_SENTIMENT_THRESHOLD } from '../shared/Sentiment.js';
+import { RATING_MAX, RATING_MIN, NEGATIVE_SENTIMENT_THRESHOLD, AMMO_COUNT } from '../shared/Sentiment.js';
 
 const mapNumRange = (num, inMin, inMax, outMin, outMax) => ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 
 const ratingToPercent = (val) => mapNumRange( val, RATING_MIN, RATING_MAX, 0, 100 );
 
 const BTN_RATE_LIMIT = 5;
-const BTN_AMMO_LIMIT = 3;
 
 function RateAndPressLimitedFeedbackButton({onClick=()=>{}, imgsrc, maxRate, maxPress}){
     const [lastPress,setLastPress] = useState(0);
@@ -79,7 +78,7 @@ function StatePlay(){
                             <RateAndPressLimitedFeedbackButton 
                                 imgsrc={img_btn_coin}
                                 maxRate={BTN_RATE_LIMIT}
-                                maxPress={BTN_AMMO_LIMIT}
+                                maxPress={AMMO_COUNT}
                                 onClick={() => {
                                     socket.emit( 'rate-script', { rating: 1, type: 'coin', total: adjustAndClampRating( 1 ) })
                                 }}
@@ -89,7 +88,7 @@ function StatePlay(){
                             <RateAndPressLimitedFeedbackButton 
                                 imgsrc={img_btn_flower}
                                 maxRate={BTN_RATE_LIMIT}
-                                maxPress={BTN_AMMO_LIMIT}
+                                maxPress={AMMO_COUNT}
                                 onClick={() => {
                                     socket.emit( 'rate-script', { rating: 1, type: 'flower', total: adjustAndClampRating( 1 ) })
                                 }}
@@ -102,7 +101,7 @@ function StatePlay(){
                             <RateAndPressLimitedFeedbackButton 
                                 imgsrc={img_btn_tomati}
                                 maxRate={BTN_RATE_LIMIT}
-                                maxPress={BTN_AMMO_LIMIT}
+                                maxPress={AMMO_COUNT}
                                 onClick={() => {
                                     socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) });
                                 }}
@@ -112,7 +111,7 @@ function StatePlay(){
                             <RateAndPressLimitedFeedbackButton 
                                 imgsrc={img_btn_egg}
                                 maxRate={BTN_RATE_LIMIT}
-                                maxPress={BTN_AMMO_LIMIT}
+                                maxPress={AMMO_COUNT}
                                 onClick={() => {
                                     socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
                                 }}
