@@ -116,13 +116,17 @@ function App() {
       setRoles
     }}>
       <aside className="app-meta">                
-        {(!isInLobby) ? <div>
+        {(!isInLobby) 
+          ? <div>
             {queueInfo.isQueued 
               ? `Tra ${ Math.floor(queueInfo.position / 3) + 1} sketch potrai comporre la scena` 
               : ``
             }
           </div> 
-        : ''}
+          : ( !timer && metaState !== STATES.AcceptInput ) 
+            ? <div>...</div> 
+            : '' 
+        }
         {(backdrop && metaState === STATES.AcceptInput) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
         { (isInLobby && timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>
@@ -143,9 +147,7 @@ function App() {
 
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
       { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
-      { ( metaState === STATES.ConstructStage 
-          || metaState === STATES.InstructCharacters 
-          || metaState === STATES.Play 
+      { ( metaState === STATES.Play 
           || metaState === STATES.Conclude 
           || metaState === STATES.BadEnding
         )
