@@ -143,9 +143,7 @@ function App() {
 
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
       { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
-      { ( metaState === STATES.ConstructStage 
-          || metaState === STATES.InstructCharacters 
-          || metaState === STATES.Play 
+      { ( metaState === STATES.Play 
           || metaState === STATES.Conclude 
           || metaState === STATES.BadEnding
         )
