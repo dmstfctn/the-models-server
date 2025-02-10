@@ -16,7 +16,7 @@ const mapNumRange = (num, inMin, inMax, outMin, outMax) => ((num - inMin) * (out
 const ratingToPercent = (val) => mapNumRange( val, RATING_MIN, RATING_MAX, 0, 100 );
 
 const BTN_RATE_LIMIT = 5;
-const BTN_AMMO_LIMIT = 3;
+const BTN_AMMO_LIMIT = 5;
 
 function RateAndPressLimitedFeedbackButton({onClick=()=>{}, imgsrc, maxRate, maxPress}){
     const [lastPress,setLastPress] = useState(0);
