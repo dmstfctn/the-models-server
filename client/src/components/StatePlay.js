@@ -15,23 +15,40 @@ const mapNumRange = (num, inMin, inMax, outMin, outMax) => ((num - inMin) * (out
 
 const ratingToPercent = (val) => mapNumRange( val, RATING_MIN, RATING_MAX, 0, 100 );
 
-const BTN_RATE_LIMIT = 500;
+const BTN_RATE_LIMIT = 5;
+const BTN_AMMO_LIMIT = 3;
 
-function RateLimitedFeedbackButton({onClick=()=>{}, imgsrc, maxRate}){
+function RateAndPressLimitedFeedbackButton({onClick=()=>{}, imgsrc, maxRate, maxPress}){
     const [lastPress,setLastPress] = useState(0);
+    const [pressRemaining, setPressRemaining] = useState( maxPress );
+    const [isEmpty,setIsEmpty] = useState( false );
     return <button 
-        className='feedback-button'
+        className={`feedback-button${(isEmpty) ? ' empty' : ''}`}
         onClick={() => {
+            if( isEmpty ) return;
             const now = new Date().getTime();
             if( now - lastPress >= maxRate){
                 onClick();
                 setLastPress( now );
+                const nuPressRemaining = pressRemaining - 1;
+                setPressRemaining( nuPressRemaining );                
+            }
+            if( pressRemaining <= 1 ){
+                setIsEmpty( true );
             }
         }}
     >
         <img 
             src={imgsrc} 
         />
+        <div 
+            className="ammo"
+            style={{
+                transform: `rotate(${(Math.random() * 10 ) - 5}deg)`
+            }}
+        >
+            {pressRemaining}
+        </div>
     </button>
 }
 
@@ -59,18 +76,20 @@ function StatePlay(){
                     <h1 className="section-title">{`${(queueInfo.isQueued) ? `Nel frattempo.. s` : `S`}e ti piace la scena`}</h1>
                     <div className="feedback-interface-buttons">                    
                         <div className='feedback-interface-cell'>
-                            <RateLimitedFeedbackButton 
+                            <RateAndPressLimitedFeedbackButton 
                                 imgsrc={img_btn_coin}
                                 maxRate={BTN_RATE_LIMIT}
+                                maxPress={BTN_AMMO_LIMIT}
                                 onClick={() => {
                                     socket.emit( 'rate-script', { rating: 1, type: 'coin', total: adjustAndClampRating( 1 ) })
                                 }}
                             />
                         </div>
                         <div className='feedback-interface-cell'>
-                            <RateLimitedFeedbackButton 
+                            <RateAndPressLimitedFeedbackButton 
                                 imgsrc={img_btn_flower}
                                 maxRate={BTN_RATE_LIMIT}
+                                maxPress={BTN_AMMO_LIMIT}
                                 onClick={() => {
                                     socket.emit( 'rate-script', { rating: 1, type: 'flower', total: adjustAndClampRating( 1 ) })
                                 }}
@@ -80,18 +99,20 @@ function StatePlay(){
                     <h1 className="section-title">Se non ti piace</h1>
                     <div className="feedback-interface-buttons">
                         <div className='feedback-interface-cell'>
-                            <RateLimitedFeedbackButton 
+                            <RateAndPressLimitedFeedbackButton 
                                 imgsrc={img_btn_tomati}
                                 maxRate={BTN_RATE_LIMIT}
+                                maxPress={BTN_AMMO_LIMIT}
                                 onClick={() => {
                                     socket.emit( 'rate-script', { rating: -1, type: 'tomati', total: adjustAndClampRating( -1 ) });
                                 }}
                             />
                         </div>
                         <div className='feedback-interface-cell'>
-                            <RateLimitedFeedbackButton 
+                            <RateAndPressLimitedFeedbackButton 
                                 imgsrc={img_btn_egg}
                                 maxRate={BTN_RATE_LIMIT}
+                                maxPress={BTN_AMMO_LIMIT}
                                 onClick={() => {
                                     socket.emit( 'rate-script', { rating: -1, type: 'egg', total: adjustAndClampRating( -1 ) })
                                 }}
