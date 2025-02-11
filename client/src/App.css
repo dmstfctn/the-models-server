@@ -160,7 +160,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     background: #5a5741;
   }
   50%{
-    background: #86815e;
+    background: #cbc48d;
   }
   100%{
     background: #5a5741;
@@ -180,7 +180,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   display: flex;      
   flex-direction: column;
   justify-content: center;
-  animation: loop-flash infinite 2s;
+  animation: loop-flash infinite 1.5s;
 }
   .next-scene-info .where{
     text-transform: uppercase;
