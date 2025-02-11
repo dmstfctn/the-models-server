@@ -5,6 +5,7 @@ import WrapperForStates from './WrapperForStates.js';
 
 import PlayInterface from './PlayInterface.js';
 import { GameContext } from '../contexts/GameContext.js';
+import StateStandby from './StateStandby.js';
 
 function StateAcceptInput({ queue }) {
   //console.log(useContext(GameContext));
@@ -45,7 +46,7 @@ function StateAcceptInput({ queue }) {
             }}
           /> 
         : 
-          '' 
+          '' /* could put state standby here?? */
       }
     </section>
   </WrapperForStates>

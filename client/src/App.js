@@ -9,6 +9,7 @@ import StateIdle from './components/StateIdle.js';
 import StateAcceptInput from './components/StateAcceptInput.js';
 import StatePlay from './components/StatePlay.js';
 import StateRestart from './components/StateRestart.js';
+import StateStandby from './components/StateStandby.js';
 
 import Timer from './components/Timer.js';
 import { GameContext, queueDefault } from './contexts/GameContext.js';
@@ -147,9 +148,16 @@ function App() {
 
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
       { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
+      {/* { ( metaState === STATES.ConstructStage 
+          || metaState === STATES.InstructCharacters  
+        ) 
+          ? <StateStandby />
+          : ''
+      } */}
       { ( metaState === STATES.Play 
           || metaState === STATES.Conclude 
           || metaState === STATES.BadEnding
+          || metaState === STATES.Emergency
         )
           ? <StatePlay /> 
           : '' 

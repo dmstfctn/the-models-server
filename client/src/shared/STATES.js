@@ -6,7 +6,8 @@ const STATES = {
     'Play': 40,
     'Conclude': 50,
     'Restart': 60,
-    'BadEnding': 70
+    'BadEnding': 70,
+    'Emergency': 80
 }
 
 export default STATES;
