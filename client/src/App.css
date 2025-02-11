@@ -10,6 +10,10 @@
   --btn-height: 5rem;
   --row-height: 12.5dvh;
   --grid-pad: 0.5dvh;
+  --clr-bright: #aaa378;
+  --clr-light: #504d3a;
+  --clr-mid: #393625;
+
 }
 
 button{
@@ -115,7 +119,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 }
   .timer--value{
     font-family: 1.3em;
-    color: #aaa378;
+    color: var(--clr-bright);
   }
 
 
@@ -129,7 +133,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 }
 
 .button{
-  background: #44412e;
+  background: var(--clr-mid);
   color: #000000;
   width: 100%;
   border: none;
@@ -160,7 +164,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     background: #5a5741;
   }
   50%{
-    background: #86815e;
+    background: #cbc48d;
   }
   100%{
     background: #5a5741;
@@ -180,7 +184,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   display: flex;      
   flex-direction: column;
   justify-content: center;
-  animation: loop-flash infinite 2s;
+  animation: loop-flash infinite 1.5s;
 }
   .next-scene-info .where{
     text-transform: uppercase;
@@ -202,7 +206,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
           font-size: inherit;        
           text-align: center;
           width: 100%;
-          background: #393625;
+          background: var(--clr-light);
           height: calc( var(--row-height) / 5 );
           line-height: calc( var(--row-height) / 5 );
           margin: 0;
@@ -273,7 +277,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   height: 100%;
 }
   .feedback-interface-meta{
-    background-color: #393625;
+    background-color: var(--clr-light);
     /* background-image: url('./images/bar-rating.png'); */
     background-size: contain;
     background-repeat: no-repeat;
@@ -284,7 +288,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   }
     .feedback-interface-meta:before,
     .feedback-interface-meta:after{
-      background-color: #393625;
+      background-color: var(--clr-light);
       display: block;
       content: '';
       position: absolute;     
