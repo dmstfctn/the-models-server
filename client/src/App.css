@@ -277,7 +277,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   height: 100%;
 }
   .feedback-interface-meta{
-    background-color: var(--clr-mid);
+    background-color: var(--clr-light);
     /* background-image: url('./images/bar-rating.png'); */
     background-size: contain;
     background-repeat: no-repeat;
@@ -288,7 +288,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   }
     .feedback-interface-meta:before,
     .feedback-interface-meta:after{
-      background-color: var(--clr-mid);
+      background-color: var(--clr-light);
       display: block;
       content: '';
       position: absolute;     
