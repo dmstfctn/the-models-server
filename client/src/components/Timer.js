@@ -1,6 +1,9 @@
 import React from 'react';
 
 
+import { getTxt, T } from '../translation.js';
+
+
 function Timer({name, value, total}){
     return <div 
         className="timer"
@@ -8,7 +11,7 @@ function Timer({name, value, total}){
             opacity: (value <= 0) ? 0 : 1 
         }}
     >
-        <div>Hai <span className="timer--value">{value}</span> secondi per comporre la scena.</div>
+        <div>{getTxt(T.TIMENEXT1)} <span className="timer--value">{value}</span> {getTxt(T.TIMENEXT2)}</div>
     </div>
 }
 

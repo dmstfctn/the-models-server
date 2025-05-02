@@ -14,6 +14,9 @@ import StateStandby from './components/StateStandby.js';
 import Timer from './components/Timer.js';
 import { GameContext, queueDefault } from './contexts/GameContext.js';
 
+import { getTxt, T, setLang } from './translation.js';
+setLang('es');
+
 function App() {
   const [isSocketConnected, setIsSocketConnected] = useState(socket.connected);
   const [queueInfo, setQueueInfo] = useState( queueDefault );
@@ -120,7 +123,7 @@ function App() {
         {(!isInLobby) 
           ? <div>
             {queueInfo.isQueued 
-              ? `Tra ${ Math.floor(queueInfo.position / 3) + 1} sketch potrai comporre la scena` 
+              ? `${getTxt(T.QINFO1)} ${ Math.floor(queueInfo.position / 3) + 1} ${getTxt(T.QINFO2)}` 
               : ``
             }
           </div> 
@@ -128,18 +131,37 @@ function App() {
             ? <div>...</div> 
             : '' 
         }
-        {(backdrop && metaState === STATES.AcceptInput) ? <div className="next-scene-info">La prossima scena si svolge <span className="where">{backdrop.phoneCategoryIt}</span>.</div> : ''} 
+        {(backdrop && metaState === STATES.AcceptInput) 
+          ? <div className="next-scene-info">
+              {getTxt(T.NEXTSCENE)}<span className="where">{backdrop.phoneCategoryIt}</span>.
+            </div> 
+          : ''
+        } 
         { (isInLobby && timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
       </aside>
 
       {( !queueInfo.isQueued && !isInLobby ) 
         ? <section className='app-join'>
-            <button 
-              className="button button--join"
-              onClick={() => { socket.emit( 'ready-to-play' )}}
-            >
-              PARTECIPA
-            </button> 
+            <div className='join-buttons'>
+              <button 
+                className="button "
+                onClick={() => { 
+                  setLang( 'es' );
+                  socket.emit( 'ready-to-play' )
+                }}
+              >
+                {getTxt(T.START, 'es')}
+              </button> 
+              <button 
+                className="button button--join"
+                onClick={() => { 
+                  setLang( 'en' );
+                  socket.emit( 'ready-to-play' )
+                }}
+              >
+                {getTxt(T.START, 'en')}
+              </button> 
+            </div>
           </section>
         : '' 
       }

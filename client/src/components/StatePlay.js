@@ -4,10 +4,7 @@ import { socket } from '../socket.js';
 import WrapperForStates from './WrapperForStates.js';
 import { GameContext } from '../contexts/GameContext.js';
 
-import img_btn_coin from '../images/button-coin.png';
-import img_btn_flower from '../images/button-flower.png';
-import img_btn_tomati from '../images/button-tomati.png';
-import img_btn_egg from '../images/button-egg.png';
+import { getTxt, getImg, T, I } from '../translation.js';
 
 import { RATING_MAX, RATING_MIN, NEGATIVE_SENTIMENT_THRESHOLD, AMMO_COUNT } from '../shared/Sentiment.js';
 
@@ -72,11 +69,11 @@ function StatePlay(){
         <section className="app-interface">
             <div className="feedback-interface">
                 <div>
-                    <h1 className="section-title">{`${(queueInfo.isQueued) ? `Nel frattempo.. s` : `S`}e ti piace la scena`}</h1>
+                    <h1 className="section-title">{(queueInfo.isQueued) ? getTxt(T.IFLIKEQUEUED) : getTxt(T.IFLIKEOWN)}</h1>
                     <div className="feedback-interface-buttons">                    
                         <div className='feedback-interface-cell'>
                             <RateAndPressLimitedFeedbackButton 
-                                imgsrc={img_btn_coin}
+                                imgsrc={getImg( I.button_coin )}
                                 maxRate={BTN_RATE_LIMIT}
                                 maxPress={AMMO_COUNT}
                                 onClick={() => {
@@ -86,7 +83,7 @@ function StatePlay(){
                         </div>
                         <div className='feedback-interface-cell'>
                             <RateAndPressLimitedFeedbackButton 
-                                imgsrc={img_btn_flower}
+                                imgsrc={getImg( I.button_flower )}
                                 maxRate={BTN_RATE_LIMIT}
                                 maxPress={AMMO_COUNT}
                                 onClick={() => {
@@ -95,11 +92,13 @@ function StatePlay(){
                             />
                         </div>
                     </div>
-                    <h1 className="section-title">Se non ti piace</h1>
+                    <h1 className="section-title">
+                        {getTxt( T.IFNOTLIKE )}
+                    </h1>
                     <div className="feedback-interface-buttons">
                         <div className='feedback-interface-cell'>
                             <RateAndPressLimitedFeedbackButton 
-                                imgsrc={img_btn_tomati}
+                                imgsrc={getImg( I.button_tomati )}
                                 maxRate={BTN_RATE_LIMIT}
                                 maxPress={AMMO_COUNT}
                                 onClick={() => {
@@ -109,7 +108,7 @@ function StatePlay(){
                         </div>
                         <div className='feedback-interface-cell'>
                             <RateAndPressLimitedFeedbackButton 
-                                imgsrc={img_btn_egg}
+                                imgsrc={getImg( I.button_egg )}
                                 maxRate={BTN_RATE_LIMIT}
                                 maxPress={AMMO_COUNT}
                                 onClick={() => {
@@ -138,7 +137,7 @@ function StatePlay(){
                             paddingBottom: "8px"
                         }}
                     >
-                        Se la scena non piace verrá interrotta
+                        {getTxt(T.DISLIKEINFO)}
                     </div>
                 </div>
             </div>
