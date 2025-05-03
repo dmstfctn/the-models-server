@@ -1,3 +1,5 @@
+import{ createInterface } from 'node:readline';
+
 import unreal from './modules/unreal.js';
 import io from './modules/io.js';
 
@@ -279,8 +281,9 @@ io.of('/audience').on('connection', (socket) => {
 
 //send choices to unreal
 //
+let globalState = STATES.Idle;
 
-unreal.on('send-state', ( state ) => {
+const sendState = ( state ) => {
   console.log('Unreal on send-state, send ', state, 'to player manager. State name = ', STATES_getName( state ) );
   console.log( `LOBBY: ${lobby.map(p=>p.id).join(', ')} / QUEUE: ${queue.map(p=>p.id).join(', ')} / LIST: : ${list.map(p=>p.id).join(', ')}`)
 
@@ -296,19 +299,88 @@ unreal.on('send-state', ( state ) => {
     player.setMetaState( state );
     player.sendSetBackdrop( nextChoices[ROLES.BACKDROP] );
   });
-});
+};
 
-
-unreal.on('countdown-update', ( timer ) => {
+const countdownUpdate = ( timer ) => {
   list.forEach( ( player ) => {
     player.sendUpdateTimer( 'time remaining', timer.remaining, timer.duration );
   });
   // if( timer.remaining <= 0 ){
   //   // pick something and run it?? only if ppl are picking tho??
   // }
-});
+};
 
-unreal.on('countdown-end', () => {
+const countdownEnd = () => {
   //send or randomise choices    
   unreal.sendLoadAndBeginScript( validateOrRandomiseLobby() );
+}
+
+unreal.on('send-state', sendState );
+unreal.on('countdown-update', countdownUpdate );
+unreal.on('countdown-end', countdownEnd );
+
+
+
+const rl = createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: 'CMD> ',
+});
+
+rl.prompt();
+
+rl.on('line', (line) => {
+  switch (line.trim()) {
+    case 'stateIdle':
+      sendState(STATES.Idle);
+      break;
+    case 'stateAcceptInput':
+      sendState(STATES.AcceptInput);
+      break;
+    case 'stateConstructStage':
+      sendState(STATES.ConstructStage);
+      break;
+    case 'stateInstructCharacters':
+      sendState(STATES.InstructCharacters);
+      break;
+    case 'statePlay':
+      sendState(STATES.Play);
+      break;
+    case 'stateConclude':
+      sendState(STATES.Conclude);
+      break;
+    case 'stateRestart':
+      sendState(STATES.Restart);
+      break;
+    case 'stateBadEnding':
+      sendState(STATES.BadEnding);
+      break;
+    case 'stateEmergency':
+      sendState(STATES.Emergency);
+      break;
+    case 'countdownEnd':
+      countdownEnd();
+      break;
+    default:
+      console.log( `
+================
+How to:    
+================
+
+state<StateName>
+-----------------
+Write stateStateName to toggle Unreal state. E.g. stateBadEnding will trigger BadEnding state.
+All options:
+${'\tstate' + Object.keys( STATES ).join( '\n\tstate' )}
+
+countdownEnd
+------------
+As if the countdown in unreal has ended. Triggers randomisation of choices.
+`);
+      break;
+  }
+  rl.prompt();
+}).on('close', () => {
+  console.log('Have a great day!');
+  process.exit(0);
 });
