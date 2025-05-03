@@ -329,5 +329,7 @@ const images = {
 export const getImg = ( ENUM, languageoverride = false ) => {
     const lang = (languageoverride) ? languageoverride : LANG;
     if( !images[ENUM] ) return '';
-    return ( images[ENUM][lang] ) ? images[ENUM[lang]] : (images[ENUM].en) ? (images[ENUM].en) : '';
+    return ( images[ENUM][lang] ) ? images[ENUM][lang] : (images[ENUM].en) ? (images[ENUM].en) : '';
 }
+
+window.getImg = getImg;
