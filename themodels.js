@@ -248,10 +248,16 @@ io.of('/audience').on('connection', (socket) => {
 
   player.on( 'ready-to-play', () => {
     console.log( `player ${player.id} ready to play`)
-    if( lobby.length <= 0 && unreal.engineState === STATES.AcceptInput ){
+    if( lobby.length <= 0 ){
       console.log('lobby empty, add there')
-      addPlayerToLobby( player );
-      beginGame();
+      if( unreal.engineState === STATES.AcceptInput ){        
+        addPlayerToLobby( player );
+        console.log( 'player added to lobby, beginning game' );
+        beginGame();
+      } else {
+        console.log( 'unreal not ready, wait in queue' )
+        addPlayerToQueue( player );
+      }
     } else {
       console.log( 'lobby exists, wait in queue' )
       addPlayerToQueue( player );
