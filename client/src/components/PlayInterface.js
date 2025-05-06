@@ -92,7 +92,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
     const [isChoiceComplete, setIsChoiceComplete] = useState( false );
 
     useEffect(() => {
-        if( Object.keys( choices ).length === roles.length ){
+        if( Object.keys( choices ).length === roles.length && !isChoiceComplete){
             setIsChoiceComplete( true );
             console.log('Choices complete');
             for( let i in choices ){
@@ -100,7 +100,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
             }
             onComplete( choices );
         }
-    })
+    }, [choices])
 
     return <>
         <article className={`play-interface${(!active) ? ' disabled' : ''}`}>

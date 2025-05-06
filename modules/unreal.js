@@ -47,7 +47,7 @@ class Unreal extends EventEmitter{
     const propChoice = choices.find( (other) => other.role === ROLES.PROP ).choice;
     const backdropChoice = choices.find( (other) => other.role === ROLES.BACKDROP ).choice;
 
-    console.log( mask1Choice, mask2Choice );
+    //console.log( mask1Choice, mask2Choice );
 
     let masks = []
 
