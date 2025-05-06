@@ -105,6 +105,7 @@ export const T = {
     IFLIKEQUEUED: 11,
     IFLIKEOWN: 12,
     IFNOTLIKE: 13,
+    STANDBY: 14
 }
 
 export const texts = {
@@ -177,6 +178,11 @@ export const texts = {
         'en': 'If you don\'t',
         'it': 'Se non ti piace',
         'es': ''
+    },
+    [T.STANDBY]: {
+        'en': 'Next sketch begins soon. Once the masks are playing you will be able to give them feedback...',
+        'it': '(ITALIAN) Next sketch begins soon. Once the masks are playing you will be able to give them feedback...',
+        'es': '(SPANISH) Next sketch begins soon. Once the masks are playing you will be able to give them feedback...'
     }
 }
 

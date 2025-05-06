@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import WrapperForStates from './WrapperForStates.js';
+import { getTxt, T } from '../translation.js';
 
 function StateStandby(){
     return <WrapperForStates>
         <section className="app-standby">
             <div>
-                Stand by. Once the next sketch begins, you will be able to give feedback to the masks.
+                {getTxt( T.STANDBY )}
             </div>
         </section>
     </WrapperForStates>

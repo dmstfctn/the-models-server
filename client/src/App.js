@@ -134,7 +134,7 @@ function App() {
         {(backdrop && metaState === STATES.AcceptInput) 
           ? <div className="next-scene-info">
               {getTxt(T.NEXTSCENE)}<span className="where">{backdrop.phoneCategoryIt}</span>.
-            </div> 
+            </div>
           : ''
         } 
         { (isInLobby && timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
@@ -170,12 +170,12 @@ function App() {
 
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
       { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
-      {/* { ( metaState === STATES.ConstructStage 
+      { ( metaState === STATES.ConstructStage 
           || metaState === STATES.InstructCharacters  
         ) 
           ? <StateStandby />
           : ''
-      } */}
+      }
       { ( metaState === STATES.Play 
           || metaState === STATES.Conclude 
           || metaState === STATES.BadEnding
