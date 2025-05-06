@@ -9,45 +9,55 @@ import ROLES from '../shared/ROLES.js';
 import PROPS from '../shared/PROPS.js';
 
 
-function SelectTendencyInterface({ title, active, layer=0, onSelect=()=>{} }){
+function SelectTendencyInterface({ title, active, layer=0, reverse=false, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
+
+    let interfaceEles = TENDENCIES.map( ( tendency, i ) => {
+        return <div 
+            className={`select-option${tendency.name === selected?.name ? ' selected' : '' }`}
+            key={tendency.name}
+            onClick={()=>{
+                setSelected( tendency );
+                onSelect( tendency );
+            }}
+        >
+            <img src={getImg( I[tendency.name] )} />
+        </div>
+    })
+
+    if( reverse ) interfaceEles = interfaceEles.reverse();
+
     return <section className='select-section' style={{zIndex: layer}}>
         <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? 'disabled' : ''}`}> 
-            {TENDENCIES.map( ( tendency, i ) => {
-                return <div 
-                    className={`select-option${tendency.name === selected?.name ? ' selected' : '' }`}
-                    key={tendency.name}
-                    onClick={()=>{
-                        setSelected( tendency );
-                        onSelect( tendency );
-                    }}
-                >
-                    <img src={getImg( I[tendency.name] )} />
-                </div>
-            })}
+            { interfaceEles }
         </div>
     </section>
 }
 
-function SelectCharacterInterface({title, active, layer=0, onSelect=()=>{} }){
+function SelectCharacterInterface({title, active, layer=0, reverse=false, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
+
+    let interfaceEles = CHARACTERS.map( ( character, i ) => {
+        return <div 
+            className={`select-option${character.name === selected?.name ? ' selected' : '' }`}
+            key={character.name}
+            onClick={()=>{
+                setSelected( character );
+                onSelect( character );
+            }}
+        >
+            <div><strong>{character.name}</strong></div>
+            <div>{character.tendency}</div>
+        </div>
+    });
+    
+    if( reverse ) interfaceEles = interfaceEles.reverse();
+
     return <section className='select-section' style={{zIndex: layer}}>
         <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? ' disabled' : ''}`}>         
-            {CHARACTERS.map( ( character, i ) => {
-                return <div 
-                    className={`select-option${character.name === selected?.name ? ' selected' : '' }`}
-                    key={character.name}
-                    onClick={()=>{
-                        setSelected( character );
-                        onSelect( character );
-                    }}
-                >
-                    <div><strong>{character.name}</strong></div>
-                    <div>{character.tendency}</div>
-                </div>
-            })}
+            { interfaceEles }
         </div>
     </section>
 }
@@ -117,6 +127,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                 title={(shouldSelectMask1) ? `${getTxt(T.SELECTANOTHERAI)}:` : `${getTxt(T.SELECTAI)}:` }
                 active={ shouldSelectMask2 }
                 layer={2}
+                reverse={true}
                 onSelect={ ( tendency ) => {
                     const c = {}
                     for( let i in choices ){
