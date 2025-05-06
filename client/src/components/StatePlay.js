@@ -121,6 +121,9 @@ function StatePlay(){
                 <div>
                     {/* <h1 className="section-title">Il tuo voto:</h1> */}
                     <div className='feedback-interface-meta'>
+                        <span className="label label__l">
+                            {getTxt( T.DISLIKELABEL )}
+                        </span>
                         <div className="negative-region" style={{width: ratingToPercent( NEGATIVE_SENTIMENT_THRESHOLD) + '%'}}></div>
                         <div className="indicator-track">
                             <div 
@@ -130,6 +133,9 @@ function StatePlay(){
                                 }}
                             ></div>
                         </div>
+                        <span className="label label__r">
+                            {getTxt( T.LIKELABEL )}
+                        </span>
                     </div>
                     <div 
                         className="section-title"

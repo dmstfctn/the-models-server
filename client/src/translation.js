@@ -105,7 +105,9 @@ export const T = {
     IFLIKEQUEUED: 11,
     IFLIKEOWN: 12,
     IFNOTLIKE: 13,
-    STANDBY: 14
+    STANDBY: 14,
+    LIKELABEL: 15,
+    DISLIKELABEL: 16
 }
 
 export const texts = {
@@ -175,8 +177,18 @@ export const texts = {
         'es': ''            
     },
     [T.IFNOTLIKE]: {
-        'en': 'If you don\'t',
+        'en': 'or, if you don\'t',
         'it': 'Se non ti piace',
+        'es': ''
+    },
+    [T.LIKELABEL]: {
+        'en': 'you like',
+        'it': 'ti piace',
+        'es': ''
+    },
+    [T.DISLIKELABEL]: {
+        'en': 'you dislike',
+        'it': 'non ti piace',
         'es': ''
     },
     [T.STANDBY]: {

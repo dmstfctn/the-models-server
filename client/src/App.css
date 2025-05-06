@@ -324,8 +324,8 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     position: relative;
     overflow: hidden;
   }
-    .feedback-interface-meta:before,
-    .feedback-interface-meta:after{
+    .feedback-interface-meta .label,
+    .feedback-interface-meta .label{
       background-color: var(--clr-light);
       display: block;
       content: '';
@@ -336,12 +336,12 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
       white-space: nowrap;
       z-index: 10;
     }
-    .feedback-interface-meta:before{
+    .feedback-interface-meta .label__l{
       left: 0.7rem;
       content: 'non ti piace';
       padding-right: .4em;
     }
-    .feedback-interface-meta:after{
+    .feedback-interface-meta .label__r{
       right: 0.7rem;
       content: 'ti piace';
       padding-left: .4em;
