@@ -328,6 +328,13 @@ const countdownHalf = () => {
   });
 };
 
+const countdownClear = () => {
+  countdownUpdate({
+    remaining: -1,
+    duration: 60
+  });
+};
+
 const countdownEnd = () => {
   //send or randomise choices    
   unreal.sendLoadAndBeginScript( validateOrRandomiseLobby() );
@@ -394,7 +401,8 @@ rl.on('line', (line) => {
       countdownHalf();
       break
     case 'countdownEnd':
-      countdownEnd();
+      countdownClear();
+      countdownEnd();      
       break;
     case 'printQueue':
       printArray( queue, 'QUEUE:' );
