@@ -4,6 +4,9 @@ import EventEmitter from 'events';
 import STATES from '../client/src/shared/STATES.js';
 
 let counter = 0;
+//const PLAYER_LIFESPAN = 10000;
+const PLAYER_LIFESPAN = 60000 * 30;
+
 
 class Player extends EventEmitter {
   socket;
@@ -15,6 +18,7 @@ class Player extends EventEmitter {
   complete = false;
   metaState = STATES.Idle;
   sentiment = 0;
+  lifeTimeout = false;
   constructor( socket ){
     super();
     this.id = counter;
@@ -42,16 +46,33 @@ class Player extends EventEmitter {
     this.complete = false;
   }
 
+  keepAlive(){
+    clearInterval( this.lifeTimeout );
+    this.lifeTimeout = setTimeout( () => {
+      this.socket.emit( 'check-alive' );
+      this.lifeTimeout = setTimeout( () => {
+        console.log( 'Player ' + this.id + ' dead.' );
+        this.socket.emit( 'dead' );
+        this.emit('disconnect');
+      });
+    }, PLAYER_LIFESPAN );
+  }
+
   setupEvents(){
     this.socket.on( 'ready-to-play', () => {
-      this.setReadyToPlay();  
+      this.setReadyToPlay();
+      this.keepAlive();
     });
+    this.socket.on( 'keep-alive', () => {
+      this.keepAlive();
+    })
     this.socket.on( 'disconnect', () => {
       this.emit( 'disconnect' );
     });
     this.socket.on( 'decision', ({ role, choice }) => {
       this.chooseForRole( role, choice );
       this.emit( 'decision' );
+      this.keepAlive();
     });
     this.socket.on('choices-complete', (choices) => {
       console.log('PLAYER CHOICES COMPLETE')
@@ -59,11 +80,13 @@ class Player extends EventEmitter {
         this.chooseForRole( role, choices[role] );
       }
       this.sendChoicesComplete();
+      this.keepAlive();
     });
     this.socket.on( 'rate-script', ( rating ) => {
       this.sentiment = rating.total;
       console.log('emit: rate-script, rating=', rating )
       this.emit( 'rate-script', rating )
+      this.keepAlive();
     })
   }
 

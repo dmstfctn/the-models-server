@@ -83,6 +83,10 @@ function App() {
       setRoles(roles);
       setIsInLobby( true );
     }
+
+    function onDead(){
+      window.location.reload();
+    }
     
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
@@ -92,6 +96,7 @@ function App() {
     socket.on('set-backdrop', onSetBackdrop);    
     socket.on('config', onConfig);  
     socket.on('begin-game', onBeginGame);  
+    socket.on('dead', onDead);
         
     return () => {
       socket.off('connect', onConnect);
@@ -102,6 +107,7 @@ function App() {
       socket.off('set-backdrop', onSetBackdrop); 
       socket.off('config', onConfig); 
       socket.off('begin-game', onBeginGame);
+      socket.off('dead', onDead);
     };
   }, []);
 

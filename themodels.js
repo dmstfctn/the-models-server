@@ -35,8 +35,17 @@ const removePlayerFromArray = function( player, array ){
 const checkIfNoPlayersLeft = function(){
   if( list.length <= 0 ){
     //ensure empty queue
-
+    if( queue.length > 0 ){
+      queue.forEach(( player ) => {
+        removePlayerFromArray( player, queue );
+      });
+    }
     //ensure empty lobby
+    if( lobby.length > 0 ){
+      lobby.forEach(( player ) => {
+        removePlayerFromArray( player, lobby );
+      });
+    }
   }
 }
 
