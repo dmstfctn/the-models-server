@@ -9,9 +9,9 @@ import ROLES from '../shared/ROLES.js';
 import PROPS from '../shared/PROPS.js';
 
 
-function SelectTendencyInterface({ title, active, onSelect=()=>{} }){
+function SelectTendencyInterface({ title, active, layer=0, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section className='select-section'>
+    return <section className='select-section' style={{zIndex: layer}}>
         <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? 'disabled' : ''}`}> 
             {TENDENCIES.map( ( tendency, i ) => {
@@ -30,9 +30,9 @@ function SelectTendencyInterface({ title, active, onSelect=()=>{} }){
     </section>
 }
 
-function SelectCharacterInterface({title, active, onSelect=()=>{} }){
+function SelectCharacterInterface({title, active, layer=0, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section className='select-section'>
+    return <section className='select-section' style={{zIndex: layer}}>
         <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? ' disabled' : ''}`}>         
             {CHARACTERS.map( ( character, i ) => {
@@ -52,9 +52,9 @@ function SelectCharacterInterface({title, active, onSelect=()=>{} }){
     </section>
 }
 
-function SelectPropInterface({title, active, onSelect=()=>{} }){
+function SelectPropInterface({title, active, layer=0, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section className='select-section'>
+    return <section className='select-section' style={{zIndex: layer}}>
         <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__prop ${(!active) ? 'disabled' : ''}`}>
             {PROPS.map( ( prop, i ) => {
@@ -78,12 +78,17 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
     const shouldSelectMask1 = !!roles.find( (r) => r.role === ROLES.MASK1 );
     const shouldSelectProp = !!roles.find( (r) => r.role === ROLES.PROP );
     const shouldSelectMask2 = !!roles.find( (r) => r.role === ROLES.MASK2 );
-    const [choices, setChoices] = useState({})
+    const [choices, setChoices] = useState({});
     const [isChoiceComplete, setIsChoiceComplete] = useState( false );
 
     useEffect(() => {
         if( Object.keys( choices ).length === roles.length ){
             setIsChoiceComplete( true );
+            console.log('Choices complete');
+            for( let i in choices ){
+                onSelect( parseInt(i), choices[i] )
+            }
+            onComplete( choices );
         }
     })
 
@@ -95,21 +100,23 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     onSelect( ROLES.MASK1, character )
                 }}
             /> */}
-            { shouldSelectMask1 ? <SelectTendencyInterface 
+            { shouldSelectMask1 && !choices[ROLES.MASK1] ? <SelectTendencyInterface 
                 active={ shouldSelectMask1 }
                 title={`${getTxt(T.SELECTAI)}:`}
+                layer={3}
                 onSelect={ ( tendency ) => {
                     const c = {}
                     for( let i in choices ){
                         c[i] = choices[i]
                     }
                     c[ROLES.MASK1] = tendency;
-                    setChoices( c );                  
+                    setChoices( c );
                 }}
             /> : '' }
-            { shouldSelectMask2 ? <SelectTendencyInterface 
+            { shouldSelectMask2  && !choices[ROLES.MASK2] ? <SelectTendencyInterface 
                 title={(shouldSelectMask1) ? `${getTxt(T.SELECTANOTHERAI)}:` : `${getTxt(T.SELECTAI)}:` }
                 active={ shouldSelectMask2 }
+                layer={2}
                 onSelect={ ( tendency ) => {
                     const c = {}
                     for( let i in choices ){
@@ -119,16 +126,17 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     setChoices( c );
                 }}
             /> : '' }
-            { shouldSelectProp ? <SelectPropInterface 
+            { shouldSelectProp && !choices[ROLES.PROP] ? <SelectPropInterface 
                 active={ shouldSelectProp }
                 title={`${getTxt(T.SELECTPROP)}:`}
+                layer={1}
                 onSelect={ ( prop ) => {
                     const c = {}
                     for( let i in choices ){
                         c[i] = choices[i]
                     }
                     c[ROLES.PROP] = prop;
-                    setChoices( c );
+                    setChoices( c );                    
                 }}
             /> : '' }
             {/* <SelectCharacterInterface 
@@ -145,6 +153,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     for( let i in choices ){
                         onSelect( parseInt(i), choices[i] )
                     }
+
                     onComplete( choices );
                 }}
             >
