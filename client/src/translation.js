@@ -180,9 +180,9 @@ export const texts = {
         'es': ''
     },
     [T.STANDBY]: {
-        'en': 'Next sketch begins soon. Once the masks are playing you will be able to give them feedback...',
-        'it': '(ITALIAN) Next sketch begins soon. Once the masks are playing you will be able to give them feedback...',
-        'es': '(SPANISH) Next sketch begins soon. Once the masks are playing you will be able to give them feedback...'
+        'en': 'Once the next scene begins you will be able to give the masks feedback.',
+        'it': '(ITALIAN) Once the next scene begins you will be able to give the masks feedback.',
+        'es': '(SPANISH) Once the next scene begins you will be able to give the masks feedback.'
     }
 }
 

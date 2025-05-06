@@ -321,6 +321,13 @@ const countdownUpdate = ( timer ) => {
   // }
 };
 
+const countdownHalf = () => {
+  countdownUpdate({
+    remaining: 30,
+    duration: 60
+  });
+};
+
 const countdownEnd = () => {
   //send or randomise choices    
   unreal.sendLoadAndBeginScript( validateOrRandomiseLobby() );
@@ -383,6 +390,9 @@ rl.on('line', (line) => {
       unreal.engineState = STATES.Emergency;
       sendState(STATES.Emergency);
       break;
+    case 'countdownHalf':
+      countdownHalf();
+      break
     case 'countdownEnd':
       countdownEnd();
       break;

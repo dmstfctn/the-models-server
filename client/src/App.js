@@ -126,18 +126,21 @@ function App() {
               ? `${getTxt(T.QINFO1)} ${ Math.floor(queueInfo.position / 3) + 1} ${getTxt(T.QINFO2)}` 
               : ``
             }
-          </div> 
+            </div> 
           : ( !timer && metaState !== STATES.AcceptInput ) 
             ? <div>...</div> 
             : '' 
         }
-        {(backdrop && metaState === STATES.AcceptInput) 
+        {(isInLobby && backdrop && metaState === STATES.AcceptInput) 
           ? <div className="next-scene-info">
-              {getTxt(T.NEXTSCENE)}<span className="where">{backdrop.phoneCategoryIt}</span>.
+              {getTxt(T.NEXTSCENE)} <span className="where">{backdrop.phoneCategoryIt}</span>.
             </div>
           : ''
         } 
-        { (isInLobby && timer && timer.value >= 0) ? <Timer name={timer.name} value={timer.value} total={timer.total}/> : ''}
+        { (isInLobby && timer && timer.value >= 0) 
+          ? <Timer name={timer.name} value={timer.value} total={timer.total}/> 
+          : ''
+        }
       </aside>
 
       {( !queueInfo.isQueued && !isInLobby ) 
@@ -169,7 +172,12 @@ function App() {
       
 
       { (metaState === STATES.Idle) ? <StateIdle /> : '' }
-      { (metaState === STATES.AcceptInput) ? <StateAcceptInput /> : '' }
+      { (metaState === STATES.AcceptInput) 
+          ? 
+            ( isInLobby ) 
+              ? <StateAcceptInput />
+              : <StateStandby />
+          : '' }
       { ( metaState === STATES.ConstructStage 
           || metaState === STATES.InstructCharacters  
         ) 
