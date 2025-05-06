@@ -10,6 +10,7 @@
   --btn-height: 5rem;
   --row-height: 12.5dvh;
   --grid-pad: 0.5dvh;
+  --clr-brighter: #cbc48d;
   --clr-bright: #aaa378;
   --clr-light: #504d3a;
   --clr-mid: #393625;
@@ -193,15 +194,15 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   line-height: 1.2;
   text-align: center;
   z-index: 1;
-  height: calc( var(--row-height) );
+  height: calc( var(--row-height) * 0.8 );
   overflow: hidden;
-  background: #504d3a;
+  background: var(--clr-brighter);
   color: #000000;
   box-sizing: border-box;
   display: flex;      
   flex-direction: column;
   justify-content: center;
-  animation: loop-flash infinite 1.5s;
+  //animation: loop-flash infinite 1.5s;
 }
   .next-scene-info .where{
     text-transform: uppercase;
