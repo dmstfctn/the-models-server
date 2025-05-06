@@ -64,7 +64,7 @@ html, body{
   height: 100%; 
   overflow: hidden;
   font-family: NeueHammerUnzialeStd, serif;
-  font-size: 3.3vw;
+  font-size: 4vw;
 }
   @media (min-aspect-ratio: 1/1){
     html, body{
@@ -189,11 +189,11 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
 }
 
 .app-meta{
-  padding: 0 0.3rem;
-  line-height: calc( var(--row-height) / 6 );
+  padding: 0 0.6rem;
+  line-height: 1.2;
   text-align: center;
   z-index: 1;
-  height: calc( var(--row-height) / 2 );
+  height: calc( var(--row-height) );
   overflow: hidden;
   background: #504d3a;
   color: #000000;
@@ -229,8 +229,8 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
           text-align: center;
           width: 100%;
           background: var(--clr-light);
-          height: calc( var(--row-height) / 5 );
-          line-height: calc( var(--row-height) / 5 );
+          height: calc( var(--row-height) / 2 );
+          line-height: calc( var(--row-height) / 2 );
           margin: 0;
       }   
 

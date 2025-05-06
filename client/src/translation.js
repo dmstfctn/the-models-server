@@ -119,12 +119,12 @@ export const texts = {
         'es': 'participa'
     },
     [T.QINFO1]: {
-        'en': 'In',
+        'en': 'You are in the queue. You will be able to compose the scene in',
         'it': 'Tra',
         'es': ''
     },
     [T.QINFO2]: {
-        'en': 'sketch(es) you can compose the scene',
+        'en': 'scene\'s time.',
         'it': 'sketch potrai comporre la scena',
         'es': ''
     },
