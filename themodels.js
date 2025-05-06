@@ -238,12 +238,15 @@ io.of('/audience').on('connection', (socket) => {
   addPlayerToList( player );
 
   player.on('disconnect', () => {
+    console.log(`Player ${player.id} disconnected. Remove from lobby, queue, list.`)
     removePlayerFromArray( player, lobby );
     removePlayerFromArray( player, queue );
     removePlayerFromArray( player, list );    
-    
+    console.log('check if lobby empty');
     checkIfLobbyEmptyButInputIsAccepted();
+    console.log('check if no players left');
     checkIfNoPlayersLeft(); 
+    console.log( `Player ${player.id} cleaned up.`)
   });
 
   player.on( 'ready-to-play', () => {
@@ -325,7 +328,12 @@ unreal.on('send-state', sendState );
 unreal.on('countdown-update', countdownUpdate );
 unreal.on('countdown-end', countdownEnd );
 
-
+const printArray = ( arr, label = 'ARRAY:' ) => {
+  console.log( '------------')
+  console.log( label )      
+  console.log( '-' + queue.map( p=>p.id).join('\n-') );
+  console.log( '------------')  
+}
 
 const rl = createInterface({
   input: process.stdin,
@@ -366,6 +374,15 @@ rl.on('line', (line) => {
       break;
     case 'countdownEnd':
       countdownEnd();
+      break;
+    case 'printQueue':
+      printArray( queue, 'QUEUE:' );
+      break;
+    case 'printList':
+      printArray( list, 'LIST:' );
+      break;
+    case 'printLobby':
+      printArray( lobby, 'LOBBY:' );
       break;
     default:
       console.log( `
