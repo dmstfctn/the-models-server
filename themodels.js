@@ -265,6 +265,8 @@ io.of('/audience').on('connection', (socket) => {
       console.log( 'lobby exists, wait in queue' )
       addPlayerToQueue( player );
     }
+
+    player.setMetaState( unreal.getState() );
   });
 
   player.on('choices-complete', () => {
@@ -346,30 +348,39 @@ rl.prompt();
 rl.on('line', (line) => {
   switch (line.trim()) {
     case 'stateIdle':
+      unreal.engineState = STATES.Idle;
       sendState(STATES.Idle);
       break;
     case 'stateAcceptInput':
+      unreal.engineState = STATES.AcceptInput;
       sendState(STATES.AcceptInput);
       break;
     case 'stateConstructStage':
+      unreal.engineState = STATES.ConstructStage;
       sendState(STATES.ConstructStage);
       break;
     case 'stateInstructCharacters':
+      unreal.engineState = STATES.InstructCharacters;
       sendState(STATES.InstructCharacters);
       break;
     case 'statePlay':
+      unreal.engineState = STATES.Play;
       sendState(STATES.Play);
       break;
     case 'stateConclude':
+      unreal.engineState = STATES.Conclude;
       sendState(STATES.Conclude);
       break;
     case 'stateRestart':
+      unreal.engineState = STATES.Restart;
       sendState(STATES.Restart);
       break;
     case 'stateBadEnding':
+      unreal.engineState = STATES.BadEnding;
       sendState(STATES.BadEnding);
       break;
     case 'stateEmergency':
+      unreal.engineState = STATES.Emergency;
       sendState(STATES.Emergency);
       break;
     case 'countdownEnd':
