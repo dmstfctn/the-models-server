@@ -135,8 +135,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
  
 }
   .timer--value{
-    font-family: 1.3em;
-    color: var(--clr-bright);
+    /*font-family: 1.3em;*/
   }
 
 
@@ -212,7 +211,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     line-height: 1.2;
     text-align: center;
     color: #000000;
-    min-height: calc( var(--row-height) / 2 );
+    /* min-height: calc( var(--row-height) / 2 ); */
     font-weight: normal;
     font-size: inherit;        
   }   

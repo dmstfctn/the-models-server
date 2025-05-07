@@ -11,7 +11,6 @@ import PROPS from '../shared/PROPS.js';
 
 function SelectTendencyInterface({ title, active, layer=0, reverse=false, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-
     let interfaceEles = TENDENCIES.map( ( tendency, i ) => {
         return <div 
             className={`select-option${tendency.name === selected?.name ? ' selected' : '' }`}
@@ -112,7 +111,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
             />
             <SelectPropInterface 
                 active={ shouldSelectProp && !choices[ROLES.PROP] }
-                title={`${getTxt(T.SELECTPROP)}:`}
+                title={(shouldSelectMask1 && shouldSelectMask2) ? getTxt(T.SELECTFINALPROP) : getTxt(T.SELECTPROP)}
                 layer={1}
                 onSelect={ ( prop ) => {
                     const c = {}
