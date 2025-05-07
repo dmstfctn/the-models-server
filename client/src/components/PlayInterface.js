@@ -94,7 +94,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
     useEffect(() => {
         if( Object.keys( choices ).length === roles.length && !isChoiceComplete){
             setIsChoiceComplete( true );
-            console.log('Choices complete');
+            console.log('Choices complete: ', choices );
             for( let i in choices ){
                 onSelect( parseInt(i), choices[i] )
             }
