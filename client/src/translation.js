@@ -112,6 +112,8 @@ export const T = {
     HOWTO1: 18,
     HOWTO2: 19,
     HOWTO3: 20,
+    HOWTO4: 21,
+    SELECTFINALPROP: 25,
     LANGUAGE: 30
 }
 
@@ -157,24 +159,29 @@ export const texts = {
         'es': 'segundos para componer la escena.'
     },
     [T.SELECTAI]: {
-        'en': 'Pick an AI model',
-        'it': 'Scegli un modello di intelligenza artificiale',
-        'es': 'Elija un modelo de IA'
+        'en': 'Pick a character',
+        'it': 'Scegli un personaggio',
+        'es': 'Elige un personaje'
     },
     [T.SELECTANOTHERAI]: {
-        'en': 'Pick another model',
-        'it': 'Scegli l\'altro modello',
-        'es': 'Elige el otro modelo'
+        'en': 'Now, pick another character',
+        'it': 'Ora, scegli un altro personaggio',
+        'es': 'Ahora, elige otro personaje.'
     },
     [T.SELECTPROP]: {
         'en': 'Pick a prop to place on stage',
         'it': 'Scegli un oggetto da aggiungere sul palco',
         'es': 'Elige un objeto para agregarlo al escenario'
     },
+    [T.SELECTFINALPROP]: {
+        'en': 'Finally, pick a prop to place on stage',
+        'it': 'Infine, scegli un oggetto di scena da posizionare sul palco',
+        'es': 'Por último, elige un accesorio para colocar en el escenario.'
+    },
     [T.DISLIKEINFO]: {
-        'en': 'A negative reaction will interrupt the scene',
-        'it': 'Se la scena non piace verrá interrotta',
-        'es': 'Si no te gusta la escena será interrumpida'
+        'en': 'If you hit dislike the scene may be cut short',
+        'it': 'Se arrivi a non ti piace la scena potrebbe essere interrotta',
+        'es': 'Si llegas a no te gusta la escena puede cortarse.'
     },
     [T.IFLIKEQUEUED]: {
         'en': 'Meanwhile, if you like the scene',
@@ -202,9 +209,9 @@ export const texts = {
         'es': 'no te gusta'
     },
     [T.STANDBY]: {
-        'en': 'Once the next scene begins you will be able to give the masks feedback.',
-        'it': 'Una volta iniziata la scena successiva, potrai fornire un feedback alle maschere.',
-        'es': 'Una vez que comience la siguiente escena, podrás darles retroalimentación a las máscaras.'
+        'en': 'Once the scene begins you will be able to give the masks feedback.',
+        'it': 'Una volta iniziata la scena, potrai fornire un feedback alle maschere.',
+        'es': 'Una vez que comience la escena podrás darle retroalimentación a las máscaras.'
     },
     [T.WAITFORCHOICE]: {
         'en': 'Please wait for the other players to make their choices.',
@@ -217,11 +224,16 @@ export const texts = {
         'es': 'Te has unido a la cola para interactuar con Las Modelos.',
     },
     [T.HOWTO2]: {
-        'en': 'After each improvised scene up to 3 people can choose the characters and props for the next.',
-        'it': 'Dopo ogni scena improvvisata, fino a 3 persone possono scegliere i personaggi e gli oggetti di scena per la scena successiva.',
-        'es': 'Después de cada escena improvisada, hasta 3 personas pueden elegir los personajes y los accesorios para la siguiente.'
+        'en': `When it's your turn, you will be able to compose the next scene.`,
+        'it': `Quando sarà il tuo turno, potrai comporre la scena successiva.`,
+        'es': `Cuando sea tu turno, podrás componer la próxima escena.`
     },
     [T.HOWTO3]: {
+        'en': `You will be able to choose between an AI playing a friendly, antagonistic, or lying character from Commedia dell'Arte, and/or choose one of fifteen theatrical props.`,
+        'it': `Potrai scegliere tra un'IA che interpreta un personaggio amichevole, antagonista o bugiardo della Commedia dell'Arte e/o scegliere uno dei quindici oggetti di scena teatrali.`,
+        'es': `Podrás elegir entre una IA que interpretará un personaje amigable, antagónico o mentiroso de la Commedia dell'Arte, y/o elegir uno de los quince accesorios teatrales.`
+    },
+    [T.HOWTO4]: {
         'en': 'Do not re-scan the QR code or you will lose your place in the queue.',
         'it': 'Non scansionare nuovamente il codice QR altrimenti perderai il posto in coda.',
         'es': 'No vuelva a escanear el código QR o perderá su lugar en la cola.',

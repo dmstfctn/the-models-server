@@ -13,12 +13,18 @@ function Onboarding({ onClick=()=>{} }){
             <div>
                 {getTxt( T.HOWTO1 )}
             </div>
+            <div>~</div>
             <div>
                 {getTxt( T.HOWTO2 )}
             </div>            
             <div>
                 {getTxt( T.HOWTO3 )}
             </div>
+            <div>~</div>
+            <div>
+                {getTxt( T.HOWTO4 )}
+            </div>
+            <div>&nbsp;</div>
             <div>
                 <button>
                     {getTxt( T.START )}

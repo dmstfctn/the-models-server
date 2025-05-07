@@ -112,7 +112,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
             />
             <SelectPropInterface 
                 active={ shouldSelectProp && !choices[ROLES.PROP] }
-                title={`${getTxt(T.SELECTPROP)}:`}
+                title={(shouldSelectMask1 && shouldSelectMask2) ? getTxt(T.SELECTFINALPROP) : getTxt(T.SELECTPROP)}
                 layer={1}
                 onSelect={ ( prop ) => {
                     const c = {}
