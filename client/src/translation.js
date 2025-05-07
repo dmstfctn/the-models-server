@@ -261,7 +261,7 @@ export const I = {
     ball: 8,
     calculator: 9,
     calendar: 10,
-    english: 1,
+    english: 11,
     glass: 12,
     latin: 13,
     lens: 14,
@@ -387,10 +387,11 @@ const images = {
     }
 };
 
-export const getImg = ( ENUM, languageoverride = false ) => {
-    const lang = (languageoverride) ? languageoverride : LANG;
+export const getImg = ( ENUM, languageoverride = false ) => {    
+    const lang = (languageoverride) ? languageoverride : LANG;    
     if( !images[ENUM] ) return '';
-    return ( images[ENUM][lang] ) ? images[ENUM][lang] : (images[ENUM].en) ? (images[ENUM].en) : '';
+    const img = ( images[ENUM][lang] ) ? images[ENUM][lang] : (images[ENUM].en) ? (images[ENUM].en) : '';
+    return img;
 }
 
 

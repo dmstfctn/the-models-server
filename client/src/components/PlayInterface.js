@@ -11,7 +11,6 @@ import PROPS from '../shared/PROPS.js';
 
 function SelectTendencyInterface({ title, active, layer=0, reverse=false, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-
     let interfaceEles = TENDENCIES.map( ( tendency, i ) => {
         return <div 
             className={`select-option${tendency.name === selected?.name ? ' selected' : '' }`}
