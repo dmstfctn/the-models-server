@@ -11,17 +11,17 @@ function Onboarding({ onClick=()=>{} }){
     >
         <div className='inner'>
             <div>
-                You have joined the queue to interact with The Models. 
+                {getTxt( T.HOWTO1 )}
             </div>
             <div>
-                Up to 3 people at a time can choose AI characters and props to form the basis of an improvised scene on stage.
+                {getTxt( T.HOWTO2 )}
             </div>            
             <div>
-                Do not re-scan the QR code or you will lose your place in the queue.
+                {getTxt( T.HOWTO3 )}
             </div>
             <div>
                 <button>
-                    Get started
+                    {getTxt( T.START )}
                 </button>
             </div>
         </div>

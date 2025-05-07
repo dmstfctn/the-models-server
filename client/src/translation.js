@@ -111,8 +111,8 @@ export const T = {
     WAITFORCHOICE: 17,
     HOWTO1: 18,
     HOWTO2: 19,
-    HOWTO3: 20
-
+    HOWTO3: 20,
+    LANGUAGE: 30
 }
 
 export const texts = {
@@ -120,6 +120,11 @@ export const texts = {
         'en': '',
         'it': '',
         'es': ''
+    },
+    [T.LANGUAGE]: {
+        'en': 'english',
+        'it': 'italiano',
+        'es': 'español'
     },
     [T.START]: {
         'en': 'start',

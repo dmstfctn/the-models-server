@@ -164,7 +164,7 @@ function App() {
                   socket.emit( 'ready-to-play' )
                 }}
               >
-                {getTxt(T.START, 'es')}
+                {getTxt(T.LANGUAGE, 'es')}
               </button> 
               <button 
                 className="button button--join"
@@ -173,7 +173,7 @@ function App() {
                   socket.emit( 'ready-to-play' )
                 }}
               >
-                {getTxt(T.START, 'en')}
+                {getTxt(T.LANGUAGE, 'en')}
               </button> 
             </div>
           </section>
