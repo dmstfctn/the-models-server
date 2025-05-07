@@ -122,79 +122,79 @@ export const texts = {
         'es': 'participa'
     },
     [T.QINFO1]: {
-        'en': 'You\'re in the queue. You will be able to compose the scene in',
-        'it': 'Tra',
-        'es': ''
+        'en': 'You\'re in the queue. In',
+        'it': 'Sei in coda. Tra',
+        'es': 'Estás en la cola. Ene'
     },
     [T.QINFO2]: {
-        'en': 'scene\'s time.',
-        'it': 'sketch potrai comporre la scena',
-        'es': ''
+        'en': 'scenes time you will be able to compose a scene.',
+        'it': 'sketch potrai comporre la scena.',
+        'es': 'scenas podrás componer la escena.'
     },
     [T.NEXTSCENE]: {
         'en': 'The next scene is',
         'it': 'La prossima scena si svolge',
-        'es': ''
+        'es': 'La siguiente escena es'
     },
     [T.TIMENEXT1]: {
         'en': 'You have',
         'it': 'Hai',
-        'es': ''
+        'es': 'Tienes'
     },
     [T.TIMENEXT2]: {
         'en': 'seconds to compose the scene.',
         'it': 'secondi per comporre la scena.',
-        'es': ''
+        'es': 'segundos para componer la escena.'
     },
     [T.SELECTAI]: {
         'en': 'Pick an AI model',
         'it': 'Scegli un modello di intelligenza artificiale',
-        'es': ''
+        'es': 'Elija un modelo de IA'
     },
     [T.SELECTANOTHERAI]: {
         'en': 'Pick another model',
         'it': 'Scegli l\'altro modello',
-        'es': ''
+        'es': 'Elige el otro modelo'
     },
     [T.SELECTPROP]: {
-        'en': 'Pick an object to place on stage',
+        'en': 'Pick a prop to place on stage',
         'it': 'Scegli un oggetto da aggiungere sul palco',
-        'es': ''
+        'es': 'Elige un objeto para agregarlo al escenario'
     },
     [T.DISLIKEINFO]: {
         'en': 'A negative reaction will interrupt the scene',
         'it': 'Se la scena non piace verrá interrotta',
-        'es': ''
+        'es': 'Si no te gusta la escena será interrumpida'
     },
     [T.IFLIKEQUEUED]: {
         'en': 'Meanwhile, if you like the scene',
         'it': 'Nel frattempo.. se ti piace la scena',
-        'es': ''
+        'es': 'Mientras tanto..si te gusta la escena'
     },
     [T.IFLIKEOWN]: {
         'en': 'If you like the scene',
         'it': 'Se ti piace la scena',
-        'es': ''            
+        'es': 'Si te gusta la escena'            
     },
     [T.IFNOTLIKE]: {
         'en': 'or, if you don\'t',
         'it': 'Se non ti piace',
-        'es': ''
+        'es': 'o, si no te gusta'
     },
     [T.LIKELABEL]: {
         'en': 'you like',
         'it': 'ti piace',
-        'es': ''
+        'es': 'te gusta'
     },
     [T.DISLIKELABEL]: {
         'en': 'you dislike',
         'it': 'non ti piace',
-        'es': ''
+        'es': 'no te gusta'
     },
     [T.STANDBY]: {
         'en': 'Once the next scene begins you will be able to give the masks feedback.',
-        'it': '(ITALIAN) Once the next scene begins you will be able to give the masks feedback.',
-        'es': '(SPANISH) Once the next scene begins you will be able to give the masks feedback.'
+        'it': 'Una volta iniziata la scena successiva, potrai fornire un feedback alle maschere.',
+        'es': 'Una vez que comience la siguiente escena, podrás darles retroalimentación a las máscaras.'
     }
 }
 
