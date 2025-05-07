@@ -107,7 +107,8 @@ export const T = {
     IFNOTLIKE: 13,
     STANDBY: 14,
     LIKELABEL: 15,
-    DISLIKELABEL: 16
+    DISLIKELABEL: 16,
+    WAITFORCHOICE: 17
 }
 
 export const texts = {
@@ -195,6 +196,11 @@ export const texts = {
         'en': 'Once the next scene begins you will be able to give the masks feedback.',
         'it': 'Una volta iniziata la scena successiva, potrai fornire un feedback alle maschere.',
         'es': 'Una vez que comience la siguiente escena, podrás darles retroalimentación a las máscaras.'
+    },
+    [T.WAITFORCHOICE]: {
+        'en': 'Please wait for the other players to make their choices.',
+        'it': 'Attendi che gli altri giocatori facciano le loro scelte.',
+        'es': 'Por favor, espere a que los demás jugadores tomen sus decisiones.',
     }
 }
 

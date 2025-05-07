@@ -156,7 +156,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     onSelect( ROLES.MASK2, character )
                 }}
             /> */}           
-            <button 
+            {/* <button 
                 className={`play-button${(isChoiceComplete) ? ' active' : ''}`}
                 disabled={ !isChoiceComplete }
                 onClick={() => { 
@@ -169,7 +169,12 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                 }}
             >
                 <img src={getImg( I.button )} />
-            </button>
+            </button> */}
+            <div>
+               <div className='app-meta--block'>
+                    {getTxt(T.WAITFORCHOICE)}
+                </div>
+            </div>
         </article>
     </>
 }

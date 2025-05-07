@@ -127,24 +127,26 @@ function App() {
     }}>
       <aside className="app-meta">                
         {(!isInLobby) 
-          ? <div>
+          ? <div className="app-meta--block">
             {queueInfo.isQueued 
               ? `${getTxt(T.QINFO1)} ${ Math.floor(queueInfo.position / 3) + 1} ${getTxt(T.QINFO2)}` 
               : ``
             }
             </div> 
-          : ( !timer && metaState !== STATES.AcceptInput ) 
-            ? <div>...</div> 
+          : ( !timer && metaState !== STATES.AcceptInput && queueInfo.isQueued ) 
+            ? <div className="app-meta--block">...</div> 
             : '' 
         }
         {(isInLobby && backdrop && metaState === STATES.AcceptInput) 
-          ? <div className="next-scene-info">
+          ? <div className="next-scene-info app-meta--block">
               {getTxt(T.NEXTSCENE)} <span className="where">{backdrop.phoneCategoryIt}</span>.
             </div>
           : ''
         } 
         { (isInLobby && timer && timer.value >= 0) 
-          ? <Timer name={timer.name} value={timer.value} total={timer.total}/> 
+          ? <div className="app-meta--block">
+              <Timer name={timer.name} value={timer.value} total={timer.total}/> 
+            </div>
           : ''
         }
       </aside>
