@@ -31,7 +31,7 @@ function SelectTendencyInterface({ title, active, layer=0, reverse=false, onSele
         className={`select-section${(active) ? ' select-section__active' : ''}`}
         style={{zIndex: layer}}
     >
-        <h1 className="section-title">{title}</h1>
+        <h1 className="section-title section-title__bright">{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? 'disabled' : ''}`}> 
             { interfaceEles }
         </div>
@@ -44,7 +44,7 @@ function SelectPropInterface({title, active, layer=0, onSelect=()=>{} }){
         className={`select-section${(active) ? ' select-section__active' : ''}`} 
         style={{zIndex: layer}
     }>
-        <h1 className="section-title">{title}</h1>
+        <h1 className="section-title section-title__bright">{title}</h1>
         <div className={`select-interface select-interface__prop ${(!active) ? 'disabled' : ''}`}>
             {PROPS.map( ( prop, i ) => {
                 return <div 
@@ -138,7 +138,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                 <img src={getImg( I.button )} />
             </button> */}
             <div>
-               <div className='app-meta--block'>
+               <div className='app-meta--block app-meta--block__bright'>
                     {getTxt(T.WAITFORCHOICE)}
                 </div>
             </div>

@@ -6,7 +6,7 @@ import { getTxt, T } from '../translation.js';
 function StateStandby(){
     return <WrapperForStates>
         <section className="app-standby">
-            <div className="app-meta--block">
+            <div className="app-meta--block app-meta--block__bright">
                 {getTxt( T.STANDBY )}
             </div>
         </section>

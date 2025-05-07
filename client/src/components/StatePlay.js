@@ -69,7 +69,9 @@ function StatePlay(){
         <section className="app-interface">
             <div className="feedback-interface">
                 <div>
-                    <h1 className="section-title">{(queueInfo.isQueued) ? getTxt(T.IFLIKEQUEUED) : getTxt(T.IFLIKEOWN)}</h1>
+                    <h1 className="section-title section-title__bright">
+                        {(queueInfo.isQueued) ? getTxt(T.IFLIKEQUEUED) : getTxt(T.IFLIKEOWN)}
+                    </h1>
                     <div className="feedback-interface-buttons">                    
                         <div className='feedback-interface-cell'>
                             <RateAndPressLimitedFeedbackButton 
@@ -92,7 +94,7 @@ function StatePlay(){
                             />
                         </div>
                     </div>
-                    <h1 className="section-title">
+                    <h1 className="section-title section-title__bright">
                         {getTxt( T.IFNOTLIKE )}
                     </h1>
                     <div className="feedback-interface-buttons">
@@ -138,9 +140,9 @@ function StatePlay(){
                         </span>
                     </div>
                     <div 
-                        className="section-title"
+                        className="section-title section-title__bright"
                         style={{
-                            paddingBottom: "8px"
+                            paddingBottom: "1rem"
                         }}
                     >
                         {getTxt(T.DISLIKEINFO)}

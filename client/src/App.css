@@ -203,16 +203,24 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     text-transform: uppercase;
   }
 
-  .app-meta--block{
+  .app-meta--block,
+  .section-title{
     box-sizing: border-box;
-    padding: 0.3rem 0.6rem;
-    margin: 0.3rem 0;
+    padding: 0.6rem 0.6rem;
+   /* margin: 0.3rem 0; */
     background-color: var(--clr-brighter);
     line-height: 1.2;
     text-align: center;
     color: #000000;
+    min-height: calc( var(--row-height) / 2 );
+    font-weight: normal;
+    font-size: inherit;        
   }   
-
+    .section-title__bright,
+    .app-meta--block__bright{
+      background-color: var(--clr-bright);
+    }
+    
 
 
 /* PLAY INTERFACE */
@@ -239,16 +247,18 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
       /* opacity: 1; */
       transform: translateY(0);
     }
-      .section-title{
+      /* .section-title{
           font-weight: normal;
           font-size: inherit;        
           text-align: center;
           width: 100%;
           background: var(--clr-bright);
-          height: calc( var(--row-height) / 2 );
-          line-height: calc( var(--row-height) / 2 );
+          height: calc( var(--row-height) / 2 );          
           margin: 0;
-      }   
+          padding: 0.3rem 0.6rem;
+          box-sizing: border-box;
+      } */
+        
 
 .select-interface{
   width: 100%;
@@ -301,10 +311,10 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
       display: none;
   }
 
-.disabled{    
+/* .disabled{    
   opacity: 0.5;
   pointer-events: none;
-}
+} */
 
 /* ONBOARDING */
 .app-onboarding{
@@ -318,6 +328,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   justify-content: center;
   padding: 2rem; 
   background-color: rgba( 0,0,0,0.7);
+  z-index: 9999;
 }
   .app-onboarding .inner{
     background: var(--clr-brighter);
@@ -351,7 +362,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   height: 100%;
 }
   .feedback-interface-meta{
-    background-color: var(--clr-light);
+    background-color: var(--clr-brighter);
     /* background-image: url('./images/bar-rating.png'); */
     background-size: contain;
     background-repeat: no-repeat;
@@ -362,7 +373,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   }
     .feedback-interface-meta .label,
     .feedback-interface-meta .label{
-      background-color: var(--clr-light);
+      background-color: var(--clr-brighter);
       display: block;
       content: '';
       position: absolute;     
