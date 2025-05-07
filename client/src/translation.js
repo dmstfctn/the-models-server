@@ -136,12 +136,12 @@ export const texts = {
     [T.QINFO1]: {
         'en': 'You\'re in the queue. In',
         'it': 'Sei in coda. Tra',
-        'es': 'Estás en la cola. Ene'
+        'es': 'Estás en la cola. En'
     },
     [T.QINFO2]: {
         'en': 'scenes time you will be able to compose a scene.',
         'it': 'sketch potrai comporre la scena.',
-        'es': 'scenas podrás componer la escena.'
+        'es': 'escenas podrás componer la escena.'
     },
     [T.NEXTSCENE]: {
         'en': 'The next scene is',
@@ -164,27 +164,27 @@ export const texts = {
         'es': 'Elige un personaje'
     },
     [T.SELECTANOTHERAI]: {
-        'en': 'Now, pick another character',
-        'it': 'Ora, scegli un altro personaggio',
+        'en': 'Now pick another character',
+        'it': 'Ora scegli un altro personaggio',
         'es': 'Ahora, elige otro personaje.'
     },
     [T.SELECTPROP]: {
         'en': 'Pick a prop to place on stage',
         'it': 'Scegli un oggetto da aggiungere sul palco',
-        'es': 'Elige un objeto para agregarlo al escenario'
+        'es': 'Elige un objeto para añadirlo al escenario'
     },
     [T.SELECTFINALPROP]: {
-        'en': 'Finally, pick a prop to place on stage',
-        'it': 'Infine, scegli un oggetto di scena da posizionare sul palco',
-        'es': 'Por último, elige un accesorio para colocar en el escenario.'
+        'en': 'Finally pick a prop to place on stage',
+        'it': 'Infine scegli un oggetto di scena da posizionare sul palco',
+        'es': 'Por último, elige un objeto para colocar en el escenario.'
     },
     [T.DISLIKEINFO]: {
-        'en': 'If you hit dislike the scene may be cut short',
-        'it': 'Se arrivi a non ti piace la scena potrebbe essere interrotta',
-        'es': 'Si llegas a no te gusta la escena puede cortarse.'
+        'en': 'If you hit "dislike" the scene may be cut short',
+        'it': 'Se arrivi a "non ti piace" la scena potrebbe essere interrotta',
+        'es': 'Si llegas a "no te gusta" la escena puede cortarse.'
     },
     [T.IFLIKEQUEUED]: {
-        'en': 'Meanwhile, if you like the scene',
+        'en': 'Meanwhile if you like the scene',
         'it': 'Nel frattempo.. se ti piace la scena',
         'es': 'Mientras tanto..si te gusta la escena'
     },
@@ -194,9 +194,9 @@ export const texts = {
         'es': 'Si te gusta la escena'            
     },
     [T.IFNOTLIKE]: {
-        'en': 'or, if you don\'t',
+        'en': 'If you don\'t',
         'it': 'Se non ti piace',
-        'es': 'o, si no te gusta'
+        'es': 'Si no te gusta'
     },
     [T.LIKELABEL]: {
         'en': 'you like',
@@ -209,19 +209,19 @@ export const texts = {
         'es': 'no te gusta'
     },
     [T.STANDBY]: {
-        'en': 'Once the scene begins you will be able to give the masks feedback.',
-        'it': 'Una volta iniziata la scena, potrai fornire un feedback alle maschere.',
-        'es': 'Una vez que comience la escena podrás darle retroalimentación a las máscaras.'
+        'en': 'Once the scene begins you will be able to give feedback to the characters.',
+        'it': 'Una volta iniziata la scena potrai fornire un feedback alle maschere.',
+        'es': 'Una vez que comience la escena podrás darle feedback a los personajes.'
     },
     [T.WAITFORCHOICE]: {
-        'en': 'Please wait for the other players to make their choices.',
-        'it': 'Attendi che gli altri giocatori facciano le loro scelte.',
-        'es': 'Por favor, espere a que los demás jugadores tomen sus decisiones.',
+        'en': 'Please wait for the other players to make their choices...',
+        'it': 'Attendi che gli altri giocatori facciano le loro scelte...',
+        'es': 'Por favor, espere a que los demás jugadores tomen sus decisiones...',
     },
     [T.HOWTO1]: {
         'en': 'You have joined the queue to interact with The Models.',
-        'it': 'Ti sei unito alla coda per interagire con i Modelli.',
-        'es': 'Te has unido a la cola para interactuar con Las Modelos.',
+        'it': 'Ti sei unito alla coda per interagire con The Models.',
+        'es': 'Te has unido a la cola para interactuar con The Models.',
     },
     [T.HOWTO2]: {
         'en': `When it's your turn, you will be able to compose the upcoming scene.`,
