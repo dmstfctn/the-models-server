@@ -224,7 +224,7 @@ export const texts = {
         'es': 'Te has unido a la cola para interactuar con Las Modelos.',
     },
     [T.HOWTO2]: {
-        'en': `When it's your turn, you will be able to compose the next scene.`,
+        'en': `When it's your turn, you will be able to compose the upcoming scene.`,
         'it': `Quando sarà il tuo turno, potrai comporre la scena successiva.`,
         'es': `Cuando sea tu turno, podrás componer la próxima escena.`
     },
