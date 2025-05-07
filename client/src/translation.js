@@ -135,13 +135,13 @@ export const texts = {
     },
     [T.QINFO1]: {
         'en': 'You\'re in the queue. In',
-        'it': 'Sei in coda. Tra',
+        'it': 'Sei in fila. Tra',
         'es': 'Estás en la cola. En'
     },
     [T.QINFO2]: {
-        'en': 'scenes time you will be able to compose a scene.',
-        'it': 'sketch potrai comporre la scena.',
-        'es': 'escenas podrás componer la escena.'
+        'en': 'scenes time it will be your turn to compose the scene.',
+        'it': 'scena sarà il tuo turno di comporre la scena.',
+        'es': 'escenas será tu turno de componer la escena.'
     },
     [T.NEXTSCENE]: {
         'en': 'The next scene is',
@@ -166,7 +166,7 @@ export const texts = {
     [T.SELECTANOTHERAI]: {
         'en': 'Now pick another character',
         'it': 'Ora scegli un altro personaggio',
-        'es': 'Ahora, elige otro personaje.'
+        'es': 'Ahora elige otro personaje'
     },
     [T.SELECTPROP]: {
         'en': 'Pick a prop to place on stage',
@@ -176,17 +176,17 @@ export const texts = {
     [T.SELECTFINALPROP]: {
         'en': 'Finally pick a prop to place on stage',
         'it': 'Infine scegli un oggetto di scena da posizionare sul palco',
-        'es': 'Por último, elige un objeto para colocar en el escenario.'
+        'es': 'Por último elige un objeto para colocar en el escenario.'
     },
     [T.DISLIKEINFO]: {
         'en': 'If you hit "dislike" the scene may be cut short',
-        'it': 'Se arrivi a "non ti piace" la scena potrebbe essere interrotta',
+        'it': 'Se "non ti piace" la scena potrebbe essere interrotta',
         'es': 'Si llegas a "no te gusta" la escena puede cortarse.'
     },
     [T.IFLIKEQUEUED]: {
         'en': 'Meanwhile if you like the scene',
         'it': 'Nel frattempo.. se ti piace la scena',
-        'es': 'Mientras tanto..si te gusta la escena'
+        'es': 'Mientras tanto.. si te gusta la escena'
     },
     [T.IFLIKEOWN]: {
         'en': 'If you like the scene',
@@ -210,17 +210,17 @@ export const texts = {
     },
     [T.STANDBY]: {
         'en': 'Once the scene begins you will be able to give feedback to the characters.',
-        'it': 'Una volta iniziata la scena potrai fornire un feedback alle maschere.',
-        'es': 'Una vez que comience la escena podrás darle feedback a los personajes.'
+        'it': 'Quando inizia la scena potrai dare feedback alle maschere.',
+        'es': 'Cuando comience la escena podrás darle feedback a los personajes.'
     },
     [T.WAITFORCHOICE]: {
-        'en': 'Please wait for the other players to make their choices...',
-        'it': 'Attendi che gli altri giocatori facciano le loro scelte...',
-        'es': 'Por favor, espere a que los demás jugadores tomen sus decisiones...',
+        'en': 'Please wait while others make their choice..',
+        'it': 'Attendi che gli altri facciano la loro scelta..',
+        'es': 'Por favor espere mientras otros hacen su elección..',
     },
     [T.HOWTO1]: {
         'en': 'You have joined the queue to interact with The Models.',
-        'it': 'Ti sei unito alla coda per interagire con The Models.',
+        'it': 'Sei in fila per interagire con The Models.',
         'es': 'Te has unido a la cola para interactuar con The Models.',
     },
     [T.HOWTO2]: {
@@ -229,14 +229,14 @@ export const texts = {
         'es': `Cuando sea tu turno, podrás componer la próxima escena.`
     },
     [T.HOWTO3]: {
-        'en': `You will be able to choose between an AI playing a friendly, antagonistic, or lying character from Commedia dell'Arte, and/or choose one of fifteen theatrical props.`,
-        'it': `Potrai scegliere tra un'IA che interpreta un personaggio amichevole, antagonista o bugiardo della Commedia dell'Arte e/o scegliere uno dei quindici oggetti di scena teatrali.`,
-        'es': `Podrás elegir entre una IA que interpretará un personaje amigable, antagónico o mentiroso de la Commedia dell'Arte, y/o elegir uno de los quince accesorios teatrales.`
+        'en': `You will be able to choose between an AI playing a friendly, antagonistic, or lying character from Italian Commedia dell'Arte. Sometimes you will be able to choose a  prop to place on stage.`,
+        'it': `Potrai scegliere tra un'IA che interpreta una maschera della Commedia dell'Arte amichevole, antagonista o bugiarda. A volte potrai scegliere un oggetto di scena da posizionare sul palco.`,
+        'es': `Podrás elegir entre una IA que interpretará un personaje amigable, antagónico o mentiroso de la Commedia dell'Arte italiana. En ocasiones podrás elegir un objecto para colocar en el escenario`
     },
     [T.HOWTO4]: {
-        'en': 'Do not re-scan the QR code or you will lose your place in the queue.',
-        'it': 'Non scansionare nuovamente il codice QR altrimenti perderai il posto in coda.',
-        'es': 'No vuelva a escanear el código QR o perderá su lugar en la cola.',
+        'en': 'Do not rescan the QR code or you will lose your place in the queue. Finally, you will be able to give feedback to the acting characters when the scene starts, regardless of your position in the queue.',
+        'it': 'Non riscansionare il codice QR altrimenti perderai il posto in fila. Infine, una volta iniziata la scena potrai dare feedback alle maschere, indipendentemente dalla tua posizione nella coda.',
+        'es': 'No vuelva a escanear el código QR o perderá su lugar en la cola. También podrás dar feedback a los personajes que actúan cuando comience la escena, independientemente de tu posición en la cola.',
     }
 
 }
