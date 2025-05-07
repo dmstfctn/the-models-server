@@ -228,7 +228,16 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
       background-image: url('./images/background.jpg');
       background-size: 100% auto;
       background-position: center top;
+      pointer-events: none;
+      /* opacity: 0; */
+      transition: transform .5s ease-in;
+      transform: translateY( 100vh );
   }
+    .select-section__active{
+      pointer-events: all;
+      /* opacity: 1; */
+      transform: translateY(0);
+    }
       .section-title{
           font-weight: normal;
           font-size: inherit;        

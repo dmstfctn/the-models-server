@@ -27,7 +27,10 @@ function SelectTendencyInterface({ title, active, layer=0, reverse=false, onSele
 
     if( reverse ) interfaceEles = interfaceEles.reverse();
 
-    return <section className='select-section' style={{zIndex: layer}}>
+    return <section 
+        className={`select-section${(active) ? ' select-section__active' : ''}`}
+        style={{zIndex: layer}}
+    >
         <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__character ${(!active) ? 'disabled' : ''}`}> 
             { interfaceEles }
@@ -35,36 +38,12 @@ function SelectTendencyInterface({ title, active, layer=0, reverse=false, onSele
     </section>
 }
 
-function SelectCharacterInterface({title, active, layer=0, reverse=false, onSelect=()=>{} }){
-    const [selected, setSelected] = useState();
-
-    let interfaceEles = CHARACTERS.map( ( character, i ) => {
-        return <div 
-            className={`select-option${character.name === selected?.name ? ' selected' : '' }`}
-            key={character.name}
-            onClick={()=>{
-                setSelected( character );
-                onSelect( character );
-            }}
-        >
-            <div><strong>{character.name}</strong></div>
-            <div>{character.tendency}</div>
-        </div>
-    });
-    
-    if( reverse ) interfaceEles = interfaceEles.reverse();
-
-    return <section className='select-section' style={{zIndex: layer}}>
-        <h1 className="section-title">{title}</h1>
-        <div className={`select-interface select-interface__character ${(!active) ? ' disabled' : ''}`}>         
-            { interfaceEles }
-        </div>
-    </section>
-}
-
 function SelectPropInterface({title, active, layer=0, onSelect=()=>{} }){
     const [selected, setSelected] = useState();
-    return <section className='select-section' style={{zIndex: layer}}>
+    return <section 
+        className={`select-section${(active) ? ' select-section__active' : ''}`} 
+        style={{zIndex: layer}
+    }>
         <h1 className="section-title">{title}</h1>
         <div className={`select-interface select-interface__prop ${(!active) ? 'disabled' : ''}`}>
             {PROPS.map( ( prop, i ) => {
@@ -80,7 +59,7 @@ function SelectPropInterface({title, active, layer=0, onSelect=()=>{} }){
                 </div>
             })}
         </div>
-    </section>;
+    </section>
 }
 
 function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
@@ -104,14 +83,8 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
 
     return <>
         <article className={`play-interface${(!active) ? ' disabled' : ''}`}>
-            {/* <SelectCharacterInterface 
-                active={ shouldSelectMask1 }
-                onSelect={ ( character ) => {
-                    onSelect( ROLES.MASK1, character )
-                }}
-            /> */}
-            { shouldSelectMask1 && !choices[ROLES.MASK1] ? <SelectTendencyInterface 
-                active={ shouldSelectMask1 }
+            <SelectTendencyInterface 
+                active={ shouldSelectMask1 && !choices[ROLES.MASK1] }
                 title={`${getTxt(T.SELECTAI)}:`}
                 layer={3}
                 onSelect={ ( tendency ) => {
@@ -122,10 +95,10 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     c[ROLES.MASK1] = tendency;
                     setChoices( c );
                 }}
-            /> : '' }
-            { shouldSelectMask2  && !choices[ROLES.MASK2] ? <SelectTendencyInterface 
+            />
+            <SelectTendencyInterface 
                 title={(shouldSelectMask1) ? `${getTxt(T.SELECTANOTHERAI)}:` : `${getTxt(T.SELECTAI)}:` }
-                active={ shouldSelectMask2 }
+                active={ shouldSelectMask2  && !choices[ROLES.MASK2] }
                 layer={2}
                 reverse={true}
                 onSelect={ ( tendency ) => {
@@ -136,9 +109,9 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     c[ROLES.MASK2] = tendency;
                     setChoices( c );
                 }}
-            /> : '' }
-            { shouldSelectProp && !choices[ROLES.PROP] ? <SelectPropInterface 
-                active={ shouldSelectProp }
+            />
+            <SelectPropInterface 
+                active={ shouldSelectProp && !choices[ROLES.PROP] }
                 title={`${getTxt(T.SELECTPROP)}:`}
                 layer={1}
                 onSelect={ ( prop ) => {
@@ -149,13 +122,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     c[ROLES.PROP] = prop;
                     setChoices( c );                    
                 }}
-            /> : '' }
-            {/* <SelectCharacterInterface 
-                active={ shouldSelectMask2 }
-                onSelect={ ( character ) => {
-                    onSelect( ROLES.MASK2, character )
-                }}
-            /> */}           
+            />        
             {/* <button 
                 className={`play-button${(isChoiceComplete) ? ' active' : ''}`}
                 disabled={ !isChoiceComplete }
