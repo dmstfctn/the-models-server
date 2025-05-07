@@ -305,6 +305,42 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   pointer-events: none;
 }
 
+/* ONBOARDING */
+.app-onboarding{
+  position: fixed;  
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem; 
+  background-color: rgba( 0,0,0,0.7);
+}
+  .app-onboarding .inner{
+    background: var(--clr-brighter);
+    color: #000000;
+    padding: 0.8rem 1rem; 
+    box-shadow: 0 0 50vh var(--clr-brighter);
+    text-align: center;
+    z-index: 99;    
+  }
+    .app-onboarding .inner > div{
+      margin-bottom: 0.8rem;
+    }
+    .app-onboarding .inner > div:last-child{
+      margin-bottom: 0;
+    }
+    .app-onboarding .inner button{
+      font-family: inherit;
+      color: inherit;
+      font-size: inherit;
+      background: var(--clr-bright);
+      text-transform: uppercase;
+      padding: .6rem;
+    }
+
 
 /* FEEDBACK INTERFACE */
 .feedback-interface{

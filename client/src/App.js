@@ -10,7 +10,7 @@ import StateAcceptInput from './components/StateAcceptInput.js';
 import StatePlay from './components/StatePlay.js';
 import StateRestart from './components/StateRestart.js';
 import StateStandby from './components/StateStandby.js';
-
+import Onboarding from './components/Onboarding.js';
 import Timer from './components/Timer.js';
 import { GameContext, queueDefault } from './contexts/GameContext.js';
 
@@ -30,6 +30,9 @@ function App() {
   const [config,setConfig] = useState();
   const [roles, setRoles] = useState([]);
   
+  const [justJoined, setJustJoined] = useState( true );
+
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const dbg = urlParams.get('debug');    
@@ -174,7 +177,13 @@ function App() {
               </button> 
             </div>
           </section>
-        : '' 
+        : (justJoined) 
+                ? <Onboarding 
+                    onClick={() => {                      
+                      setJustJoined( false );
+                    }}
+                  />
+                : ''
       }
         
       

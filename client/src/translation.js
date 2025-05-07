@@ -108,7 +108,11 @@ export const T = {
     STANDBY: 14,
     LIKELABEL: 15,
     DISLIKELABEL: 16,
-    WAITFORCHOICE: 17
+    WAITFORCHOICE: 17,
+    HOWTO1: 18,
+    HOWTO2: 19,
+    HOWTO3: 20
+
 }
 
 export const texts = {
@@ -201,7 +205,23 @@ export const texts = {
         'en': 'Please wait for the other players to make their choices.',
         'it': 'Attendi che gli altri giocatori facciano le loro scelte.',
         'es': 'Por favor, espere a que los demás jugadores tomen sus decisiones.',
+    },
+    [T.HOWTO1]: {
+        'en': 'You have joined the queue to interact with The Models.',
+        'it': 'Ti sei unito alla coda per interagire con i Modelli.',
+        'es': 'Te has unido a la cola para interactuar con Las Modelos.',
+    },
+    [T.HOWTO2]: {
+        'en': 'After each improvised scene up to 3 people can choose the characters and props for the next.',
+        'it': 'Dopo ogni scena improvvisata, fino a 3 persone possono scegliere i personaggi e gli oggetti di scena per la scena successiva.',
+        'es': 'Después de cada escena improvisada, hasta 3 personas pueden elegir los personajes y los accesorios para la siguiente.'
+    },
+    [T.HOWTO3]: {
+        'en': 'Do not re-scan the QR code or you will lose your place in the queue.',
+        'it': 'Non scansionare nuovamente il codice QR altrimenti perderai il posto in coda.',
+        'es': 'No vuelva a escanear el código QR o perderá su lugar en la cola.',
     }
+
 }
 
 export const getTxt = ( ENUM, languageoverride = false ) => {
