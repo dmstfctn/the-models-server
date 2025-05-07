@@ -229,12 +229,12 @@ export const texts = {
         'es': `Cuando sea tu turno, podrás componer la próxima escena.`
     },
     [T.HOWTO3]: {
-        'en': `You will be able to choose between an AI playing a friendly, antagonistic, or lying character from Italian Commedia dell'Arte. Sometimes you will be able to choose a  prop to place on stage.`,
+        'en': `You will be able to choose between an AI playing a friendly, antagonistic, or lying character from Italian Commedia dell'Arte. Sometimes you will be able to choose a  prop to place on stage. Do not rescan the QR code or you will lose your place in the queue.`,
         'it': `Potrai scegliere tra un'IA che interpreta una maschera della Commedia dell'Arte amichevole, antagonista o bugiarda. A volte potrai scegliere un oggetto di scena da posizionare sul palco.`,
         'es': `Podrás elegir entre una IA que interpretará un personaje amigable, antagónico o mentiroso de la Commedia dell'Arte italiana. En ocasiones podrás elegir un objecto para colocar en el escenario`
     },
     [T.HOWTO4]: {
-        'en': 'Do not rescan the QR code or you will lose your place in the queue. Finally, you will be able to give feedback to the acting characters when the scene starts, regardless of your position in the queue.',
+        'en': 'Regardless of your position in the queue, you will always be able to give feedback to the acting characters during a scene.',
         'it': 'Non riscansionare il codice QR altrimenti perderai il posto in fila. Infine, una volta iniziata la scena potrai dare feedback alle maschere, indipendentemente dalla tua posizione nella coda.',
         'es': 'No vuelva a escanear el código QR o perderá su lugar en la cola. También podrás dar feedback a los personajes que actúan cuando comience la escena, independientemente de tu posición en la cola.',
     }
