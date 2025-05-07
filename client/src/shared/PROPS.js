@@ -1,130 +1,172 @@
 const PROPS = [
-    {
-      "id": "0",
-      "name": "mirror",
-      "description": "uno specchio rotto, che si sa, puó portare sfortuna…",
-      "ActorReference": "BP_Prop_Mirror",
-      "Narrator": "Uno specchio.. ROTTO!",
-      "NarratorLength": "2.3",
-      "NarratorTranslation": "..a broken mirror..."
-    },
-    {
-      "id": "1",
-      "name": "globe",
-      "description": "un mappamondo, controverso essendo sferico, dato che alcuni pensano il mondo sia piatto!",
-      "ActorReference": "BP_Prop_Globe",
-      "Narrator": "Un bel globo sferico. Ripeto, sferico!",
-      "NarratorLength": "4.3",
-      "NarratorTranslation": "..a nice spherical globe. I repeat, spherical."
-    },
-    {
-      "id": "2",
-      "name": "cat",
-      "description": "un gattazzo nero! Attenzione a quel gatto!",
-      "ActorReference": "BP_Prop_Cat",
-      "Narrator": "Un gatto nero... attenzione al gatto nero",
-      "NarratorLength": "4.3",
-      "NarratorTranslation": "..a black cat.. careful..."
-    },
-    {
-      "id": "3",
-      "name": "moon",
-      "description": "una luna sospesa, controverso soggetto dato che non si sa se siamo mai davvero stati sulla luna.",
-      "ActorReference": "BP_Prop_Moon",
-      "Narrator": "La Luna...",
-      "NarratorLength": "2.3",
-      "NarratorTranslation": "..the moon.."
-    },
-    {
-      "id": "4",
-      "name": "apple",
-      "description": "una mela, che é simbolo di buona salute, o stratagemma pubblicitario per venderne di piú? Oppure che é la mela della nonna, oppure simbolo della malefica compagnia americana e di ció che si dice succede nei suoi campus. O...?",
-      "ActorReference": "BP_Prop_Apple",
-      "Narrator": "Una mela.",
-      "NarratorLength": "2.3",
-      "NarratorTranslation": "..an apple.."
-    },
-    {
-      "id": "5",
-      "name": "ball",
-      "description": "Una palla di vetro con babbo natale e la neve, ma che le maschere scambiano per una sfera di cristallo. Le maschere quindi la interrogano sul futuro.",
-      "ActorReference": "BP_Prop_Ball",
-      "Narrator": "Una bella palla di vetro, con la neve. O??",
-      "NarratorLength": "4.3",
-      "NarratorTranslation": "..a crystal ball. Or!?"
-    },
-    {
-      "id": "6",
-      "name": "calculator",
-      "description": "una calcolatrice che fa vedere 2+2=4. Ma non fa 5? Secondo alcuni è proprio così!",
-      "ActorReference": "BP_Prop_Calculator",
-      "Narrator": "Una calcolatrice che dice... due più due uguale quattro",
-      "NarratorLength": "4.3",
-      "NarratorTranslation": "..a calculator that reads 2+2=4"
-    },
-    {
-      "id": "7",
-      "name": "calendar",
-      "description": "un calendario che dice oggi é Venerdi 17, e si sa.... potrebbe essere un Venerdí nero.",
-      "ActorReference": "BP_Prop_Calendar",
-      "Narrator": "Ah un'ultima cosa. Oggi é Venerdi 17...",
-      "NarratorLength": "4.3",
-      "NarratorTranslation": "ah also, today is Friday 17..."
-    },
-    {
-      "id": "8",
-      "name": "english",
-      "description": "un libro di Inglese per principianti, aperto, per terra. Le maschere non sanno l’inglese, e leggendo frasi dal libro sentono solo insulti.",
-      "ActorReference": "BP_Prop_English",
-      "Narrator": "un libro di inglese per principianti.",
-      "NarratorLength": "4.3",
-      "NarratorTranslation": "..a beginners' English book.."
-    },
-    {
-      "id": "9",
-      "name": "glass",
-      "description": "un bicchiere di birra, perfetto perché una maschera ha molta sete. Ma bevuto, la birra non disseta la maschera. Allora l’altra maschera lo riempie con diversi tipi di birre. Ma nessuna disseta, causando disperazione. Ma alla fine la maschera lo riempie segretamente di pipí! E la pipí finalmente disseta! Mi raccomando: non dire mai \"pipí\" ma dai degli indizi chiari sull'odore, colore e temperatura del liquido.",
-      "ActorReference": "BP_Prop_Glass",
-      "Narrator": "un fresco bicchiere di birra.",
-      "NarratorLength": "2.3",
-      "NarratorTranslation": "A glass of.. ehm.. beer!"
-    },
-    {
-      "id": "10",
-      "name": "latin",
-      "description": "un dizionario di latino. Una delle maschere lo apre e legge la grammatica. L'altra maschera non sa il latino e pensa di stare ricevendo bellissimi complimenti, sentendosi contenta.",
-      "ActorReference": "BP_Prop_Latin",
-      "Narrator": "un dizionario di latino.",
-      "NarratorLength": "2.3",
-      "NarratorTranslation": "A latin dictionary."
-    },
-    {
-      "id": "11",
-      "name": "lens",
-      "description": "una lente d'ingrandimento ENORME. Una maschera la raccoglie e la usa per giustificare varie teorie del complotto.",
-      "ActorReference": "BP_Prop_Lens",
-      "Narrator": "una lente di ingrandimento!",
-      "NarratorLength": "",
-      "NarratorTranslation": "..a magnifying glass!"
-    },
-    {
-      "id": "12",
-      "name": "maccheroni",
-      "description": "un piatto di maccheroni, che una delle maschere annusa e ne loda l'aroma, facendo analogie sconce.",
-      "ActorReference": "BP_Prop_Maccheroni",
-      "Narrator": "un piatto di maccheroni...",
-      "NarratorLength": "2.3",
-      "NarratorTranslation": "....a dish of maccheroni!"
-    },
-    {
-      "id": "13",
-      "name": "sack",
-      "description": "un sacco di Juta chiuso. Le maschere lo toccano e speculano su cosa ci sia dentro in base alla sua consistenza, tirando fuori varie teorie del complotto.",
-      "ActorReference": "BP_Prop_Sack",
-      "Narrator": "un sacco di iuta, ok? Bello pieno.",
-      "NarratorLength": "4.3",
-      "NarratorTranslation": "..a sack... filled with something."
-    }
-  ];
+  {
+    "id": "0",
+    "name": "mirror",
+    "description": "uno specchio rotto, che si sa, puó portare sfortuna…",
+    "description_en": "a broken mirror, which is known to bring bad luck...",
+    "ActorReference": "BP_Prop_Mirror",
+    "Narrator": "Uno specchio.. ROTTO!",
+    "NarratorLengthIt": "2.1",
+    "NarratorLength": "1.4",
+    "NarratorTranslation": "..a broken mirror...",
+    "NarratorTranslationEs": "...un espejo roto..."
+  },
+  {
+    "id": "1",
+    "name": "globe",
+    "description": "un mappamondo, controverso essendo sferico, dato che alcuni pensano il mondo sia piatto!",
+    "description_en": "a globe, controversial because it is spherical but some people think the world is flat!",
+    "ActorReference": "BP_Prop_Globe",
+    "Narrator": "Un bel globo sferico. Ripeto, sferico!",
+    "NarratorLengthIt": "4",
+    "NarratorLength": "7.2",
+    "NarratorTranslation": "..a nice spherical globe. I repeat, spherical!",
+    "NarratorTranslationEs": "...un bonito globo terráqueo. Repito, esférico."
+  },
+  {
+    "id": "2",
+    "name": "cat",
+    "description": "un gattazzo nero! Attenzione a quel gatto!",
+    "description_en": "a black cat! Watch out for that cat!",
+    "ActorReference": "BP_Prop_Cat",
+    "Narrator": "Un gatto nero... attenzione al gatto nero",
+    "NarratorLengthIt": "3.6",
+    "NarratorLength": "2.5",
+    "NarratorTranslation": "..a black cat.. careful...",
+    "NarratorTranslationEs": "...un gato negro... cuidado..."
+  },
+  {
+    "id": "3",
+    "name": "moon",
+    "description": "una luna sospesa, controverso soggetto dato che non si sa se siamo mai davvero stati sulla luna.",
+    "description_en": "a moon, suspended. It's controversial as we don't know if we've ever actually been to the moon.",
+    "ActorReference": "BP_Prop_Moon",
+    "Narrator": "La Luna...",
+    "NarratorLengthIt": "2.1",
+    "NarratorLength": "3.9",
+    "NarratorTranslation": "..the moon..",
+    "NarratorTranslationEs": "...la luna..."
+  },
+  {
+    "id": "4",
+    "name": "apple",
+    "description": "una mela, che é simbolo di buona salute, o stratagemma pubblicitario per venderne di piú? Oppure che é la mela della nonna, oppure simbolo della malefica compagnia americana e di ció che si dice succede nei suoi campus. O...?",
+    "description_en": "an apple, allegedely good for health. Or is that just an advertising trick to sell apples? It could be just a granny's apple.. or is it the symbol of the evil American company and the secret things it does in its HQ?",
+    "ActorReference": "BP_Prop_Apple",
+    "Narrator": "Una mela.",
+    "NarratorLengthIt": "1.7",
+    "NarratorLength": "1",
+    "NarratorTranslation": "..an apple..",
+    "NarratorTranslationEs": "...una manzana..."
+  },
+  {
+    "id": "5",
+    "name": "ball",
+    "description": "Una palla di vetro con babbo natale e la neve, ma che le maschere scambiano per una sfera di cristallo. Le maschere quindi la interrogano sul futuro.",
+    "description_en": "a glass ball with Santa and snow flakes inside. The masks mistake it for a magic crystal ball and start asking it all sort of questions",
+    "ActorReference": "BP_Prop_Ball",
+    "Narrator": "Una bella palla di vetro, con la neve. O??",
+    "NarratorLengthIt": "4",
+    "NarratorLength": "3.2",
+    "NarratorTranslation": "..a crystal ball. Or!?",
+    "NarratorTranslationEs": "...una bola de cristal. ¿O...?"
+  },
+  {
+    "id": "6",
+    "name": "calculator",
+    "description": "una calcolatrice che fa vedere 2+2=4. Ma non fa 5? Secondo alcuni è proprio così!",
+    "description_en": "a calculator showing 2+2 = 4. But doesn't 2+2 = 5? According to some that's exactly it.",
+    "ActorReference": "BP_Prop_Calculator",
+    "Narrator": "Una calcolatrice che dice... due più due uguale quattro",
+    "NarratorLengthIt": "4",
+    "NarratorLength": "7.6",
+    "NarratorTranslation": "..a calculator that reads 2+2=4",
+    "NarratorTranslationEs": "...una calculadora que marca 2+2=4"
+  },
+  {
+    "id": "7",
+    "name": "calendar",
+    "description": "un calendario che dice oggi é Venerdi 17, e si sa.... potrebbe essere un Venerdí nero.",
+    "description_en": "a calendar that says today is Friday 13, and, well, ... it could be Black Friday.",
+    "ActorReference": "BP_Prop_Calendar",
+    "Narrator": "Ah un'ultima cosa. Oggi é Venerdi 17...",
+    "NarratorLengthIt": "3.6",
+    "NarratorLength": "7",
+    "NarratorTranslation": "ah also, today is Friday the 13th...",
+    "NarratorTranslationEs": "Ah, y además, hoy es martes 13..."
+  },
+  {
+    "id": "8",
+    "name": "english",
+    "description": "un libro di Inglese per principianti, aperto, per terra. Le maschere non sanno l’inglese, e leggendo frasi dal libro sentono solo insulti.",
+    "description_en": "a beginner's Italian book, open, on the floor. The masks don't speak Italian, and when reading from it only hear obscenities, insults or curses.",
+    "ActorReference": "BP_Prop_English",
+    "Narrator": "un libro di inglese per principianti.",
+    "NarratorLengthIt": "4",
+    "NarratorLength": "2.4",
+    "NarratorTranslation": "..a beginners' book of Italian..",
+    "NarratorTranslationEs": "...un libro de Italiano para principiantes..."
+  },
+  {
+    "id": "9",
+    "name": "glass",
+    "description": "un bicchiere di birra, perfetto perché una maschera ha molta sete. Ma bevuto, la birra non disseta la maschera. Allora l’altra maschera lo riempie con diversi tipi di birre. Ma nessuna disseta, causando disperazione. Ma alla fine la maschera lo riempie segretamente di pipí! E la pipí finalmente disseta! Mi raccomando: non dire mai \"pipí\" ma dai degli indizi chiari sull'odore, colore e temperatura del liquido.",
+    "description_en": "a glass of beer, perfect because one mask is very thirsty. But after drinking it, the beer doesn't quench the mask's thirst. So the other mask fills it with different types of beer. But none of them quenches the thirst, causing despair. After a while, this mask secretly fills the glass with smelly pee! And the pee finally quenches the thirst! When writing, avoid saying it's pee but add clear clues about the provenance of the pee such as disgusting smell, color and temperature of the liquid.",
+    "ActorReference": "BP_Prop_Glass",
+    "Narrator": "un fresco bicchiere di birra.",
+    "NarratorLengthIt": "2.1",
+    "NarratorLength": "5",
+    "NarratorTranslation": "A glass of.. ahem.. beer!",
+    "NarratorTranslationEs": "Un vaso de... ejem... ¡cerveza!"
+  },
+  {
+    "id": "10",
+    "name": "latin",
+    "description": "un dizionario di latino. Una delle maschere lo apre e legge la grammatica. L'altra maschera non sa il latino e pensa di stare ricevendo bellissimi complimenti, sentendosi contenta.",
+    "description_en": "a Latin dictionary, which the first mask opens and reads. The second mask does not understand Latin and thinks it is receiving beautiful compliments, feeling happy while actually being insulted by the first mask.",
+    "ActorReference": "BP_Prop_Latin",
+    "Narrator": "un dizionario di latino.",
+    "NarratorLengthIt": "2.1",
+    "NarratorLength": "2.3",
+    "NarratorTranslation": "A latin dictionary.",
+    "NarratorTranslationEs": "Un diccionario de latín."
+  },
+  {
+    "id": "11",
+    "name": "lens",
+    "description": "una lente d'ingrandimento ENORME. Una maschera la raccoglie e la usa per giustificare varie teorie del complotto.",
+    "description_en": "a HUGE magnifying glass. A mask picks it up and uses it to analyse the state of the world, justifying fake news and conspiracy theories with the HUGE lens.",
+    "ActorReference": "BP_Prop_Lens",
+    "Narrator": "una lente di ingrandimento!",
+    "NarratorLengthIt": "4",
+    "NarratorLength": "1.9",
+    "NarratorTranslation": "..a magnifying glass!",
+    "NarratorTranslationEs": "...¡una lupa!"
+  },
+  {
+    "id": "12",
+    "name": "maccheroni",
+    "description": "un piatto di maccheroni, che una delle maschere annusa e ne loda l'aroma, facendo analogie sconce.",
+    "description_en": "a plate of macaroni, which one of the masks smells, praising its aroma and making very dirty analogies.",
+    "ActorReference": "BP_Prop_Maccheroni",
+    "Narrator": "un piatto di maccheroni...",
+    "NarratorLengthIt": "2.1",
+    "NarratorLength": "2.4",
+    "NarratorTranslation": "....a dish of maccheroni!",
+    "NarratorTranslationEs": "...¡un plato de macarrones!"
+  },
+  {
+    "id": "13",
+    "name": "sack",
+    "description": "un sacco di Juta chiuso. Le maschere lo toccano e speculano su cosa ci sia dentro in base alla sua consistenza, tirando fuori varie teorie del complotto.",
+    "description_en": "a filled sack, closed. The masks touch it and speculate on its content based on its consistency, coming up with various conspiracy theories.",
+    "ActorReference": "BP_Prop_Sack",
+    "Narrator": "un sacco di iuta, ok? Bello pieno.",
+    "NarratorLengthIt": "4",
+    "NarratorLength": "2.9",
+    "NarratorTranslation": "..a sack... filled with something.",
+    "NarratorTranslationEs": "...un saco... lleno de cosas."
+  }
+];
 
 export default PROPS;

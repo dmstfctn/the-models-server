@@ -14,7 +14,7 @@ import StateStandby from './components/StateStandby.js';
 import Timer from './components/Timer.js';
 import { GameContext, queueDefault } from './contexts/GameContext.js';
 
-import { getTxt, T, setLang } from './translation.js';
+import { getTxt, T, setLang, getSceneDescription } from './translation.js';
 setLang('es');
 
 function App() {
@@ -139,7 +139,7 @@ function App() {
         }
         {(isInLobby && backdrop && metaState === STATES.AcceptInput) 
           ? <div className="next-scene-info app-meta--block">
-              {getTxt(T.NEXTSCENE)} <span className="where">{backdrop.phoneCategoryIt}</span>.
+              {getTxt(T.NEXTSCENE)} <span className="where">{ getSceneDescription( backdrop ) }</span>.
             </div>
           : ''
         } 

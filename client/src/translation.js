@@ -356,4 +356,23 @@ export const getImg = ( ENUM, languageoverride = false ) => {
     return ( images[ENUM][lang] ) ? images[ENUM][lang] : (images[ENUM].en) ? (images[ENUM].en) : '';
 }
 
-window.getImg = getImg;
+
+
+export const getSceneDescription = ( backdrop, languageoverride = false ) => {
+    const lang = (languageoverride) ? languageoverride : LANG;
+    let langKey;
+    switch( lang ){
+        case 'en':
+            langKey = 'phoneCategoryEn';
+            break;
+        case 'es':
+            langKey = 'phoneCategoryEs';
+            break;
+        case 'it':
+            langKey = 'phoneCategoryIt'
+            break;
+        default:
+            langKey = 'phoneCategoryEn'
+    }        
+    return backdrop[ langKey ]
+}
