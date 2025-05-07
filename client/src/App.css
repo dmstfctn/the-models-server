@@ -159,7 +159,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
   font-size: inherit;  
   height: var(--btn-height);
   box-sizing: border-box;
-  box-shadow: 0 0 50vh var(--clr-brighter);
+  box-shadow: 0 0 75vh var(--clr-bright);
 }  
   .button:disabled{
     background: #000000;
@@ -334,7 +334,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p{
     background: var(--clr-brighter);
     color: #000000;
     padding: 0.8rem 1rem; 
-    box-shadow: 0 0 50vh var(--clr-bright);
+    box-shadow: 0 0 100vh var(--clr-bright);
     text-align: center;
     z-index: 99;    
   }
