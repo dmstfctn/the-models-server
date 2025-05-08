@@ -49,7 +49,7 @@ function App() {
       setIsSocketConnected(false);
     }
 
-    function onSetMetaState( state ){
+    function onSetMetaState( state, acknowledgementCallback ){
       console.log('set-meta-state', state )
       if( state !== metaState && state === STATES.Play ){
         setRating( 0 );
@@ -59,6 +59,7 @@ function App() {
       console.log( h );
       setStateHistory( h );
       console.log( stateHistory );
+      acknowledgementCallback({state});
     }
 
     function onSetBackdrop( {backdrop} ){

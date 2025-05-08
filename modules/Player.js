@@ -31,7 +31,13 @@ class Player extends EventEmitter {
   setMetaState( state ){
     this.metaState = state;
     console.log('player set to state: ', this.metaState );
-    this.socket.emit( 'set-meta-state', this.metaState );
+    this.socket.timeout( 1000 ).emit( 'set-meta-state', this.metaState, ( err, response ) => {
+      if( err ){
+        console.log('state set timeout. Error: ', err );
+      } else {
+        console.log('sent state: ', state, 'client received state: ', response.state );
+      }
+    });
   }
 
   setReadyToPlay(){
