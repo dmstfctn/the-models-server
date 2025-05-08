@@ -184,19 +184,19 @@ export const texts = {
         'es': 'Si llegas a "no te gusta" la escena puede cortarse.'
     },
     [T.IFLIKEQUEUED]: {
-        'en': 'Meanwhile if you like the scene',
-        'it': 'Nel frattempo.. se ti piace la scena',
-        'es': 'Mientras tanto.. si te gusta la escena'
+        'en': 'Meanwhile.. if you like the scene:',
+        'it': 'Nel frattempo.. se ti piace la scena:',
+        'es': 'Mientras tanto.. si te gusta la escena:'
     },
     [T.IFLIKEOWN]: {
-        'en': 'If you like the scene',
-        'it': 'Se ti piace la scena',
-        'es': 'Si te gusta la escena'            
+        'en': 'If you like the scene:',
+        'it': 'Se ti piace la scena:',
+        'es': 'Si te gusta la escena:'            
     },
     [T.IFNOTLIKE]: {
-        'en': 'If you don\'t',
-        'it': 'Se non ti piace',
-        'es': 'Si no te gusta'
+        'en': 'If you don\'t:',
+        'it': 'Se non ti piace:',
+        'es': 'Si no te gusta:'
     },
     [T.LIKELABEL]: {
         'en': 'you like',
