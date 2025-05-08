@@ -214,9 +214,9 @@ export const texts = {
         'es': 'Cuando comience la escena podrás darle feedback a los personajes.'
     },
     [T.WAITFORCHOICE]: {
-        'en': 'Please wait while others make their choice..',
-        'it': 'Attendi che gli altri facciano la loro scelta..',
-        'es': 'Por favor espere mientras otros hacen su elección..',
+        'en': 'Please wait while others make their choice...',
+        'it': 'Attendi che gli altri facciano la loro scelta...',
+        'es': 'Por favor espere mientras otros hacen su elección...',
     },
     [T.HOWTO1]: {
         'en': 'You have joined the queue to interact with The Models.',
