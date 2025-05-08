@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { useWakeLock } from 'react-screen-wake-lock';
+
 import './App.css';
 
 import { socket } from './socket.js';
@@ -19,6 +21,14 @@ setLang('es');
 
 function App() {
   const [isSocketConnected, setIsSocketConnected] = useState(socket.connected);
+
+  const { isSupported, released, request, release } = useWakeLock({
+    onRequest: () => console.log('wakelock: requested'),
+    onError: () => console.log('wakelock: error'),
+    onRelease: () => console.log('wakelock: released'),
+    reacquireOnPageVisible: true,
+  });
+
   const [queueInfo, setQueueInfo] = useState( queueDefault );
   const [isInLobby, setIsInLobby] = useState( false );
   const [backdrop,setBackdrop] = useState(false);
@@ -175,7 +185,13 @@ function App() {
             <div className='join-buttons'>
               <button 
                 className="button "
-                onClick={() => { 
+                onClick={() => {
+                  if( released ){ 
+                    console.log('no wake lock, requesting')
+                    request();
+                  } else {
+                    console.log('wake lock already');
+                  }
                   setLang( 'es' );
                   socket.emit( 'ready-to-play' )
                 }}
@@ -185,6 +201,12 @@ function App() {
               <button 
                 className="button button--join"
                 onClick={() => { 
+                  if( released ){ 
+                    console.log('no wake lock, requesting')
+                    request();
+                  } else {
+                    console.log('wake lock already');
+                  }
                   setLang( 'en' );
                   socket.emit( 'ready-to-play' )
                 }}
@@ -231,6 +253,9 @@ function App() {
     {(isDebug) ? <aside className="app-debug">
       <div>
         { isSocketConnected ? 'CONNECTED' : 'NOT CONNECTED' }
+      </div>
+      <div>
+        Screen Wake Lock API supported: {`${isSupported}`}
       </div>
       <div>
         State: {STATES_getName( metaState )}
