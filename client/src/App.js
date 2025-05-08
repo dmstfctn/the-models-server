@@ -32,6 +32,7 @@ function App() {
   
   const [justJoined, setJustJoined] = useState( true );
 
+  const [stateHistory, setStateHistory] = useState([]);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -53,7 +54,11 @@ function App() {
       if( state !== metaState && state === STATES.Play ){
         setRating( 0 );
       }
-      setMetaState( state );
+      setMetaState( state );      
+      const h = [state].concat(stateHistory);
+      console.log( h );
+      setStateHistory( h );
+      console.log( stateHistory );
     }
 
     function onSetBackdrop( {backdrop} ){
@@ -112,7 +117,7 @@ function App() {
       socket.off('begin-game', onBeginGame);
       socket.off('dead', onDead);
     };
-  }, []);
+  }, [stateHistory, setStateHistory]);
 
   return <>
     <GameContext.Provider value={{ 
@@ -224,6 +229,13 @@ function App() {
         <div>
           {JSON.stringify( config )}
         </div>
+      </div>
+      <div>
+        <ul>
+          {stateHistory.map((h) => {
+            return <li>{STATES_getName(h)}</li>
+          })}
+        </ul>
       </div>
     </aside> : '' } 
   </>
