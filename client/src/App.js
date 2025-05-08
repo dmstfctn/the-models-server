@@ -49,17 +49,27 @@ function App() {
       setIsSocketConnected(false);
     }
 
-    function onSetMetaState( state, acknowledgementCallback ){
-      console.log('set-meta-state', state )
+    // function onSetMetaState( state, acknowledgementCallback ){
+    //   console.log('set-meta-state', state )
+    //   if( state !== metaState && state === STATES.Play ){
+    //     setRating( 0 );
+    //   }
+    //   setMetaState( state );      
+    //   const h = [state].concat(stateHistory);
+    //   console.log( h );
+    //   setStateHistory( h );
+    //   console.log( stateHistory );
+    //   acknowledgementCallback({state});
+    // }
+
+    function onSetMetaState( state ){
+      console.log( 'set-meta-state', state );
       if( state !== metaState && state === STATES.Play ){
         setRating( 0 );
       }
       setMetaState( state );      
-      const h = [state].concat(stateHistory);
-      console.log( h );
+      const h = [state].concat(stateHistory);     
       setStateHistory( h );
-      console.log( stateHistory );
-      acknowledgementCallback({state});
     }
 
     function onSetBackdrop( {backdrop} ){
