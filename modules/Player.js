@@ -19,6 +19,7 @@ class Player extends EventEmitter {
   metaState = STATES.Idle;
   sentiment = 0;
   lifeTimeout = false;
+  resendStateTimer = false;
   constructor( socket ){
     super();
     this.id = counter;
@@ -31,17 +32,21 @@ class Player extends EventEmitter {
   setMetaState( state ){
     this.metaState = state;
     console.log('player set to state: ', this.metaState );
-    this.socket.emit( 'set-meta-state', this.metaState );
-    // this.socket.timeout( 1000 ).emit( 'set-meta-state', this.metaState, ( err, response ) => {
-    //   if( err ){
-    //     console.log('state set timeout. Error: ', err );
-    //     if( state === STATES.Restart ){
-          
-    //     }
-    //   } else {
-    //     console.log('sent state: ', state, 'client received state: ', response.state );
-    //   }
-    // });
+    //this.socket.emit( 'set-meta-state', this.metaState );
+    this.socket.timeout( 1000 ).emit( 'set-meta-state', this.metaState, ( err, response ) => {
+      if( err ){
+        console.log( 'state set timeout. Error: ', err );
+        if( state === STATES.Restart ){
+          clearTimeout( this.resendStateTimer );
+          this.resendStateTimer = setTimeout( () => {
+            this.setMetaState( state );
+          }, 500 );
+        }
+      } else {
+        clearTimeout( this.resendStateTimer );
+        console.log('sent state: ', state, 'client received state: ', response.state );
+      }
+    });
   }
 
   setReadyToPlay(){
