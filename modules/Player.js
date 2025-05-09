@@ -38,7 +38,9 @@ class Player extends EventEmitter {
         console.log( 'state set timeout. Error: ', err );
         if( state === STATES.Restart ){
           clearTimeout( this.resendStateTimer );
+          console.log('setting retry send STATES.Restart')
           this.resendStateTimer = setTimeout( () => {
+            console.log('retry send STATES.Restart')
             this.setMetaState( state );
           }, 500 );
         }
