@@ -59,28 +59,28 @@ function App() {
       setIsSocketConnected(false);
     }
 
-    function onSetMetaState( state, acknowledgementCallback ){
-      console.log('set-meta-state', state )
-      if( state !== metaState && state === STATES.Play ){
-        setRating( 0 );
-      }
-      setMetaState( state );      
-      
-      const h = [state].concat(stateHistory);      
-      setStateHistory( h );
-      
-      acknowledgementCallback({state});
-    }
-
-    // function onSetMetaState( state ){
-    //   console.log( 'set-meta-state', state );
+    // function onSetMetaState( state, acknowledgementCallback ){
+    //   console.log('set-meta-state', state )
     //   if( state !== metaState && state === STATES.Play ){
     //     setRating( 0 );
     //   }
     //   setMetaState( state );      
-    //   const h = [state].concat(stateHistory);     
+      
+    //   const h = [state].concat(stateHistory);      
     //   setStateHistory( h );
+      
+    //   acknowledgementCallback({state});
     // }
+
+    function onSetMetaState( state ){
+      console.log( 'set-meta-state', state );
+      if( state !== metaState && state === STATES.Play ){
+        setRating( 0 );
+      }
+      setMetaState( state );      
+      const h = [state].concat(stateHistory);     
+      setStateHistory( h );
+    }
 
     function onSetBackdrop( {backdrop} ){
       console.log('set-backdrop', backdrop )
