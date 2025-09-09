@@ -1,3 +1,4 @@
+/* ITALIAN */
 import tendency_friendly_it from './images/it/tendency-friendly.png';
 import tendency_waluigi_it from './images/it/tendency-waluigi.png';
 import tendency_confabulate_it from './images/it/tendency-confabulate.png';
@@ -17,15 +18,13 @@ import prop_lens_it from './images/it/prop-lens.png';
 import prop_maccheroni_it from './images/it/prop-maccheroni.png';
 import prop_sack_it from './images/it/prop-sack.png';
 
-import img_button_it from './images/it/button.png';
-
 import img_btn_coin_it from './images/it/button-coin.png';
 import img_btn_flower_it from './images/it/button-flower.png';
 import img_btn_tomati_it from './images/it/button-tomati.png';
 import img_btn_egg_it from './images/it/button-egg.png';
 
 
-
+/* SPANISH */
 import tendency_friendly_es from './images/es/tendency-friendly.png';
 import tendency_waluigi_es from './images/es/tendency-waluigi.png';
 import tendency_confabulate_es from './images/es/tendency-confabulate.png';
@@ -45,14 +44,13 @@ import prop_lens_es from './images/es/prop-lens.png';
 import prop_maccheroni_es from './images/es/prop-maccheroni.png';
 import prop_sack_es from './images/es/prop-sack.png';
 
-import img_button_es from './images/es/button.png';
-
 import img_btn_coin_es from './images/es/button-coin.png';
 import img_btn_flower_es from './images/es/button-flower.png';
 import img_btn_tomati_es from './images/es/button-tomati.png';
 import img_btn_egg_es from './images/es/button-egg.png';
 
 
+/* ENGLISH */
 import tendency_friendly_en from './images/en/tendency-friendly.png';
 import tendency_waluigi_en from './images/en/tendency-waluigi.png';
 import tendency_confabulate_en from './images/en/tendency-confabulate.png';
@@ -72,15 +70,39 @@ import prop_lens_en from './images/en/prop-lens.png';
 import prop_maccheroni_en from './images/en/prop-maccheroni.png';
 import prop_sack_en from './images/en/prop-sack.png';
 
-import img_button_en from './images/en/button.png';
-
 import img_btn_coin_en from './images/en/button-coin.png';
 import img_btn_flower_en from './images/en/button-flower.png';
 import img_btn_tomati_en from './images/en/button-tomati.png';
 import img_btn_egg_en from './images/en/button-egg.png';
 
 
+/* HUNGARIAN */
+import tendency_friendly_hu from './images/hu/tendency-friendly.png';           //  Arlecchino vagy Colombina (barátságos AI)
+import tendency_waluigi_hu from './images/hu/tendency-waluigi.png';             //  Brighella or Pantalone (antagonisztikus AI)
+import tendency_confabulate_hu from './images/hu/tendency-confabulate.png';     //  Balanzone vagy Pulcinella (hazug AI)
+
+import prop_mirror_hu from './images/hu/prop-mirror.png';                       //  törött tükör
+import prop_globe_hu from './images/hu/prop-globe.png';                         //  földgömb
+import prop_cat_hu from './images/hu/prop-cat.png';                             //  fekete macska
+import prop_moon_hu from './images/hu/prop-moon.png';                           //  holdhónap
+import prop_apple_hu from './images/hu/prop-apple.png';                         //  alma
+import prop_ball_hu from './images/hu/prop-ball.png';                           //  hógömb
+import prop_calculator_hu from './images/hu/prop-calculator.png';               //  számológép
+import prop_calendar_hu from './images/hu/prop-calendar.png';                   //  péntek 13
+import prop_english_hu from './images/hu/prop-english.png';                     //  olasz könyv
+import prop_glass_hu from './images/hu/prop-glass.png';                         //  söröspohár
+import prop_latin_hu from './images/hu/prop-latin.png';                         //  latin szótár
+import prop_lens_hu from './images/hu/prop-lens.png';                           //  nagyító
+import prop_maccheroni_hu from './images/hu/prop-maccheroni.png';               //  makaróni
+import prop_sack_hu from './images/hu/prop-sack.png';                           //  teli zsák
+
+import img_btn_coin_hu from './images/hu/button-coin.png';                      //  dobj egy érmét
+import img_btn_flower_hu from './images/hu/button-flower.png';                  //  dobj egy virágot
+import img_btn_tomati_hu from './images/hu/button-tomati.png';                  //  dobj egy paradicsomot
+import img_btn_egg_hu from './images/hu/button-egg.png';                        //  dobj egy tojást
+
 export let LANG = 'en';
+export const OTHER_LANG = 'hu';
 
 export const setLang = ( lang = 'en' ) => {
     if( lang in texts[T.DEFAULT] ){
@@ -121,122 +143,146 @@ export const texts = {
     [T.DEFAULT]: {
         'en': '',
         'it': '',
-        'es': ''
+        'es': '',
+        'hu': ''
     },
     [T.LANGUAGE]: {
         'en': 'english',
         'it': 'italiano',
-        'es': 'español'
+        'es': 'español',
+        'hu': 'magyar',
     },
     [T.START]: {
         'en': 'start',
         'it': 'pertecipa',
-        'es': 'participa'
+        'es': 'participa',
+        'hu': 'start',
     },
     [T.QINFO1]: {
         'en': 'You\'re in the queue. In',
         'it': 'Sei in fila. Tra',
-        'es': 'Estás en la cola. En'
+        'es': 'Estás en la cola. En',
+        'hu': 'Ön a sorban áll.',
     },
     [T.QINFO2]: {
         'en': 'scenes time it will be your turn to compose the scene.',
         'it': 'scena sarà il tuo turno di comporre la scena.',
-        'es': 'escenas será tu turno de componer la escena.'
+        'es': 'escenas será tu turno de componer la escena.',
+        'hu': 'jelenet múlva rajtad a sor, hogy megkomponáld a jelenetet.',
     },
     [T.NEXTSCENE]: {
         'en': 'The next scene is',
         'it': 'La prossima scena si svolge',
-        'es': 'La siguiente escena es'
+        'es': 'La siguiente escena es',
+        'hu': 'A következő jelenet...'
     },
     [T.TIMENEXT1]: {
         'en': 'You have',
         'it': 'Hai',
-        'es': 'Tienes'
+        'es': 'Tienes',
+        'hu': '',
     },
     [T.TIMENEXT2]: {
         'en': 'seconds to compose the scene.',
         'it': 'secondi per comporre la scena.',
-        'es': 'segundos para componer la escena.'
+        'es': 'segundos para componer la escena.',
+        'hu': 'másodperced van a jelenet megkomponálására.',
     },
     [T.SELECTAI]: {
         'en': 'Pick a character',
         'it': 'Scegli un personaggio',
-        'es': 'Elige un personaje'
+        'es': 'Elige un personaje',
+        'hu': 'Válassz egy karaktert'
     },
     [T.SELECTANOTHERAI]: {
         'en': 'Now pick another character',
         'it': 'Ora scegli un altro personaggio',
-        'es': 'Ahora elige otro personaje'
+        'es': 'Ahora elige otro personaje',
+        'hu': 'Most válassz egy másik karaktert',
     },
     [T.SELECTPROP]: {
         'en': 'Pick a prop to place on stage',
         'it': 'Scegli un oggetto da aggiungere sul palco',
-        'es': 'Elige un objeto para añadirlo al escenario'
+        'es': 'Elige un objeto para añadirlo al escenario',
+        'hu': 'Válassz egy kelléket, amit a színpadra helyezel',
     },
     [T.SELECTFINALPROP]: {
         'en': 'Finally pick a prop to place on stage',
         'it': 'Infine scegli un oggetto di scena da posizionare sul palco',
-        'es': 'Por último elige un objeto para colocar en el escenario.'
+        'es': 'Por último elige un objeto para colocar en el escenario.',
+        'hu': 'Végül válassz egy kelléket, amit a színpadra helyezel',
     },
     [T.DISLIKEINFO]: {
         'en': 'If you hit "dislike" the scene may be cut short',
         'it': 'Se "non ti piace" la scena potrebbe essere interrotta',
-        'es': 'Si llegas a "no te gusta" la escena puede cortarse.'
+        'es': 'Si llegas a "no te gusta" la escena puede cortarse.',
+        'hu': 'Ha a "nem tetszik" gombra kattintasz, a jelenet félbeszakadhat',
     },
     [T.IFLIKEQUEUED]: {
         'en': 'Meanwhile.. if you like the scene:',
         'it': 'Nel frattempo.. se ti piace la scena:',
-        'es': 'Mientras tanto.. si te gusta la escena:'
+        'es': 'Mientras tanto.. si te gusta la escena:',
+        'hu': 'Közben... ha tetszik a jelenet:',
     },
     [T.IFLIKEOWN]: {
         'en': 'If you like the scene:',
         'it': 'Se ti piace la scena:',
-        'es': 'Si te gusta la escena:'            
+        'es': 'Si te gusta la escena:',
+        'hu': 'Ha tetszik a jelenet:'
     },
     [T.IFNOTLIKE]: {
         'en': 'If you don\'t:',
         'it': 'Se non ti piace:',
-        'es': 'Si no te gusta:'
+        'es': 'Si no te gusta:',
+        'hu': 'Ha nem:'
     },
     [T.LIKELABEL]: {
         'en': 'you like',
         'it': 'ti piace',
-        'es': 'te gusta'
+        'es': 'te gusta',
+        'hu': 'Tetszik',
     },
     [T.DISLIKELABEL]: {
         'en': 'you dislike',
         'it': 'non ti piace',
-        'es': 'no te gusta'
+        'es': 'no te gusta',
+        'hu': 'Nem tetszik',
     },
     [T.STANDBY]: {
         'en': 'Once the scene begins you will be able to give feedback to the characters.',
         'it': 'Quando inizia la scena potrai dare feedback alle maschere.',
-        'es': 'Cuando comience la escena podrás darle feedback a los personajes.'
+        'es': 'Cuando comience la escena podrás darle feedback a los personajes.',
+        'hu': 'Amint a jelenet elkezdődik, visszajelzést adhatsz a karaktereknek.',
     },
     [T.WAITFORCHOICE]: {
         'en': 'Please wait while others make their choice...',
         'it': 'Attendi che gli altri facciano la loro scelta...',
         'es': 'Por favor espere mientras otros hacen su elección...',
+        'hu': 'Kérlek, várj, amíg mások választanak...'
     },
     [T.HOWTO1]: {
         'en': 'You have joined the queue to interact with The Models.',
         'it': 'Sei in fila per interagire con The Models.',
         'es': 'Te has unido a la cola para interactuar con The Models.',
+        'hu': 'Beálltál a sorba, hogy interakcióba léphess a The Models installációval.'
     },
     [T.HOWTO2]: {
         'en': `When it's your turn, you will be able to compose the upcoming scene.`,
         'it': `Quando sarà il tuo turno, potrai comporre la scena successiva.`,
-        'es': `Cuando sea tu turno, podrás componer la próxima escena.`
+        'es': `Cuando sea tu turno, podrás componer la próxima escena.`,
+        'hu': `Amikor te jössz, lehetőséged lesz beelszólni a következő jelenet kimenetelébe.`
     },
     [T.HOWTO3]: {
         'en': `You will be able to choose between an AI playing a friendly, antagonistic, or lying character from Italian Commedia dell'Arte. Sometimes you will be able to choose a  prop to place on stage. Do not rescan the QR code or you will lose your place in the queue!`,
         'it': `Potrai scegliere tra un'IA che interpreta una maschera della Commedia dell'Arte amichevole, antagonista o bugiarda. A volte potrai scegliere un oggetto di scena da posizionare sul palco. Non riscansionare il codice QR altrimenti perderai il posto in fila!`,
-        'es': `Podrás elegir entre una IA que interpretará un personaje amigable, antagónico o mentiroso de la Commedia dell'Arte italiana. En ocasiones podrás elegir un objecto para colocar en el escenario. No vuelva a escanear el código QR o perderá su lugar en la cola!`
+        'es': `Podrás elegir entre una IA que interpretará un personaje amigable, antagónico o mentiroso de la Commedia dell'Arte italiana. En ocasiones podrás elegir un objecto para colocar en el escenario. No vuelva a escanear el código QR o perderá su lugar en la cola!`,
+        'hu': `Kiválaszthatod, hogy az AI egy barátságos, antagonisztikus vagy hazug karaktert játsszon az olasz Commedia dell’Arte maszkjai közül. Néha lehetőséged lesz egy kelléket is elhelyezni a színpadon. Ne olvasd be újra a QR-kódot, különben elveszíted a sorban elfoglalt helyed!`
     },
     [T.HOWTO4]: {
         'en': 'Regardless of your position in the queue, you will always be able to give feedback to the acting characters during a scene.',
         'it': 'Indipendentemente dalla tua posizione nella coda, potrai dare feedback alle maschere una volta iniziata la scena.',
         'es': 'Independientemente de tu posición en la cola, podrás dar feedback a los personajes que actúan cuando comience la escena.',
+        'hu': `A sorban elfoglalt helyedtől függetlenül mindig adhatsz visszajelzést a szereplőknek a jelenet alatt.`
     }
 
 }
@@ -278,112 +324,128 @@ const images = {
     [I.friendly]: {
         'en': tendency_friendly_en,
         'it': tendency_friendly_it,
-        'es': tendency_friendly_es
+        'es': tendency_friendly_es,
+        'hu': tendency_friendly_hu
     },
     [I.waluigi]: {
         'en': tendency_waluigi_en,
         'it': tendency_waluigi_it,
-        'es': tendency_waluigi_es
+        'es': tendency_waluigi_es,
+        'hu': tendency_waluigi_hu
     },
     [I.confabulate]: {
         'en': tendency_confabulate_en,
         'it': tendency_confabulate_it,
-        'es': tendency_confabulate_es
+        'es': tendency_confabulate_es,
+        'hu': tendency_confabulate_hu
     },
     [I.mirror]: {
         'en': prop_mirror_en,
         'it': prop_mirror_it,
-        'es': prop_mirror_es
+        'es': prop_mirror_es,
+        'hu': prop_mirror_hu
     },
     [I.globe]: {
         'en': prop_globe_en,
         'it': prop_globe_it,
-        'es': prop_globe_es
+        'es': prop_globe_es,
+        'hu': prop_globe_hu
     },
     [I.cat]: {
         'en': prop_cat_en,
         'it': prop_cat_it,
-        'es': prop_cat_es
+        'es': prop_cat_es,
+        'hu': prop_cat_hu
     },
     [I.moon]: {
         'en': prop_moon_en,
         'it': prop_moon_it,
-        'es': prop_moon_es
+        'es': prop_moon_es,
+        'hu': prop_moon_hu
     },
     [I.apple]: {
         'en': prop_apple_en,
         'it': prop_apple_it,
-        'es': prop_apple_es
+        'es': prop_apple_es,
+        'hu': prop_apple_hu
     },
     [I.ball]: {
         'en': prop_ball_en,
         'it': prop_ball_it,
-        'es': prop_ball_es
+        'es': prop_ball_es,
+        'hu': prop_ball_hu
     },
     [I.calculator]: {
         'en': prop_calculator_en,
         'it': prop_calculator_it,
-        'es': prop_calculator_es
+        'es': prop_calculator_es,
+        'hu': prop_calculator_hu
     },
     [I.calendar]: {
         'en': prop_calendar_en,
         'it': prop_calendar_it,
-        'es': prop_calendar_es
+        'es': prop_calendar_es,
+        'hu': prop_calendar_hu
     },
     [I.english]: {
         'en': prop_english_en,
         'it': prop_english_it,
-        'es': prop_english_es
+        'es': prop_english_es,
+        'hu': prop_english_hu
     },
     [I.glass]: {
         'en': prop_glass_en,
         'it': prop_glass_it,
-        'es': prop_glass_es
+        'es': prop_glass_es,
+        'hu': prop_glass_hu
     },
     [I.latin]: {
         'en': prop_latin_en,
         'it': prop_latin_it,
-        'es': prop_latin_es
+        'es': prop_latin_es,
+        'hu': prop_latin_hu
     },
     [I.lens]: {
         'en': prop_lens_en,
         'it': prop_lens_it,
-        'es': prop_lens_es
+        'es': prop_lens_es,
+        'hu': prop_lens_hu
     },
     [I.maccheroni]: {
         'en': prop_maccheroni_en,
         'it': prop_maccheroni_it,
-        'es': prop_maccheroni_es
+        'es': prop_maccheroni_es,
+        'hu': prop_maccheroni_hu
     },
     [I.sack]: {
         'en': prop_sack_en,
         'it': prop_sack_it,
-        'es': prop_sack_es
-    },
-    [I.button]: {
-        'en': img_button_en,
-        'it': img_button_it,
-        'es': img_button_es
+        'es': prop_sack_es,
+        'hu': prop_sack_hu
     },
     [I.button_coin]: {
         'en': img_btn_coin_en,
         'it': img_btn_coin_it,
-        'es': img_btn_coin_es
+        'es': img_btn_coin_es,
+        'hu': img_btn_coin_hu
     },
     [I.button_flower]: {
         'en': img_btn_flower_en,
         'it': img_btn_flower_it,
-        'es': img_btn_flower_es
+        'es': img_btn_flower_es,
+        'hu': img_btn_flower_hu
     },
     [I.button_tomati]: {
         'en': img_btn_tomati_en,
         'it': img_btn_tomati_it,
-        'es': img_btn_tomati_es
+        'es': img_btn_tomati_es,
+        'hu': img_btn_tomati_hu
     },
     [I.button_egg]: {
         'en': img_btn_egg_en,
         'it': img_btn_egg_it,
-        'es': img_btn_egg_es
+        'es': img_btn_egg_es,
+        'hu': img_btn_egg_hu
     }
 };
 
@@ -408,6 +470,9 @@ export const getSceneDescription = ( backdrop, languageoverride = false ) => {
             break;
         case 'it':
             langKey = 'phoneCategoryIt'
+            break;
+        case 'hu':
+            langKey = 'phoneCategoryHu'
             break;
         default:
             langKey = 'phoneCategoryEn'

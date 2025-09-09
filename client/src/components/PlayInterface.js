@@ -121,21 +121,7 @@ function PlayInterface({ active, roles, onSelect=()=>{}, onComplete=()=>{} }){
                     c[ROLES.PROP] = prop;
                     setChoices( c );                    
                 }}
-            />        
-            {/* <button 
-                className={`play-button${(isChoiceComplete) ? ' active' : ''}`}
-                disabled={ !isChoiceComplete }
-                onClick={() => { 
-                    console.log( choices )
-                    for( let i in choices ){
-                        onSelect( parseInt(i), choices[i] )
-                    }
-
-                    onComplete( choices );
-                }}
-            >
-                <img src={getImg( I.button )} />
-            </button> */}
+            />
             <div>
                <div className='app-meta--block app-meta--block__bright'>
                     {getTxt(T.WAITFORCHOICE)}

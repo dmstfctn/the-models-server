@@ -16,8 +16,9 @@ import Onboarding from './components/Onboarding.js';
 import Timer from './components/Timer.js';
 import { GameContext, queueDefault } from './contexts/GameContext.js';
 
-import { getTxt, T, setLang, getSceneDescription } from './translation.js';
-setLang('es');
+import { getTxt, T, setLang, getSceneDescription, OTHER_LANG } from './translation.js';
+
+setLang( OTHER_LANG );
 
 function App() {
   const [isSocketConnected, setIsSocketConnected] = useState(socket.connected);
@@ -192,11 +193,11 @@ function App() {
                   } else {
                     console.log('wake lock already');
                   }
-                  setLang( 'es' );
+                  setLang( OTHER_LANG );
                   socket.emit( 'ready-to-play' )
                 }}
               >
-                {getTxt(T.LANGUAGE, 'es')}
+                {getTxt(T.LANGUAGE, OTHER_LANG)}
               </button> 
               <button 
                 className="button button--join"
