@@ -11,9 +11,11 @@ const all = [
     "NarratorLength": "10",
     "NarratorTranslation": "Ok so - it's night, the moon is out. At the center of the scene is an object...",
     "NarratorTranslationEs": "Bien, es de noche, hay luna. En el centro de la escena hay un objeto...",
+    "NarratorTranslationHu": "Oké, tehát - éjszaka van, a hold kint van. A jelenet közepén egy tárgy van...",
     "phoneCategoryIt": "in una grotta",
     "phoneCategoryEn": "in a cave",
-    "phoneCategoryEs": "en una cueva"
+    "phoneCategoryEs": "en una cueva",
+    "phoneCategoryHu": "barlangban"
   },
   {
     "id": "2",
@@ -27,9 +29,11 @@ const all = [
     "NarratorLength": "12.4",
     "NarratorTranslation": "Let's begin, let's study the scene: portico, vaults, courtyard, night.. at the center of the scene an object",
     "NarratorTranslationEs": "Comencemos, estudiemos la escena: pórtico, bóvedas, patio, noche... En el centro de la escena hay un objeto.",
+    "NarratorTranslationHu": "Kezdjük, tanulmányozzuk a jelenetet: tornác, boltozatok, udvar, éjszaka... a jelenet közepén egy tárgy",
     "phoneCategoryIt": "in un portico",
     "phoneCategoryEn": "under a portico",
-    "phoneCategoryEs": "en un pórtico"
+    "phoneCategoryEs": "en un pórtico",
+    "phoneCategoryHu": "tornác alatt"
   },
   {
     "id": "3",
@@ -43,9 +47,11 @@ const all = [
     "NarratorLength": "7.8",
     "NarratorTranslation": "Ok so - it's night, the moon is out, in the middle of the scene is an object",
     "NarratorTranslationEs": "Bien, es de noche, hay luna, en el centro de la escena hay un objeto.",
+    "NarratorTranslationHu": "Oké, tehát - éjszaka van, a hold kint van, a jelenet közepén egy tárgy van",
     "phoneCategoryIt": "al cimitero",
     "phoneCategoryEn": "in a cemetery",
-    "phoneCategoryEs": "en un cementerio"
+    "phoneCategoryEs": "en un cementerio",
+    "phoneCategoryHu": "temetőben"
   },
   {
     "id": "4",
@@ -59,9 +65,11 @@ const all = [
     "NarratorLength": "10.8",
     "NarratorTranslation": "Ok so - it's night, the moon is out, in the middle of the scene is an object...",
     "NarratorTranslationEs": "Bien, es de noche, hay luna, en el centro de la escena hay un objeto...",
+    "NarratorTranslationHu": "Oké, tehát - éjszaka van, a hold kint van, a jelenet közepén egy tárgy van...",
     "phoneCategoryIt": "in un androne",
     "phoneCategoryEn": "in a hallway",
-    "phoneCategoryEs": "en un pasillo"
+    "phoneCategoryEs": "en un pasillo",
+    "phoneCategoryHu": "folyosóban"
   },
   {
     "id": "5",
@@ -75,9 +83,11 @@ const all = [
     "NarratorLength": "7.4",
     "NarratorTranslation": "Ok so - it's night, the moon is out, in the middle of the scene is an object...",
     "NarratorTranslationEs": "Bien, es de noche, hay luna, en el centro de la escena hay un objeto...",
+    "NarratorTranslationHu": "Oké, tehát - éjszaka van, a hold kint van, a jelenet közepén egy tárgy van...",
     "phoneCategoryIt": "in piazza",
     "phoneCategoryEn": "in a square",
-    "phoneCategoryEs": "en una plaza"
+    "phoneCategoryEs": "en una plaza",
+    "phoneCategoryHu": "téren"
   },
   {
     "id": "6",
@@ -91,9 +101,11 @@ const all = [
     "NarratorLength": "7.6",
     "NarratorTranslation": "So, this scene takes place at night, we are in a quiet porch. In the middle of the scene is an object",
     "NarratorTranslationEs": "Esta escena transcurre de noche, estamos en un tranquilo porche. En el centro de la escena hay un objeto.",
+    "NarratorTranslationHu": "Szóval, ez a jelenet éjszaka játszódik, egy csendes tornácon vagyunk. A jelenet közepén egy tárgy van",
     "phoneCategoryIt": "in un chiostro",
     "phoneCategoryEn": "in a cloister",
-    "phoneCategoryEs": "en un claustro"
+    "phoneCategoryEs": "en un claustro",
+    "phoneCategoryHu": "kolostorban"
   },
   {
     "id": "7",
@@ -107,9 +119,11 @@ const all = [
     "NarratorLength": "9.3",
     "NarratorTranslation": "So, we are in Venice. In the middle of the scene is an object",
     "NarratorTranslationEs": "Estamos en Venecia. En el centro de la escena hay un objeto.",
+    "NarratorTranslationHu": "Szóval, Velencében vagyunk. A jelenet közepén egy tárgy van",
     "phoneCategoryIt": "a Venezia",
     "phoneCategoryEn": "in Venice",
-    "phoneCategoryEs": "en Venecia"
+    "phoneCategoryEs": "en Venecia",
+    "phoneCategoryHu": "Velence"
   },
   {
     "id": "8",
@@ -123,9 +137,11 @@ const all = [
     "NarratorLength": "13.8",
     "NarratorTranslation": "Here we have to use imagination masks. We see the moon looking at a globe. In the middle of the scene is an object",
     "NarratorTranslationEs": "Aquí tenemos que usar la imaginación, máscaras. Vemos la luna mirando un globo terráqueo. En el centro de la escena hay un objeto.",
+    "NarratorTranslationHu": "Itt képzeletmaszkokat kell használnunk. Látjuk, ahogy a hold egy gömböt néz. A jelenet közepén egy tárgy van",
     "phoneCategoryIt": "in cielo",
     "phoneCategoryEn": "in the sky",
-    "phoneCategoryEs": "en el cielo"
+    "phoneCategoryEs": "en el cielo",
+    "phoneCategoryHu": "az égen"
   },
   {
     "id": "9",
@@ -139,9 +155,11 @@ const all = [
     "NarratorLength": "9.6",
     "NarratorTranslation": "Well, we are at the seaside, a beautiful scene. Here on stage is an object...",
     "NarratorTranslationEs": "Bueno, estamos en la playa, una escena preciosa. Aquí en el escenario hay un objeto...",
+    "NarratorTranslationHu": "Nos, a tengerparton vagyunk, egy gyönyörű jelenet. Itt a színpadon egy tárgy van...",
     "phoneCategoryIt": "al mare",
     "phoneCategoryEn": "at sea",
-    "phoneCategoryEs": "en el mar"
+    "phoneCategoryEs": "en el mar",
+    "phoneCategoryHu": "tengeren"
   },
   {
     "id": "10",
@@ -155,9 +173,11 @@ const all = [
     "NarratorLength": "10",
     "NarratorTranslation": "So, this scene is outdoors, ok? And in the middle of the scene, an object...",
     "NarratorTranslationEs": "Esta escena es al aire libre, ¿vale? Y en medio de la escena, un objeto...",
+    "NarratorTranslationHu": "Szóval, ez a jelenet a szabadban van, oké? És a jelenet közepén egy tárgy...",
     "phoneCategoryIt": "in campagna",
     "phoneCategoryEn": "in the countryside",
-    "phoneCategoryEs": "en el campo"
+    "phoneCategoryEs": "en el campo",
+    "phoneCategoryHu": "vidéken"
   },
   {
     "id": "11",
@@ -171,9 +191,11 @@ const all = [
     "NarratorLength": "9.6",
     "NarratorTranslation": "Attention masks. You are in the open countryside and it has snowed. And here in the middle is an object...",
     "NarratorTranslationEs": "Máscaras, atención. Estáis en pleno campo y ha nevado. Y aquí, en medio, hay un objeto...",
+    "NarratorTranslationHu": "Figyelemmaszkok. Nyílt vidéken vagy, és havazik. És itt középen van egy tárgy...",
     "phoneCategoryIt": "in campagna",
     "phoneCategoryEn": "in the countryside",
-    "phoneCategoryEs": "en el campo"
+    "phoneCategoryEs": "en el campo",
+    "phoneCategoryHu": "vidéken"
   },
   {
     "id": "12",
@@ -187,9 +209,11 @@ const all = [
     "NarratorLength": "9.4",
     "NarratorTranslation": "Here we are, in this scene we are in a rather thick forest. Look in the middle, there's an object",
     "NarratorTranslationEs": "Aquí estamos, en esta escena, en un bosque bastante espeso. Mira en el medio, hay un objeto.",
+    "NarratorTranslationHu": "Itt vagyunk, ebben a jelenetben egy meglehetősen sűrű erdőben vagyunk. Nézzétek középen, ott van egy tárgy.",
     "phoneCategoryIt": "in un bosco",
     "phoneCategoryEn": "in a forest",
-    "phoneCategoryEs": "en un bosque"
+    "phoneCategoryEs": "en un bosque",
+    "phoneCategoryHu": "erdőben"
   },
   {
     "id": "14",
@@ -203,9 +227,11 @@ const all = [
     "NarratorLength": "10.4",
     "NarratorTranslation": "Ok let's study the scene, we are outdoors, in the middle of nature, and in the center is an object",
     "NarratorTranslationEs": "Bien, estudiemos la escena: estamos al aire libre, en plena naturaleza, y en el centro hay un objeto.",
+    "NarratorTranslationHu": "Oké, tanulmányozzuk a jelenetet, kint vagyunk, a természet közepén, és középen van egy tárgy.",
     "phoneCategoryIt": "in campagna",
     "phoneCategoryEn": "in the countryside",
-    "phoneCategoryEs": "en el campo"
+    "phoneCategoryEs": "en el campo",
+    "phoneCategoryHu": "vidéken"
   },
   {
     "id": "15",
@@ -219,9 +245,11 @@ const all = [
     "NarratorLength": "8.4",
     "NarratorTranslation": "Nice, we are on the seaside, a nice scene. Here on stage is an object...",
     "NarratorTranslationEs": "Genial, estamos a la orilla del mar, una escena bonita. Aquí, en el escenario, hay un objeto...",
+    "NarratorTranslationHu": "Szép, a tengerparton vagyunk, egy szép jelenet. Itt a színpadon van egy tárgy...",
     "phoneCategoryIt": "al mare",
     "phoneCategoryEn": "at sea",
-    "phoneCategoryEs": "en el mar"
+    "phoneCategoryEs": "en el mar",
+    "phoneCategoryHu": "tengeren"
   },
   {
     "id": "16",
@@ -235,9 +263,11 @@ const all = [
     "NarratorLength": "6.4",
     "NarratorTranslation": "We are in a prison. Here in the middle of the scene you see an object. Ok.",
     "NarratorTranslationEs": "Estamos en una prisión. Aquí, en medio de la escena, veis un objeto. Bien.",
+    "NarratorTranslationHu": "Egy börtönben vagyunk. Itt a jelenet közepén látsz egy tárgyat. Oké.",
     "phoneCategoryIt": "in una prigione",
     "phoneCategoryEn": "in a prison",
-    "phoneCategoryEs": "en una prisión"
+    "phoneCategoryEs": "en una prisión",
+    "phoneCategoryHu": "börtönben"
   },
   {
     "id": "19",
@@ -251,9 +281,11 @@ const all = [
     "NarratorLength": "11",
     "NarratorTranslation": "Ok, you are in a nice room, a gentleman's room. In the center you see an object.",
     "NarratorTranslationEs": "Bien, estás en una habitación bonita, la habitación de un caballero. En el centro ves un objeto.",
+    "NarratorTranslationHu": "Oké, egy szép szobában vagy, egy úriember szobájában. Középen látsz egy tárgyat.",
     "phoneCategoryIt": "in una camera",
     "phoneCategoryEn": "in a room",
-    "phoneCategoryEs": "en una habitación"
+    "phoneCategoryEs": "en una habitación",
+    "phoneCategoryHu": "szobában"
   },
   {
     "id": "21",
@@ -267,9 +299,11 @@ const all = [
     "NarratorLength": "13.2",
     "NarratorTranslation": "Here we are. Look at this beautiful scene, what blue and red colors. So, in the middle of the scene is an object...",
     "NarratorTranslationEs": "Aquí estamos. Mira esta hermosa escena, qué colores azules y rojos. Entonces, en medio de la escena hay un objeto...",
+    "NarratorTranslationHu": "Itt vagyunk. Nézd ezt a gyönyörű jelenetet, milyen kék és piros színek. Szóval, a jelenet közepén van egy tárgy...",
     "phoneCategoryIt": "in un atrio",
     "phoneCategoryEn": "in a hall",
-    "phoneCategoryEs": "en una sala"
+    "phoneCategoryEs": "en una sala",
+    "phoneCategoryHu": "csarnokban"
   },
   {
     "id": "22",
@@ -283,9 +317,11 @@ const all = [
     "NarratorLength": "8",
     "NarratorTranslation": "Here we are. What a beautiful building. Look at it. And look at the center is an object, ok?",
     "NarratorTranslationEs": "Aquí estamos. Qué hermoso edificio. Míralo. Y mira, en el centro hay un objeto, ¿de acuerdo?",
+    "NarratorTranslationHu": "Itt vagyunk. Milyen gyönyörű épület. Nézd meg. És nézd meg középen egy tárgyat, oké?",
     "phoneCategoryIt": "in un androne",
     "phoneCategoryEn": "in a hall",
-    "phoneCategoryEs": "en una sala"
+    "phoneCategoryEs": "en una sala",
+    "phoneCategoryHu": "csarnokban"
   },
   {
     "id": "23",
@@ -299,9 +335,11 @@ const all = [
     "NarratorLength": "6.4",
     "NarratorTranslation": "Here we are. Let's look around - a rather sinister scene. In the middle you see an object",
     "NarratorTranslationEs": "Aquí estamos. Miremos a nuestro alrededor: una escena bastante siniestra. En el centro se ve un objeto.",
+    "NarratorTranslationHu": "Itt vagyunk. Nézzünk körül - egy meglehetősen baljóslatú jelenet. Középen látsz egy tárgyat.",
     "phoneCategoryIt": "nelle cripte",
     "phoneCategoryEn": "in a crypt",
-    "phoneCategoryEs": "en una cripta"
+    "phoneCategoryEs": "en una cripta",
+    "phoneCategoryHu": "kriptában"
   },
   {
     "id": "26",
@@ -315,9 +353,11 @@ const all = [
     "NarratorLength": "9.4",
     "NarratorTranslation": "So we are at the circus, and in the middle of the scene there is an object, ok?",
     "NarratorTranslationEs": "Estamos en el circo, y en el centro de la escena hay un objeto, ¿vale?",
+    "NarratorTranslationHu": "Szóval a cirkuszban vagyunk, és a jelenet közepén van egy tárgy, oké?",
     "phoneCategoryIt": "al circo",
     "phoneCategoryEn": "at the circus",
-    "phoneCategoryEs": "en el circo"
+    "phoneCategoryEs": "en el circo",
+    "phoneCategoryHu": "a cirkuszban"
   },
   {
     "id": "29",
@@ -331,9 +371,11 @@ const all = [
     "NarratorLength": "9.3",
     "NarratorTranslation": "Here we are. Let's look around - a rather sinister scene. In the middle you see an object",
     "NarratorTranslationEs": "Aquí estamos. Miremos a nuestro alrededor: una escena bastante siniestra. En el centro se ve un objeto.",
+    "NarratorTranslationHu": "Itt vagyunk. Nézzünk körül – egy meglehetősen baljóslatú jelenet tárul elénk. Középen egy tárgyat látsz.",
     "phoneCategoryIt": "al cimitero",
     "phoneCategoryEn": "at the cemetery",
-    "phoneCategoryEs": "en el cementerio"
+    "phoneCategoryEs": "en el cementerio",
+    "phoneCategoryHu": "a temetőben"
   },
   {
     "id": "30",
@@ -347,9 +389,11 @@ const all = [
     "NarratorLength": "10.9",
     "NarratorTranslation": "Well, the scene is set in a very special place, with oriental decorations... In the middle, an object...",
     "NarratorTranslationEs": "Bueno, la escena está ambientada en un lugar muy especial, con decoraciones orientales... puedes interpretarlo. En el centro, un objeto...",
+    "NarratorTranslationHu": "Nos, a jelenet egy nagyon különleges helyen játszódik, keleti díszítéssel... Középen egy tárgy...",
     "phoneCategoryIt": "in un atrio",
     "phoneCategoryEn": "in a hall",
-    "phoneCategoryEs": "en una sala"
+    "phoneCategoryEs": "en una sala",
+    "phoneCategoryHu": "csarnokban"
   },
   {
     "id": "34",
@@ -363,9 +407,11 @@ const all = [
     "NarratorLength": "9.8",
     "NarratorTranslation": "Ok, you are in a nice room, a gentleman's room. In the center you see an object.",
     "NarratorTranslationEs": "Bueno, estás en una bonita habitación, la habitación de un caballero. En el centro se ve un objeto.",
+    "NarratorTranslationHu": "Rendben, egy szép szobában vagy, egy úriember szobájában. Középen látsz egy tárgyat.",
     "phoneCategoryIt": "in una sala",
     "phoneCategoryEn": "in a room",
-    "phoneCategoryEs": "en una habitación"
+    "phoneCategoryEs": "en una habitación",
+    "phoneCategoryHu": "szobában"
   },
   {
     "id": "39",
@@ -379,9 +425,11 @@ const all = [
     "NarratorLength": "7.9",
     "NarratorTranslation": "Ok, you are in a nice room, a gentleman's room. In the center you see an object.",
     "NarratorTranslationEs": "Bueno, estás en una bonita habitación, la habitación de un caballero. En el centro se ve un objeto.",
+    "NarratorTranslationHu": "Rendben, egy szép szobában vagy, egy úriember szobájában. Középen látsz egy tárgyat.",
     "phoneCategoryIt": "in una villa",
     "phoneCategoryEn": "in a villa",
-    "phoneCategoryEs": "en una villa"
+    "phoneCategoryEs": "en una villa",
+    "phoneCategoryHu": "villában"
   },
   {
     "id": "40",
@@ -395,9 +443,11 @@ const all = [
     "NarratorLength": "8.4",
     "NarratorTranslation": "Well, we are in a beautiful royal room. In the middle of the scene, an object",
     "NarratorTranslationEs": "Bueno, estamos en una hermosa habitación real. En el centro de la escena, un objeto.",
+    "NarratorTranslationHu": "Nos, egy gyönyörű királyi szobában vagyunk. A jelenet közepén egy tárgy",
     "phoneCategoryIt": "in una villa",
     "phoneCategoryEn": "in a villa",
-    "phoneCategoryEs": "en una villa"
+    "phoneCategoryEs": "en una villa",
+    "phoneCategoryHu": "villában"
   },
   {
     "id": "41",
@@ -411,9 +461,11 @@ const all = [
     "NarratorLength": "5.2",
     "NarratorTranslation": "We are in a cave. At the center you see an object.",
     "NarratorTranslationEs": "Estamos en una cueva. En el centro se ve un objeto.",
+    "NarratorTranslationHu": "Egy barlangban vagyunk. A közepén egy tárgyat látsz.",
     "phoneCategoryIt": "in una grotta",
     "phoneCategoryEn": "in a cave",
-    "phoneCategoryEs": "en una cueva"
+    "phoneCategoryEs": "en una cueva",
+    "phoneCategoryHu": "barlangban"
   },
   {
     "id": "44",
@@ -427,9 +479,11 @@ const all = [
     "NarratorLength": "6.6",
     "NarratorTranslation": "So we are at the circus, and in the middle of the scene there is an object, ok?",
     "NarratorTranslationEs": "Estamos en el circo, y en el centro de la escena hay un objeto, ¿vale?",
+    "NarratorTranslationHu": "Szóval a cirkuszban vagyunk, és a jelenet közepén van egy tárgy, oké?",
     "phoneCategoryIt": "al circo",
     "phoneCategoryEn": "at the circus",
-    "phoneCategoryEs": "en el circo"
+    "phoneCategoryEs": "en el circo",
+    "phoneCategoryHu": "a cirkuszban"
   },
   {
     "id": "45",
@@ -443,9 +497,11 @@ const all = [
     "NarratorLength": "8.1",
     "NarratorTranslation": "Here we are. What a beautiful building. Look at it. And look at the center is an object, ok?",
     "NarratorTranslationEs": "Aquí estamos. Qué bonito edificio. Míralo. Y mira, en el centro hay un objeto, ¿vale?",
+    "NarratorTranslationHu": "Íme, micsoda gyönyörű épület. Nézd csak! És nézd meg, a közepe egy tárgy, oké?",
     "phoneCategoryIt": "in un castello",
     "phoneCategoryEn": "in a castle",
-    "phoneCategoryEs": "en un castillo"
+    "phoneCategoryEs": "en un castillo",
+    "phoneCategoryHu": "kastélyban"
   },
   {
     "id": "46",
@@ -459,9 +515,11 @@ const all = [
     "NarratorLength": "8.2",
     "NarratorTranslation": "Hello masks! The scene takes place indoors, in a room with a large fireplace. In the middle, an object",
     "NarratorTranslationEs": "¡Hola, máscaras! La escena se desarrolla en un interior, en una habitación con una gran chimenea. En el centro, un objeto.",
+    "NarratorTranslationHu": "Helló maszkok! A jelenet egy nagy kandallóval rendelkező szobában játszódik. Középen egy tárgy",
     "phoneCategoryIt": "in una stanza",
     "phoneCategoryEn": "in a room",
-    "phoneCategoryEs": "en una habitación"
+    "phoneCategoryEs": "en una habitación",
+    "phoneCategoryHu": "szobában"
   },
   {
     "id": "47",
@@ -475,9 +533,11 @@ const all = [
     "NarratorLength": "5.4",
     "NarratorTranslation": "Ok, we are in a tavern. Here you see an object, ok?",
     "NarratorTranslationEs": "Bueno, estamos en una taberna. Aquí ven un objeto, ¿de acuerdo?",
+    "NarratorTranslationHu": "Oké, egy kocsmában vagyunk. Itt látsz egy tárgyat, oké?",
     "phoneCategoryIt": "in osteria",
     "phoneCategoryEn": "in an inn",
-    "phoneCategoryEs": "en una posada"
+    "phoneCategoryEs": "en una posada",
+    "phoneCategoryHu": "fogadóban"
   },
   {
     "id": "48",
@@ -491,9 +551,11 @@ const all = [
     "NarratorLength": "7",
     "NarratorTranslation": "Ok, you are in a nice room, a gentleman's room. In the center you see an object.",
     "NarratorTranslationEs": "Bueno, están en una bonita habitación, la de un caballero. En el centro ven un objeto.",
+    "NarratorTranslationHu": "Rendben, egy szép szobában vagy, egy úriember szobájában. Középen látsz egy tárgyat.",
     "phoneCategoryIt": "in una villa",
     "phoneCategoryEn": "in a villa",
-    "phoneCategoryEs": "en una villa"
+    "phoneCategoryEs": "en una villa",
+    "phoneCategoryHu": "villában"
   },
   {
     "id": "50",
@@ -507,9 +569,11 @@ const all = [
     "NarratorLength": "9.9",
     "NarratorTranslation": "Well, the scene is set in a very special place, with oriental decorations... you can interpret that. In the middle, an object...",
     "NarratorTranslationEs": "Bueno, la escena se desarrolla en un lugar muy especial, con decoraciones orientales... se puede interpretar. En el centro, un objeto...",
+    "NarratorTranslationHu": "Nos, a jelenet egy nagyon különleges helyen játszódik, keleti díszítéssel... ezt lehet értelmezni. Középen egy tárgy...",
     "phoneCategoryIt": "in un atrio",
     "phoneCategoryEn": "in an hall",
-    "phoneCategoryEs": "en un pasillo"
+    "phoneCategoryEs": "en un pasillo",
+    "phoneCategoryHu": "csarnokban"
   },
   {
     "id": "54",
@@ -523,9 +587,11 @@ const all = [
     "NarratorLength": "8.4",
     "NarratorTranslation": "So, we're in a pretty simple room, with a fireplace, and in the middle of the room is an object",
     "NarratorTranslationEs": "Así que estamos en una habitación bastante sencilla, con chimenea, y en el centro hay un objeto.",
+    "NarratorTranslationHu": "Szóval, egy elég egyszerű szobában vagyunk, kandallóval, és a szoba közepén egy tárgy",
     "phoneCategoryIt": "in una stanza",
     "phoneCategoryEn": "in a room",
-    "phoneCategoryEs": "en una habitación"
+    "phoneCategoryEs": "en una habitación",
+    "phoneCategoryHu": "szobában"
   },
   {
     "id": "55",
@@ -539,9 +605,11 @@ const all = [
     "NarratorLength": "10",
     "NarratorTranslation": "Ok, let's start from the scene, we are in a square, and in the middle of the scene you can see a prop.",
     "NarratorTranslationEs": "Bueno, empecemos por la escena: estamos en una plaza, y en el centro se ve un objeto de utilería.",
+    "NarratorTranslationHu": "Oké, kezdjük a jelenettel, egy négyzetben vagyunk, és a jelenet közepén látható egy kellék.",
     "phoneCategoryIt": "in piazza",
     "phoneCategoryEn": "in a square",
-    "phoneCategoryEs": "en una plaza"
+    "phoneCategoryEs": "en una plaza",
+    "phoneCategoryHu": "téren"
   },
   {
     "id": "57",
@@ -555,9 +623,11 @@ const all = [
     "NarratorLength": "9.1",
     "NarratorTranslation": "We are in a prison. Here in the middle of the scene you see an object. Ok.",
     "NarratorTranslationEs": "Estamos en una prisión. Aquí, en el centro de la escena, ven un objeto. Bien.",
+    "NarratorTranslationHu": "Egy börtönben vagyunk. Itt, a jelenet közepén látsz egy tárgyat. Oké.",
     "phoneCategoryIt": "in una prigione",
     "phoneCategoryEn": "in a prison",
-    "phoneCategoryEs": "en una prisión"
+    "phoneCategoryEs": "en una prisión",
+    "phoneCategoryHu": "börtönben"
   },
   {
     "id": "59",
@@ -571,9 +641,11 @@ const all = [
     "NarratorLength": "10.1",
     "NarratorTranslation": "So. We are in a big arena. Lots of people! And here in the middle, an object. OK?",
     "NarratorTranslationEs": "Entonces. Estamos en un gran estadio. ¡Mucha gente! Y aquí, en el centro, un objeto. ¿De acuerdo?",
+    "NarratorTranslationHu": "Szóval. Egy nagy arénában vagyunk. Rengeteg ember! És itt középen egy tárgy. Oké?",
     "phoneCategoryIt": "al circo",
     "phoneCategoryEn": "at the circus",
-    "phoneCategoryEs": "en el circo"
+    "phoneCategoryEs": "en el circo",
+    "phoneCategoryHu": "a cirkuszban"
   },
   {
     "id": "64",
@@ -587,9 +659,11 @@ const all = [
     "NarratorLength": "9",
     "NarratorTranslation": "Here we are. How sad is this room... And in the middle of the scene is a prop.",
     "NarratorTranslationEs": "Aquí estamos. Qué triste es esta habitación... Y en el centro de la escena hay un utensilio.",
+    "NarratorTranslationHu": "Íme, itt vagyunk. Milyen szomorú ez a szoba... És a jelenet közepén egy kellék.",
     "phoneCategoryIt": "in una stanza",
     "phoneCategoryEn": "in a room",
-    "phoneCategoryEs": "en una habitación"
+    "phoneCategoryEs": "en una habitación",
+    "phoneCategoryHu": "szobában"
   },
   {
     "id": "65",
@@ -603,9 +677,11 @@ const all = [
     "NarratorLength": "8",
     "NarratorTranslation": "We are in a prison. Here in the middle of the scene you see an object. Ok.",
     "NarratorTranslationEs": "Estamos en una prisión. Aquí, en medio de la escena, ven un objeto. Bien.",
+    "NarratorTranslationHu": "Egy börtönben vagyunk. Itt, a jelenet közepén látsz egy tárgyat. Oké.",
     "phoneCategoryIt": "in una cella",
     "phoneCategoryEn": "in a cell",
-    "phoneCategoryEs": "en una celda"
+    "phoneCategoryEs": "en una celda",
+    "phoneCategoryHu": "cellában"
   },
   {
     "id": "66",
@@ -619,9 +695,11 @@ const all = [
     "NarratorLength": "10.2",
     "NarratorTranslation": "Here we are. So we are back at the circus, the perfect place for you two. In the middle of the scene, an object...",
     "NarratorTranslationEs": "Aquí estamos. De vuelta en el circo, el lugar perfecto para ustedes dos. En medio de la escena, un objeto...",
+    "NarratorTranslationHu": "Itt vagyunk. Szóval vissza a cirkuszba, a tökéletes helyre kettőtök számára. A jelenet közepén egy tárgy...",
     "phoneCategoryIt": "al circo",
     "phoneCategoryEn": "at the circus",
-    "phoneCategoryEs": "en el circo"
+    "phoneCategoryEs": "en el circo",
+    "phoneCategoryHu": "a cirkuszban"
   },
   {
     "id": "67",
@@ -635,9 +713,11 @@ const all = [
     "NarratorLength": "7.1",
     "NarratorTranslation": "We are in a prison. Here in the middle of the scene you see an object. Ok.",
     "NarratorTranslationEs": "Estamos en una prisión. Aquí, en medio de la escena, ven un objeto. Bien.",
+    "NarratorTranslationHu": "Egy börtönben vagyunk. Itt, a jelenet közepén látsz egy tárgyat. Oké.",
     "phoneCategoryIt": "in una prigione",
     "phoneCategoryEn": "in a prison",
-    "phoneCategoryEs": "en una prisión"
+    "phoneCategoryEs": "en una prisión",
+    "phoneCategoryHu": "börtönben"
   },
   {
     "id": "71",
@@ -651,9 +731,11 @@ const all = [
     "NarratorLength": "9.8",
     "NarratorTranslation": "Let's start. We are by some low mountains. Look at the beautiful landscape. In the middle of the scene, an object..",
     "NarratorTranslationEs": "Comencemos. Estamos junto a unas montañas bajas. Observen el hermoso paisaje. En medio de la escena, un objeto...",
+    "NarratorTranslationHu": "Kezdjük. Alacsony hegyek mellett vagyunk. Nézzük a gyönyörű tájat. A jelenet közepén egy tárgy...",
     "phoneCategoryIt": "in montagna",
     "phoneCategoryEn": "in the mountains",
-    "phoneCategoryEs": "en las montañas"
+    "phoneCategoryEs": "en las montañas",
+    "phoneCategoryHu": "a hegyekben"
   },
   {
     "id": "72",
@@ -667,9 +749,11 @@ const all = [
     "NarratorLength": "7.8",
     "NarratorTranslation": "Here we are. Let's look around - a rather sinister scene. In the middle you see an object",
     "NarratorTranslationEs": "Aquí estamos. Miremos a nuestro alrededor: una escena bastante siniestra. En medio ven un objeto.",
+    "NarratorTranslationHu": "Itt vagyunk. Nézzünk körül - egy meglehetősen baljóslatú jelenet. Középen egy tárgyat látunk.",
     "phoneCategoryIt": "al cimitero",
     "phoneCategoryEn": "at the cemetery",
-    "phoneCategoryEs": "en el cementerio"
+    "phoneCategoryEs": "en el cementerio",
+    "phoneCategoryHu": "a temetőben"
   },
   {
     "id": "73",
@@ -683,9 +767,11 @@ const all = [
     "NarratorLength": "11.8",
     "NarratorTranslation": "Let's begin. The scene is in Piazza San Marco, with the lions and the lagoon. In the middle you see an object, ok?",
     "NarratorTranslationEs": "Comencemos. La escena está en la Plaza de San Marcos, con los leones y la laguna. En medio ven un objeto, ¿de acuerdo?",
+    "NarratorTranslationHu": "Kezdjük. A jelenet a Szent Márk téren van, az oroszlánokkal és a lagúnával. Középen egy tárgyat látunk, oké?",
     "phoneCategoryIt": "a Venezia",
     "phoneCategoryEn": "in Venice",
-    "phoneCategoryEs": "en Venecia"
+    "phoneCategoryEs": "en Venecia",
+    "phoneCategoryHu": "Velence"
   },
   {
     "id": "74",
@@ -699,9 +785,11 @@ const all = [
     "NarratorLength": "8.4",
     "NarratorTranslation": "Ok, we are in a humble room, a little cold, with a broken window. In the middle is an object...",
     "NarratorTranslationEs": "Bien, estamos en una habitación humilde, un poco fría, con una ventana rota. En medio hay un objeto...",
+    "NarratorTranslationHu": "Oké, egy szerény szobában vagyunk, kicsit hideg, betört ablakkal. Középen egy tárgy...",
     "phoneCategoryIt": "in una stanza",
     "phoneCategoryEn": "in a room",
-    "phoneCategoryEs": "en una habitación"
+    "phoneCategoryEs": "en una habitación",
+    "phoneCategoryHu": "szobában"
   },
   {
     "id": "75",
@@ -715,9 +803,11 @@ const all = [
     "NarratorLength": "11",
     "NarratorTranslation": "Ok, let's start from the scene, we are in a square, and in the middle of the scene you can see a prop.",
     "NarratorTranslationEs": "Bien, comencemos con la escena: estamos en una plaza, y en medio de la escena pueden ver un utensilio.",
+    "NarratorTranslationHu": "Oké, kezdjük a jelenettel, egy négyzetben vagyunk, és a jelenet közepén egy kelléket láthatunk.",
     "phoneCategoryIt": "in piazza",
     "phoneCategoryEn": "in a square",
-    "phoneCategoryEs": "en una plaza"
+    "phoneCategoryEs": "en una plaza",
+    "phoneCategoryHu": "téren"
   },
   {
     "id": "76",
@@ -731,9 +821,11 @@ const all = [
     "NarratorLength": "6.2",
     "NarratorTranslation": "We are in a cave. At the center you see an object.",
     "NarratorTranslationEs": "Estamos en una cueva. En el centro ven un objeto.",
+    "NarratorTranslationHu": "Egy barlangban vagyunk. Középen egy tárgyat látunk.",
     "phoneCategoryIt": "in una miniera",
     "phoneCategoryEn": "in a mine",
-    "phoneCategoryEs": "en una mina"
+    "phoneCategoryEs": "en una mina",
+    "phoneCategoryHu": "bányában"
   },
   {
     "id": "77",
@@ -747,9 +839,11 @@ const all = [
     "NarratorLength": "13.8",
     "NarratorTranslation": "Well, let's start with the scene, immerse yourselves. It's quite strange. In the center of the scene, an object. Ok?",
     "NarratorTranslationEs": "Bueno, empecemos con la escena, sumérjanse. Es bastante extraña. En el centro de la escena, un objeto. ¿De acuerdo?",
+    "NarratorTranslationHu": "Nos, kezdjük a jelenettel, merüljetek el. Elég furcsa. A jelenet közepén egy tárgy. Oké?",
     "phoneCategoryIt": "in una grotta",
     "phoneCategoryEn": "in a cave",
-    "phoneCategoryEs": "en una cueva"
+    "phoneCategoryEs": "en una cueva",
+    "phoneCategoryHu": "barlangban"
   },
   {
     "id": "78",
@@ -763,9 +857,11 @@ const all = [
     "NarratorLength": "13.2",
     "NarratorTranslation": "Well, let's start with the scene, immerse yourselves. It's quite strange. In the center of the scene, an object. Ok?",
     "NarratorTranslationEs": "Bueno, empecemos con la escena, sumérjanse. Es bastante extraña. En el centro de la escena, un objeto. ¿De acuerdo?",
+    "NarratorTranslationHu": "Nos, kezdjük a jelenettel, merüljetek el. Elég furcsa. A jelenet közepén egy tárgy. Oké?",
     "phoneCategoryIt": "in un castello",
     "phoneCategoryEn": "in a castle",
-    "phoneCategoryEs": "en un castillo"
+    "phoneCategoryEs": "en un castillo",
+    "phoneCategoryHu": "kastélyban"
   },
   {
     "id": "79",
@@ -779,9 +875,11 @@ const all = [
     "NarratorLength": "13",
     "NarratorTranslation": "Let's start. We are by some low mountains. Look at the beautiful landscape. In the middle of the scene, an object..",
     "NarratorTranslationEs": "Empecemos. Estamos junto a unas montañas bajas. Miren el hermoso paisaje. En medio de la escena, un objeto...",
+    "NarratorTranslationHu": "Kezdjük. Alacsony hegyek mellett vagyunk. Nézzük a gyönyörű tájat. A jelenet közepén egy tárgy...",
     "phoneCategoryIt": "in campagna",
     "phoneCategoryEn": "in the countryside",
-    "phoneCategoryEs": "en el campo"
+    "phoneCategoryEs": "en el campo",
+    "phoneCategoryHu": "vidéken"
   },
   {
     "id": "80",
@@ -795,9 +893,11 @@ const all = [
     "NarratorLength": "8.2",
     "NarratorTranslation": "Nice, we are at the seaside, a nice scene. Here on stage is an object...",
     "NarratorTranslationEs": "Genial, estamos a la orilla del mar, una escena bonita. Aquí en el escenario hay un objeto...",
+    "NarratorTranslationHu": "Szép, a tengerparton vagyunk, szép jelenet. Itt a színpadon egy tárgy...",
     "phoneCategoryIt": "al mare",
     "phoneCategoryEn": "at the sea",
-    "phoneCategoryEs": "en el mar"
+    "phoneCategoryEs": "en el mar",
+    "phoneCategoryHu": "tengernél"
   },
   {
     "id": "81",
@@ -811,9 +911,11 @@ const all = [
     "NarratorLength": "11",
     "NarratorTranslation": "Ok, you are in a nice room, a gentleman's room. In the center you see an object",
     "NarratorTranslationEs": "Bueno, estamos en una hermosa habitación real. En el centro de la escena, un objeto.",
+    "NarratorTranslationHu": "Oké, egy szép szobában vagy, egy úriember szobájában. Középen látsz egy tárgyat.",
     "phoneCategoryIt": "in una villa",
     "phoneCategoryEn": "in a villa",
-    "phoneCategoryEs": "en una villa"
+    "phoneCategoryEs": "en una villa",
+    "phoneCategoryHu": "villában"
   },
   {
     "id": "82",
@@ -827,9 +929,11 @@ const all = [
     "NarratorLength": "7.9",
     "NarratorTranslation": "Ok we are in.... Piazza Maggiore! Our home. In the middle of the scene, an object",
     "NarratorTranslationEs": "Bien, estamos en... ¡Piazza Maggiore! Nuestra casa. En el centro de la escena, un objeto.",
+    "NarratorTranslationHu": "Oké, itt vagyunk... Piazza Maggiore! Az otthonunk. A jelenet közepén egy tárgy...",
     "phoneCategoryIt": "in piazza",
     "phoneCategoryEn": "in a square",
-    "phoneCategoryEs": "en una plaza"
+    "phoneCategoryEs": "en una plaza",
+    "phoneCategoryHu": "téren"
   },
   {
     "id": "83",
@@ -843,9 +947,11 @@ const all = [
     "NarratorLength": "6.6",
     "NarratorTranslation": "Ok, we are in San Luca, and in the middle of the scene is an object...",
     "NarratorTranslationEs": "Bien, estamos en San Luca, y en medio de la escena hay un objeto...",
+    "NarratorTranslationHu": "Oké, San Lucában vagyunk, és a jelenet közepén egy tárgy...",
     "phoneCategoryIt": "a Bologna",
     "phoneCategoryEn": "in Bologna",
-    "phoneCategoryEs": "en Bolonia"
+    "phoneCategoryEs": "en Bolonia",
+    "phoneCategoryHu": "Bolognában"
   },
   {
     "id": "86",
@@ -859,9 +965,11 @@ const all = [
     "NarratorLength": "12.6",
     "NarratorTranslation": "Let's start. We are by some low mountains. Look at the beautiful landscape. In the middle of the scene, an object..",
     "NarratorTranslationEs": "Comencemos. Estamos junto a unas montañas bajas. Observa el hermoso paisaje. En el centro de la escena, un objeto...",
+    "NarratorTranslationHu": "Kezdjük. Alacsony hegyek mellett vagyunk. Nézzük a gyönyörű tájat. A jelenet közepén egy tárgy...",
     "phoneCategoryIt": "in campagna",
     "phoneCategoryEn": "in the countryside",
-    "phoneCategoryEs": "en el campo"
+    "phoneCategoryEs": "en el campo",
+    "phoneCategoryHu": "vidéken"
   },
   {
     "id": "87",
@@ -875,9 +983,11 @@ const all = [
     "NarratorLength": "12.4",
     "NarratorTranslation": "Ok we are in.... Piazza Maggiore! Our home. In the middle of the scene, an object",
     "NarratorTranslationEs": "Bien, estamos en... ¡Piazza Maggiore! Nuestra casa. En el centro de la escena, un objeto.",
+    "NarratorTranslationHu": "Oké, a... Piazza Maggiore-n vagyunk! Az otthonunkban. A jelenet közepén egy tárgy...",
     "phoneCategoryIt": "in piazza",
     "phoneCategoryEn": "in a square",
-    "phoneCategoryEs": "en una plaza"
+    "phoneCategoryEs": "en una plaza",
+    "phoneCategoryHu": "téren"
   },
   {
     "id": "91",
@@ -891,9 +1001,11 @@ const all = [
     "NarratorLength": "12.2",
     "NarratorTranslation": "Okay, let's start. We are in a little square, with nice pink walls and a clock tower. In the center, an object.",
     "NarratorTranslationEs": "Bien, comencemos. Estamos en una pequeña plaza, con bonitas paredes rosas y una torre de reloj. En el centro, un objeto.",
+    "NarratorTranslationHu": "Oké, kezdjük. Egy kis téren vagyunk, szép rózsaszín falakkal és egy óratoronnyal. A középen egy tárgy.",
     "phoneCategoryIt": "in piazza",
     "phoneCategoryEn": "in a square",
-    "phoneCategoryEs": "en una plaza"
+    "phoneCategoryEs": "en una plaza",
+    "phoneCategoryHu": "téren"
   },
   {
     "id": "96",
@@ -907,9 +1019,11 @@ const all = [
     "NarratorLength": "10.6",
     "NarratorTranslation": "Let's start. We are by some low mountains. Look at the beautiful landscape. In the middle of the scene, an object..",
     "NarratorTranslationEs": "Comencemos. Estamos junto a unas montañas bajas. Observa el hermoso paisaje. En el centro de la escena, un objeto...",
+    "NarratorTranslationHu": "Kezdjük. Alacsony hegyek mellett vagyunk. Nézd a gyönyörű tájat. A jelenet közepén egy tárgy...",
     "phoneCategoryIt": "in montagna",
     "phoneCategoryEn": "in a mountain",
-    "phoneCategoryEs": "en una montaña"
+    "phoneCategoryEs": "en una montaña",
+    "phoneCategoryHu": "hegyen"
   },
   {
     "id": "98",
@@ -923,9 +1037,11 @@ const all = [
     "NarratorLength": "11",
     "NarratorTranslation": "Here we are. This scene is in a farmhouse, and someone has hung the laundry. Look in the middle, you see, there's something else...",
     "NarratorTranslationEs": "Aquí estamos. Esta escena es en una casa de campo, y alguien ha tendido la ropa. Mira en el centro, ves, hay algo más...",
+    "NarratorTranslationHu": "Itt vagyunk. Ez a jelenet egy parasztházban játszódik, és valaki felakasztotta a ruhákat. Nézz be középre, látod, van ott valami más is...",
     "phoneCategoryIt": "in una cascina",
     "phoneCategoryEn": "in a farmhouse",
-    "phoneCategoryEs": "en una casa de campo"
+    "phoneCategoryEs": "en una casa de campo",
+    "phoneCategoryHu": "parasztházban"
   },
   {
     "id": "99",
@@ -939,9 +1055,11 @@ const all = [
     "NarratorLength": "9.3",
     "NarratorTranslation": "Here we are. How sad is this room... And in the middle of the scene is a prop.",
     "NarratorTranslationEs": "Aquí estamos. Qué triste es esta habitación... Y en el centro de la escena hay un utensilio.",
+    "NarratorTranslationHu": "Itt vagyunk. Milyen szomorú ez a szoba... És a jelenet közepén egy kellék.",
     "phoneCategoryIt": "in una sala",
     "phoneCategoryEn": "in a hall",
-    "phoneCategoryEs": "en una salón"
+    "phoneCategoryEs": "en una salón",
+    "phoneCategoryHu": "csarnokban"
   },
   {
     "id": "101",
@@ -955,9 +1073,11 @@ const all = [
     "NarratorLength": "11.8",
     "NarratorTranslation": "Let's start. We are by some low mountains. Look at the beautiful landscape. In the middle of the scene, an object..",
     "NarratorTranslationEs": "Comencemos. Estamos junto a unas montañas bajas. Observa el hermoso paisaje. En el centro de la escena, un objeto...",
+    "NarratorTranslationHu": "Kezdjük. Alacsony hegyek mellett vagyunk. Nézd a gyönyörű tájat. A jelenet közepén egy tárgy...",
     "phoneCategoryIt": "in montagna",
     "phoneCategoryEn": "in the mountains",
-    "phoneCategoryEs": "en las montañas"
+    "phoneCategoryEs": "en las montañas",
+    "phoneCategoryHu": "a hegyekben"
   },
   {
     "id": "102",
@@ -971,9 +1091,11 @@ const all = [
     "NarratorLength": "9.2",
     "NarratorTranslation": "Ok, let's start from the scene, we are in a square, and in the middle of the scene you can see a prop.",
     "NarratorTranslationEs": "Bien, comencemos desde la escena: estamos en una plaza, y en el centro de la escena se puede ver un utensilio.",
+    "NarratorTranslationHu": "Oké, kezdjük a jelenettel, egy téren vagyunk, és a jelenet közepén látható egy kellék.",
     "phoneCategoryIt": "in piazza",
     "phoneCategoryEn": "in a square",
-    "phoneCategoryEs": "en una plaza"
+    "phoneCategoryEs": "en una plaza",
+    "phoneCategoryHu": "téren"
   },
   {
     "id": "105",
@@ -987,9 +1109,11 @@ const all = [
     "NarratorLength": "7.6",
     "NarratorTranslation": "So, let's study the scene. A garden with a gate, a fountain., and in the middle, an object",
     "NarratorTranslationEs": "Estudiemos la escena. Un jardín con una puerta, una fuente y, en el centro, un objeto.",
+    "NarratorTranslationHu": "Tanulmányozzuk tehát a jelenetet. Egy kert kapuval, egy szökőkúttal, és középen egy tárggyal.",
     "phoneCategoryIt": "in giardino",
     "phoneCategoryEn": "in a garden",
-    "phoneCategoryEs": "en un jardín"
+    "phoneCategoryEs": "en un jardín",
+    "phoneCategoryHu": "egy kert"
   },
   {
     "id": "106",
@@ -1003,9 +1127,11 @@ const all = [
     "NarratorLength": "11",
     "NarratorTranslation": "So in this scene there is a castle surrounded by a canal. And in the middle of the scene, there is....",
     "NarratorTranslationEs": "En esta escena hay un castillo rodeado por un canal. Y, en el centro, hay...",
+    "NarratorTranslationHu": "Tehát ebben a jelenetben van egy kastély, amelyet egy csatorna vesz körül. És a jelenet közepén van...",
     "phoneCategoryIt": "in un castello",
     "phoneCategoryEn": "in a castle",
-    "phoneCategoryEs": "en un castillo"
+    "phoneCategoryEs": "en un castillo",
+    "phoneCategoryHu": "egy kastélyban"
   },
   {
     "id": "107",
@@ -1019,9 +1145,11 @@ const all = [
     "NarratorLength": "10.5",
     "NarratorTranslation": "So, you are in a kitchen, simple but equipped. And here in the middle, an object. Ok?",
     "NarratorTranslationEs": "Estás en una cocina, sencilla pero equipada. Y aquí, en el centro, un objeto. ¿De acuerdo?",
+    "NarratorTranslationHu": "Tehát egy konyhában vagy, egyszerű, de felszerelt. És itt középen egy tárgy. Oké?",
     "phoneCategoryIt": "in cucina",
     "phoneCategoryEn": "in the kitchen",
-    "phoneCategoryEs": "en la cocina"
+    "phoneCategoryEs": "en la cocina",
+    "phoneCategoryHu": "a konyhában"
   }
 ]
 

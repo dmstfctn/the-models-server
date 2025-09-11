@@ -7,9 +7,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Mirror",
     "Narrator": "Uno specchio.. ROTTO!",
     "NarratorLengthIt": "2.1",
-    "NarratorLength": "1.4",
+    "NarratorLength": "1.6",
     "NarratorTranslation": "..a broken mirror...",
-    "NarratorTranslationEs": "...un espejo roto..."
+    "NarratorTranslationEs": "...un espejo roto...",
+    "NarratorTranslationHu": "..egy törött tükör..."
   },
   {
     "id": "1",
@@ -19,9 +20,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Globe",
     "Narrator": "Un bel globo sferico. Ripeto, sferico!",
     "NarratorLengthIt": "4",
-    "NarratorLength": "7.2",
+    "NarratorLength": "5.5",
     "NarratorTranslation": "..a nice spherical globe. I repeat, spherical!",
-    "NarratorTranslationEs": "...un bonito globo terráqueo. Repito, esférico."
+    "NarratorTranslationEs": "...un bonito globo terráqueo. Repito, esférico.",
+    "NarratorTranslationHu": "..egy szép gömb alakú gömb. Ismétlem, gömb alakú!"
   },
   {
     "id": "2",
@@ -31,9 +33,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Cat",
     "Narrator": "Un gatto nero... attenzione al gatto nero",
     "NarratorLengthIt": "3.6",
-    "NarratorLength": "2.5",
+    "NarratorLength": "3",
     "NarratorTranslation": "..a black cat.. careful...",
-    "NarratorTranslationEs": "...un gato negro... cuidado..."
+    "NarratorTranslationEs": "...un gato negro... cuidado...",
+    "NarratorTranslationHu": "..egy fekete macska.. óvatosan..."
   },
   {
     "id": "3",
@@ -43,9 +46,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Moon",
     "Narrator": "La Luna...",
     "NarratorLengthIt": "2.1",
-    "NarratorLength": "3.9",
+    "NarratorLength": "1.5",
     "NarratorTranslation": "..the moon..",
-    "NarratorTranslationEs": "...la luna..."
+    "NarratorTranslationEs": "...la luna...",
+    "NarratorTranslationHu": "..a Hold.."
   },
   {
     "id": "4",
@@ -55,9 +59,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Apple",
     "Narrator": "Una mela.",
     "NarratorLengthIt": "1.7",
-    "NarratorLength": "1",
+    "NarratorLength": "1.5",
     "NarratorTranslation": "..an apple..",
-    "NarratorTranslationEs": "...una manzana..."
+    "NarratorTranslationEs": "...una manzana...",
+    "NarratorTranslationHu": "..egy alma.."
   },
   {
     "id": "5",
@@ -67,9 +72,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Ball",
     "Narrator": "Una bella palla di vetro, con la neve. O??",
     "NarratorLengthIt": "4",
-    "NarratorLength": "3.2",
-    "NarratorTranslation": "..a crystal ball. Or!?",
-    "NarratorTranslationEs": "...una bola de cristal. ¿O...?"
+    "NarratorLength": "2.8",
+    "NarratorTranslation": "..a snow globe. Or!?",
+    "NarratorTranslationEs": "...una bola de nieve. ¿O...?",
+    "NarratorTranslationHu": "..egy hógömb. Vagy!?"
   },
   {
     "id": "6",
@@ -79,9 +85,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Calculator",
     "Narrator": "Una calcolatrice che dice... due più due uguale quattro",
     "NarratorLengthIt": "4",
-    "NarratorLength": "7.6",
+    "NarratorLength": "3.3",
     "NarratorTranslation": "..a calculator that reads 2+2=4",
-    "NarratorTranslationEs": "...una calculadora que marca 2+2=4"
+    "NarratorTranslationEs": "...una calculadora que marca 2+2=4",
+    "NarratorTranslationHu": "..egy számológép, ami 2+2=4-et mutat"
   },
   {
     "id": "7",
@@ -91,9 +98,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Calendar",
     "Narrator": "Ah un'ultima cosa. Oggi é Venerdi 17...",
     "NarratorLengthIt": "3.6",
-    "NarratorLength": "7",
+    "NarratorLength": "4",
     "NarratorTranslation": "ah also, today is Friday the 13th...",
-    "NarratorTranslationEs": "Ah, y además, hoy es martes 13..."
+    "NarratorTranslationEs": "Ah, y además, hoy es martes 13...",
+    "NarratorTranslationHu": "á, és ma péntek 13-a van..."
   },
   {
     "id": "8",
@@ -105,7 +113,8 @@ const PROPS = [
     "NarratorLengthIt": "4",
     "NarratorLength": "2.4",
     "NarratorTranslation": "..a beginners' book of Italian..",
-    "NarratorTranslationEs": "...un libro de Italiano para principiantes..."
+    "NarratorTranslationEs": "...un libro de Italiano para principiantes...",
+    "NarratorTranslationHu": "..egy kezdőknek szóló olasz könyv.."
   },
   {
     "id": "9",
@@ -115,9 +124,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Glass",
     "Narrator": "un fresco bicchiere di birra.",
     "NarratorLengthIt": "2.1",
-    "NarratorLength": "5",
+    "NarratorLength": "3.5",
     "NarratorTranslation": "A glass of.. ahem.. beer!",
-    "NarratorTranslationEs": "Un vaso de... ejem... ¡cerveza!"
+    "NarratorTranslationEs": "Un vaso de... ejem... ¡cerveza!",
+    "NarratorTranslationHu": "Egy pohár.. khm.. sör!"
   },
   {
     "id": "10",
@@ -127,9 +137,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Latin",
     "Narrator": "un dizionario di latino.",
     "NarratorLengthIt": "2.1",
-    "NarratorLength": "2.3",
+    "NarratorLength": "2",
     "NarratorTranslation": "A latin dictionary.",
-    "NarratorTranslationEs": "Un diccionario de latín."
+    "NarratorTranslationEs": "Un diccionario de latín.",
+    "NarratorTranslationHu": "Egy latin szótár."
   },
   {
     "id": "11",
@@ -139,9 +150,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Lens",
     "Narrator": "una lente di ingrandimento!",
     "NarratorLengthIt": "4",
-    "NarratorLength": "1.9",
+    "NarratorLength": "1.6",
     "NarratorTranslation": "..a magnifying glass!",
-    "NarratorTranslationEs": "...¡una lupa!"
+    "NarratorTranslationEs": "...¡una lupa!",
+    "NarratorTranslationHu": "..egy nagyító!"
   },
   {
     "id": "12",
@@ -151,9 +163,10 @@ const PROPS = [
     "ActorReference": "BP_Prop_Maccheroni",
     "Narrator": "un piatto di maccheroni...",
     "NarratorLengthIt": "2.1",
-    "NarratorLength": "2.4",
+    "NarratorLength": "2.5",
     "NarratorTranslation": "....a dish of maccheroni!",
-    "NarratorTranslationEs": "...¡un plato de macarrones!"
+    "NarratorTranslationEs": "...¡un plato de macarrones!",
+    "NarratorTranslationHu": "....egy tál maccheroni!"
   },
   {
     "id": "13",
@@ -163,10 +176,11 @@ const PROPS = [
     "ActorReference": "BP_Prop_Sack",
     "Narrator": "un sacco di iuta, ok? Bello pieno.",
     "NarratorLengthIt": "4",
-    "NarratorLength": "2.9",
+    "NarratorLength": "4",
     "NarratorTranslation": "..a sack... filled with something.",
-    "NarratorTranslationEs": "...un saco... lleno de cosas."
+    "NarratorTranslationEs": "...un saco... lleno de cosas.",
+    "NarratorTranslationHu": "..egy zsák... tele valamivel."
   }
-];
+]
 
 export default PROPS;
