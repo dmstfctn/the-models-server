@@ -15,6 +15,6 @@ export const socket = io(
     URL, 
     {
         path: PATH,
-        transports: ["websocket"]
+        transports: ["polling", "websocket"]
     }
 );
