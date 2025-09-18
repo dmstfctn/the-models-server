@@ -270,7 +270,7 @@ export const texts = {
         'en': `When it's your turn, you will be able to compose the upcoming scene.`,
         'it': `Quando sarà il tuo turno, potrai comporre la scena successiva.`,
         'es': `Cuando sea tu turno, podrás componer la próxima escena.`,
-        'hu': `Amikor te jössz, lehetőséged lesz beelszólni a következő jelenet kimenetelébe.`
+        'hu': `Amikor te jössz, lehetőséged lesz beleszólni a következő jelenet kimenetelébe.`
     },
     [T.HOWTO3]: {
         'en': `You will be able to choose between an AI playing a friendly, antagonistic, or lying character from Italian Commedia dell'Arte. Sometimes you will be able to choose a  prop to place on stage. Do not rescan the QR code or you will lose your place in the queue!`,
